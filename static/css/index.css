@@ -1712,8 +1712,8 @@ body {
 :root {
   --page-width-reading: 960px;
   --page-width-showcase: 1120px;
-  --section-space-y: 4.25rem;
-  --section-space-y-mobile: 3rem;
+  --section-space-y: 3.15rem;
+  --section-space-y-mobile: 2.35rem;
   --surface-soft: #f6f7f9;
   --surface-card: #fbfbfc;
   --border-soft: rgba(94, 106, 128, 0.16);
@@ -1972,7 +1972,7 @@ body {
 }
 
 .scene-showcase-section+.section {
-  padding-top: 3rem;
+  padding-top: 1.9rem;
 }
 
 .abstract-title,
@@ -1992,7 +1992,7 @@ body {
 .method-overview-panel,
 .results-panel,
 .visual-comparisons-panel {
-  gap: 1.35rem;
+  gap: 1.05rem;
 }
 
 .abstract-copy,
@@ -2043,7 +2043,7 @@ body {
 }
 
 .results-panel {
-  gap: 1.15rem;
+  gap: 0.95rem;
 }
 
 .results-selector-shell {
@@ -2520,14 +2520,14 @@ body {
   }
 
   .scene-showcase-section+.section {
-    padding-top: 2.25rem;
+    padding-top: 1.55rem;
   }
 
   .abstract-panel,
   .method-overview-panel,
   .results-panel,
   .visual-comparisons-panel {
-    gap: 1.05rem;
+    gap: 0.9rem;
   }
 
   .abstract-copy p,
