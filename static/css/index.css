@@ -998,6 +998,14 @@ body {
   height: auto;
 }
 
+.method-overview-caption {
+  margin-top: 0.95rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
 
 .method-overview-copy {
   margin-bottom: 0 !important;

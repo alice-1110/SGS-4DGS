@@ -172,14 +172,17 @@
           <figure class="method-overview-figure">
             <img src="./static/images/pipeline.png" alt="Overview of the SGS-4DGS pipeline." loading="lazy"
               decoding="async">
+            <figcaption class="method-overview-caption">
+              Overview of SGS-4DGS. From sparse synchronized multi-view input frames, we additionally compute MVS
+              depth maps with reliability masks and texture-intensity (TI) maps (left). We initialize canonical
+              structured Gaussians and learn a group-conditioned deformation field to produce time-varying Gaussians
+              for differentiable rendering (middle). Training is guided by photometric, TI, and depth-structure
+              losses, together with grouping regularization and progressive binarization (right). We further employ
+              Fisher-guided view scheduling and a periodic residual-driven correction module to target persistent
+              failure regions during optimization (bottom).
+            </figcaption>
           </figure>
           <div class="content method-overview-copy">
-            <p class="method-overview-legend">
-              <span class="method-overview-legend__geo">Geometry-first optimization</span> stabilizes scene structure
-              early, while
-              <span class="method-overview-legend__app">appearance-aware rendering</span> progressively refines color
-              and compactness under cross-view constraints.
-            </p>
             <div class="method-overview-steps">
               <div class="method-overview-step">
                 <div class="method-overview-step__marker" aria-hidden="true">
