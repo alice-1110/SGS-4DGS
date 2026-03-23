@@ -985,11 +985,11 @@ body {
 
 .method-overview-figure {
   margin: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(92, 102, 121, 0.12);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .method-overview-figure img {
@@ -2008,9 +2008,9 @@ body {
 }
 
 .method-overview-figure {
-  border-radius: 0.9rem;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 .method-overview-legend {
