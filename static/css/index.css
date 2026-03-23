@@ -3079,3 +3079,161 @@ body {
 }
 /* End Page Aesthetic Refresh */
 
+
+/* Final Layout Harmony */
+:root {
+  --page-width-unified: 1180px;
+  --section-card-radius-refined: 1.58rem;
+  --section-card-border-refined: rgba(105, 121, 145, 0.14);
+  --section-card-shadow-refined: 0 20px 44px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+}
+
+.publication-hero .container.is-max-desktop,
+.section.section-tight > .container.is-max-desktop,
+.visual-comparisons-container,
+[data-n3d-showcase] .n3d-showcase-container {
+  max-width: var(--page-width-unified) !important;
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered,
+.abstract-panel,
+.method-overview-panel,
+.results-panel,
+.visual-comparisons-panel,
+[data-n3d-showcase] .n3d-showcase-shell {
+  border-color: var(--section-card-border-refined);
+  border-radius: var(--section-card-radius-refined);
+  box-shadow: var(--section-card-shadow-refined);
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered::before,
+.abstract-panel::before,
+.method-overview-panel::before,
+.results-panel::before,
+.visual-comparisons-panel::before,
+[data-n3d-showcase] .n3d-showcase-shell::before {
+  top: 0;
+  left: 1.35rem;
+  right: 1.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(23, 60, 104, 0.84), rgba(111, 163, 216, 0.54) 58%, rgba(111, 163, 216, 0));
+}
+
+[data-n3d-showcase] .n3d-showcase-shell {
+  width: 100%;
+  padding: 1.45rem 1.55rem 1.45rem;
+}
+
+.abstract-panel,
+.method-overview-panel,
+.results-panel,
+.visual-comparisons-panel {
+  padding: 1.62rem 1.72rem 1.86rem;
+}
+
+.abstract-title::after,
+.method-overview-title::after,
+.results-title::after,
+.visual-comparisons-title::after,
+[data-n3d-showcase] .n3d-showcase-title::after {
+  width: 3.35rem;
+  height: 1px;
+  margin-top: 0.62rem;
+  opacity: 0.9;
+  background: linear-gradient(90deg, rgba(23, 60, 104, 0.78), rgba(140, 180, 218, 0.48));
+}
+
+.scene-showcase-shell > .scene-selector,
+.visual-scene-selector,
+[data-n3d-showcase] .n3d-showcase-shell > .n3d-scene-selector {
+  position: relative;
+  padding-bottom: 0.82rem;
+}
+
+.scene-showcase-shell > .scene-selector::after,
+.visual-scene-selector::after,
+[data-n3d-showcase] .n3d-showcase-shell > .n3d-scene-selector::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 24rem);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(126, 138, 158, 0), rgba(126, 138, 158, 0.08) 18%, rgba(126, 138, 158, 0.16) 50%, rgba(126, 138, 158, 0.08) 82%, rgba(126, 138, 158, 0));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+[data-n3d-showcase] .scene-compare-card__header,
+[data-visual-comparisons] .scene-compare-card__header {
+  align-items: center;
+  text-align: center;
+  gap: 0.76rem;
+}
+
+[data-n3d-showcase] .scene-compare-card__eyebrow,
+[data-visual-comparisons] .scene-compare-card__eyebrow {
+  align-self: center;
+  justify-content: center;
+  min-width: 6.35rem;
+}
+
+[data-n3d-showcase] .scene-compare-switcher,
+[data-visual-comparisons] .scene-compare-switcher {
+  width: 100%;
+  max-width: 19rem;
+  margin: 0 auto;
+}
+
+[data-n3d-showcase] .scene-compare-switcher__text,
+[data-visual-comparisons] .scene-compare-switcher__text {
+  justify-content: center;
+  min-height: 3.05rem;
+  padding: 0.76rem 0.95rem 0.82rem;
+}
+
+[data-n3d-showcase] .scene-compare-switcher__ours,
+[data-n3d-showcase] .scene-compare-switcher__method,
+[data-visual-comparisons] .scene-compare-switcher__ours,
+[data-visual-comparisons] .scene-compare-switcher__method {
+  text-align: center;
+}
+
+[data-visual-comparisons] .visual-compare-grid .visual-compare-card,
+[data-n3d-showcase] .scene-compare-card {
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+  .publication-hero .container.is-max-desktop > .columns > .column.has-text-centered::before,
+  .abstract-panel::before,
+  .method-overview-panel::before,
+  .results-panel::before,
+  .visual-comparisons-panel::before,
+  [data-n3d-showcase] .n3d-showcase-shell::before {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  [data-n3d-showcase] .n3d-showcase-shell {
+    padding: 1.15rem 1rem 1.18rem;
+  }
+
+  .abstract-panel,
+  .method-overview-panel,
+  .results-panel,
+  .visual-comparisons-panel {
+    padding: 1.18rem 1rem 1.28rem;
+  }
+
+  [data-n3d-showcase] .scene-compare-card__eyebrow,
+  [data-visual-comparisons] .scene-compare-card__eyebrow {
+    min-width: 5.8rem;
+  }
+
+  [data-n3d-showcase] .scene-compare-switcher,
+  [data-visual-comparisons] .scene-compare-switcher {
+    max-width: none;
+  }
+}
