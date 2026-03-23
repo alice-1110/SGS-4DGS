@@ -134,19 +134,22 @@
           <div class="abstract-divider" aria-hidden="true"></div>
           <div class="content has-text-justified abstract-copy">
             <p>
-              3D Gaussian Splatting (3DGS) has emerged as a compelling representation for real-time novel view synthesis
-              due to its high rendering quality and efficient rasterization. However, vanilla 3DGS jointly optimizes
-              geometry and appearance under a photometric objective, often leading to geometry-appearance ambiguity
-              during training, where appearance compensates for inaccurate geometry by fitting view-dependent effects.
-              This ambiguity leads to unstable optimization, texture-baked geometry, and redundant primitive growth,
-              hurting both efficiency and compactness. To address this issue, we propose GADO-GS, a structure-first
-              training framework that reduces this ambiguity within the standard 3DGS pipeline. The core idea is to let
-              scene structure stabilize before high-frequency appearance is fully expressed, while using cross-view
-              geometric consistency to constrain Gaussian growth. By improving training dynamics at the source instead
-              of relying on post-hoc compression, GADO-GS learns a more coherent and less redundant Gaussian
-              representation. Across the three benchmark datasets, GADO-GS delivers on average 10.1x faster training,
-              7.2x higher rendering throughput, and 8.4x smaller models than vanilla 3DGS, while maintaining competitive
-              reconstruction quality.
+              Reconstructing dynamic scenes from sparse multi-view videos remains challenging, as limited viewpoints
+              severely under-constrain 4D geometry and often lead to unstable motion estimation and geometric collapse.
+              We present SGS-4DGS, a sparsity-oriented 4D Gaussian splatting framework that improves spatiotemporal
+              stability by explicitly modeling coherent motion structure and by leveraging reliable auxiliary cues. Our
+              method maintains a canonical Gaussian set and introduces structure-aware grouping to organize primitives
+              into coherent motion units. Conditioned on time and group descriptors, a group-conditioned deformation
+              model generates time-varying Gaussians with reduced deformation ambiguity, while preserving local
+              flexibility via lightweight residual updates. To further stabilize geometry and retain fine structures
+              under sparse supervision, we incorporate reliability-filtered MVS depth and texture-intensity cues into
+              sparsity-aware objectives. Beyond the representation and supervision design, we propose a Fisher-guided
+              view--time scheduler that prioritizes informative observations during training, together with a
+              residual-driven correction strategy that identifies persistent high-error regions and applies targeted
+              updates to recover missing or unstable structures. Experiments on standard sparse-view dynamic benchmarks
+              demonstrate that STG-4DGS produces more stable 4D geometry and higher-fidelity novel-view synthesis than
+              recent dynamic Gaussian splatting baselines, while retaining the efficiency of differentiable Gaussian
+              rendering.
             </p>
           </div>
           <div class="publication-video">
