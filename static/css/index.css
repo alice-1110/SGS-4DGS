@@ -3366,7 +3366,8 @@ body {
 
 
 /* Method Overview Width Tuning */
-.method-overview-panel {
+.columns.is-centered > .column.method-overview-panel {
+  flex: 0 1 1060px;
   width: min(100%, 1060px);
   max-width: min(100%, 1060px);
   margin-left: auto;
