@@ -156,76 +156,67 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column results-panel">
+        <div class="column results-panel" data-results-gallery>
           <h2 class="title is-3 results-title">Results</h2>
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view N3D metrics averaged across six scenes. The three tables below summarize
-              the current 2-view, 3-view, and 4-view means for SGS-4DGS and five dynamic Gaussian splatting baselines,
-              using PSNR, SSIM, LPIPS, training time, and model size.
+              We report the latest sparse-view N3D metrics averaged across six scenes. Use the horizontal selector below to switch
+              between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
             </p>
             <p class="results-summary-note">
-              Highlighted cells indicate the best value in each metric column. Training time is shown in minutes and
-              model size is shown in megabytes.
+              The results are generated directly from the current <code>result.json</code> logs. Gold outlines mark the best method in each metric panel.
             </p>
           </div>
-          <div class="results-table-grid">
-            <article class="results-table-card">
-              <div class="results-table-card__header">
-                <h3 class="results-table-card__title">2 Views</h3>
-                <p class="results-table-card__meta">Average over 6 N3D scenes</p>
+
+          <div class="results-selector-shell">
+            <button class="results-selector__arrow" type="button" data-results-prev aria-label="Show previous results">
+              <span aria-hidden="true">&#10094;</span>
+            </button>
+            <div class="results-selector">
+              <div class="results-selector__viewport">
+                <div class="results-selector__track">
+
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-2views-bars.svg"
+                    data-caption="2 Views averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-2views-bars.svg" alt="2 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">2 Views Results</span>
+                  </button>
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-3views-bars.svg"
+                    data-caption="3 Views averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-3views-bars.svg" alt="3 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">3 Views Results</span>
+                  </button>
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-4views-bars.svg"
+                    data-caption="4 Views averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-4views-bars.svg" alt="4 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">4 Views Results</span>
+                  </button>
+                </div>
               </div>
-              <div class="results-table-scroll">
-                <table class="results-metric-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Method</th>
-                      <th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Train Time (min) ↓</th><th scope="col">Model Size (MB) ↓</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="is-ours"><th scope="row">SGS-4DGS (Ours)</th><td class="is-best is-ours">26.08</td><td class="is-best is-ours">0.879</td><td class="is-best is-ours">0.093</td><td class="is-best is-ours">19.1</td><td class="is-ours">29.3</td></tr><tr><th scope="row">4DGaussians</th><td>21.99</td><td>0.809</td><td>0.155</td><td>46.4</td><td>26.3</td></tr><tr><th scope="row">CEM-4DGS</th><td>21.59</td><td>0.770</td><td>0.202</td><td>102.5</td><td>262.8</td></tr><tr><th scope="row">Ex4DGS</th><td>21.39</td><td>0.758</td><td>0.217</td><td>75.7</td><td>123.9</td></tr><tr><th scope="row">STGS</th><td>20.99</td><td>0.786</td><td>0.206</td><td>37.1</td><td class="is-best">4.4</td></tr><tr><th scope="row">Swift4D</th><td>22.76</td><td>0.819</td><td>0.136</td><td>37.7</td><td>84.7</td></tr>
-                  </tbody>
-                </table>
+            </div>
+            <button class="results-selector__arrow" type="button" data-results-next aria-label="Show next results">
+              <span aria-hidden="true">&#10095;</span>
+            </button>
+          </div>
+
+          <div class="results-display" data-results-display>
+            <div class="results-display__viewport">
+              <div class="results-display__stage is-current" data-results-display-stage>
+                <img class="results-display__image" data-results-display-image
+                  src="./static/images/results/results-2views-bars.svg"
+                  alt="2 Views bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
+                <p class="results-display__caption" data-results-display-caption>
+                  2 Views averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.
+                </p>
               </div>
-            </article><article class="results-table-card">
-              <div class="results-table-card__header">
-                <h3 class="results-table-card__title">3 Views</h3>
-                <p class="results-table-card__meta">Average over 6 N3D scenes</p>
-              </div>
-              <div class="results-table-scroll">
-                <table class="results-metric-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Method</th>
-                      <th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Train Time (min) ↓</th><th scope="col">Model Size (MB) ↓</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="is-ours"><th scope="row">SGS-4DGS (Ours)</th><td class="is-best is-ours">28.79</td><td class="is-best is-ours">0.911</td><td class="is-best is-ours">0.064</td><td class="is-best is-ours">21.6</td><td class="is-ours">32.6</td></tr><tr><th scope="row">4DGaussians</th><td>27.59</td><td>0.892</td><td>0.080</td><td>37.7</td><td>30.8</td></tr><tr><th scope="row">CEM-4DGS</th><td>25.42</td><td>0.869</td><td>0.104</td><td>126.5</td><td>251.5</td></tr><tr><th scope="row">Ex4DGS</th><td>25.15</td><td>0.864</td><td>0.112</td><td>82.5</td><td>111.1</td></tr><tr><th scope="row">STGS</th><td>25.82</td><td>0.874</td><td>0.106</td><td>37.5</td><td class="is-best">8.6</td></tr><tr><th scope="row">Swift4D</th><td>27.30</td><td>0.893</td><td>0.073</td><td>35.8</td><td>90.0</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </article><article class="results-table-card">
-              <div class="results-table-card__header">
-                <h3 class="results-table-card__title">4 Views</h3>
-                <p class="results-table-card__meta">Average over 6 N3D scenes</p>
-              </div>
-              <div class="results-table-scroll">
-                <table class="results-metric-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Method</th>
-                      <th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Train Time (min) ↓</th><th scope="col">Model Size (MB) ↓</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="is-ours"><th scope="row">SGS-4DGS (Ours)</th><td class="is-best is-ours">28.43</td><td class="is-best is-ours">0.911</td><td class="is-best is-ours">0.066</td><td class="is-best is-ours">21.3</td><td class="is-ours">34.4</td></tr><tr><th scope="row">4DGaussians</th><td>27.20</td><td>0.891</td><td>0.078</td><td>36.4</td><td>33.1</td></tr><tr><th scope="row">CEM-4DGS</th><td>25.67</td><td>0.864</td><td>0.104</td><td>122.5</td><td>242.4</td></tr><tr><th scope="row">Ex4DGS</th><td>24.51</td><td>0.857</td><td>0.117</td><td>77.0</td><td>110.9</td></tr><tr><th scope="row">STGS</th><td>25.77</td><td>0.871</td><td>0.113</td><td>36.2</td><td class="is-best">8.8</td></tr><tr><th scope="row">Swift4D</th><td>26.63</td><td>0.890</td><td>0.073</td><td>33.5</td><td>93.2</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </article>
+            </div>
           </div>
         </div>
       </div>

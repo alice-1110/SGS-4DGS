@@ -429,13 +429,13 @@ window.N3D_SHOWCASE_DATA = {
               "label": "4DGaussians",
               "video": "./n3d/videos/cook_spinach/3views/4DGaussians.mp4",
               "metrics": {
-                "psnr": 30.0928614825359,
+                "psnr": 29.726309247572267,
                 "ssim": 0.9235472699006398,
                 "lpips": 0.05511420217653116,
                 "train_time": 1736.0,
                 "eval_time": 80.0,
                 "fps": 10.236668559106851,
-                "model_size": 32459207.0
+                "model_size": 35934695.0
               }
             },
             "cem4dgs": {
@@ -615,13 +615,13 @@ window.N3D_SHOWCASE_DATA = {
               "label": "4DGaussians",
               "video": "./n3d/videos/cut_roasted_beef/2views/4DGaussians.mp4",
               "metrics": {
-                "psnr": 26.755822696311668,
-                "ssim": 0.8800894737243652,
-                "lpips": 0.10099755754073461,
+                "psnr": 24.915570957758572,
+                "ssim": 0.8772301294406255,
+                "lpips": 0.1071621182312568,
                 "train_time": 1694.0,
                 "eval_time": 165.0,
                 "fps": 12.588555967497214,
-                "model_size": 27902183.0
+                "model_size": 30044143.0
               }
             },
             "cem4dgs": {

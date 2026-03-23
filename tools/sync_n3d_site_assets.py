@@ -8,12 +8,19 @@ import re
 import shutil
 from typing import Dict, List, Tuple
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+from matplotlib.ticker import FuncFormatter
+
 REPO = Path(__file__).resolve().parents[1]
 SOURCE_ROOT = Path('/home/xuepengcheng/60127A1/gado-gs.github.io/n3d')
 DEST_N3D = REPO / 'n3d'
 INDEX_HTML = REPO / 'index.html'
 INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
+RESULTS_DIR = REPO / 'static' / 'images' / 'results'
 
 VIEWS: List[Tuple[str, str]] = [
     ('2views', '2 Views'),
@@ -21,30 +28,74 @@ VIEWS: List[Tuple[str, str]] = [
     ('4views', '4 Views'),
 ]
 METHODS: List[Tuple[str, str]] = [
-    ('ours', 'Ours'),
+    ('ours', 'SGS-4DGS'),
     ('4DGaussians', '4DGaussians'),
     ('cem4dgs', 'CEM-4DGS'),
     ('ex4dgs', 'Ex4DGS'),
     ('spacetimegs', 'STGS'),
     ('swift4d', 'Swift4D'),
 ]
+METHOD_SHORT = {
+    'ours': 'SGS-4DGS',
+    '4DGaussians': '4DGauss',
+    'cem4dgs': 'CEM-4DGS',
+    'ex4dgs': 'Ex4DGS',
+    'spacetimegs': 'STGS',
+    'swift4d': 'Swift4D',
+}
+METHOD_COLORS = {
+    'ours': '#173c68',
+    '4DGaussians': '#f28b30',
+    'cem4dgs': '#28a39d',
+    'ex4dgs': '#d45555',
+    'spacetimegs': '#7b63c9',
+    'swift4d': '#4e8f2f',
+}
 DEFAULT_METHOD_ROTATION = ['4DGaussians', 'cem4dgs', 'ex4dgs', 'spacetimegs', 'swift4d', '4DGaussians']
-TABLE_METRICS = [
-    {'key': 'psnr', 'label': 'PSNR ↑', 'higher_better': True, 'formatter': lambda value: f'{value:.2f}'},
-    {'key': 'ssim', 'label': 'SSIM ↑', 'higher_better': True, 'formatter': lambda value: f'{value:.3f}'},
-    {'key': 'lpips', 'label': 'LPIPS ↓', 'higher_better': False, 'formatter': lambda value: f'{value:.3f}'},
-    {'key': 'train_time', 'label': 'Train Time (min) ↓', 'higher_better': False, 'formatter': lambda value: f'{value / 60.0:.1f}'},
-    {'key': 'model_size', 'label': 'Model Size (MB) ↓', 'higher_better': False, 'formatter': lambda value: f'{value / (1024.0 * 1024.0):.1f}'},
+RESULTS_METRICS = [
+    {
+        'key': 'psnr',
+        'title': 'PSNR ↑',
+        'higher_better': True,
+        'transform': lambda value: value,
+        'note': 'Higher is better',
+        'log_scale': False,
+    },
+    {
+        'key': 'ssim',
+        'title': 'SSIM ↑',
+        'higher_better': True,
+        'transform': lambda value: value,
+        'note': 'Higher is better',
+        'log_scale': False,
+    },
+    {
+        'key': 'lpips',
+        'title': 'LPIPS ↓',
+        'higher_better': False,
+        'transform': lambda value: value,
+        'note': 'Lower is better',
+        'log_scale': False,
+    },
+    {
+        'key': 'train_time',
+        'title': 'Train Time (min) ↓',
+        'higher_better': False,
+        'transform': lambda value: value / 60.0,
+        'note': 'Lower is better',
+        'log_scale': False,
+    },
+    {
+        'key': 'fps',
+        'title': 'FPS ↑',
+        'higher_better': True,
+        'transform': lambda value: value,
+        'note': 'Higher is better · log axis',
+        'log_scale': True,
+    },
 ]
 RESULTS_CSS = '''
-/* Results Tables */
-.results-table-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 1.2rem;
-}
-
+/* Results Charts */
 .results-summary-note {
   margin: 0.9rem 0 0;
   color: #67748b;
@@ -52,140 +103,34 @@ RESULTS_CSS = '''
   line-height: 1.55;
 }
 
-.results-table-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  min-width: 0;
-  padding: 1.1rem 1.1rem 1rem;
-  border-radius: 1.22rem;
-  border: 1px solid rgba(124, 138, 163, 0.16);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 252, 0.95));
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+.results-selector__item img {
+  object-fit: contain;
+  aspect-ratio: 1.62 / 1;
+  background: #f4f7fb;
 }
 
-.results-table-card__header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.16rem;
+.results-display__image {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 1rem;
+  background: #f4f7fb;
 }
 
-.results-table-card__title {
-  margin: 0;
-  color: #173c68;
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.15;
-}
-
-.results-table-card__meta {
-  margin: 0;
-  color: #64748b;
-  font-size: 0.84rem;
-  line-height: 1.4;
-}
-
-.results-table-scroll {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.results-metric-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  text-align: left;
-}
-
-.results-metric-table thead th {
-  padding: 0.82rem 0.78rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
-  color: #475569;
-  font-size: 0.79rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  line-height: 1.2;
-  background: rgba(246, 248, 252, 0.92);
-  white-space: nowrap;
-}
-
-.results-metric-table thead th:first-child {
-  border-top-left-radius: 0.9rem;
-}
-
-.results-metric-table thead th:last-child {
-  border-top-right-radius: 0.9rem;
-}
-
-.results-metric-table tbody th,
-.results-metric-table tbody td {
-  padding: 0.82rem 0.78rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-  color: #0f172a;
-  font-size: 0.93rem;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.results-metric-table tbody th {
-  font-weight: 700;
-  color: #334155;
-}
-
-.results-metric-table tbody td {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.results-metric-table tbody tr:nth-child(even):not(.is-ours) th,
-.results-metric-table tbody tr:nth-child(even):not(.is-ours) td {
-  background: rgba(248, 250, 253, 0.92);
-}
-
-.results-metric-table tbody tr:last-child th,
-.results-metric-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.results-metric-table tbody tr.is-ours th,
-.results-metric-table tbody tr.is-ours td {
-  background: rgba(23, 60, 104, 0.045);
-}
-
-.results-metric-table tbody tr.is-ours th {
-  color: #173c68;
-}
-
-.results-metric-table td.is-best {
-  background: linear-gradient(180deg, rgba(255, 242, 194, 0.96), rgba(255, 248, 228, 0.96));
-  color: #6f4b00;
-  font-weight: 800;
-  box-shadow: inset 0 0 0 1px rgba(223, 181, 66, 0.34);
-}
-
-.results-metric-table td.is-best.is-ours {
-  background: linear-gradient(180deg, rgba(255, 238, 173, 0.98), rgba(255, 246, 214, 0.98));
-  color: #5a3c00;
+.results-display__caption {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 768px) {
-  .results-table-card {
-    padding: 0.92rem 0.85rem 0.88rem;
+  .results-selector__item img {
+    aspect-ratio: 1.44 / 1;
   }
 
-  .results-metric-table {
-    min-width: 39rem;
-  }
-
-  .results-metric-table thead th,
-  .results-metric-table tbody th,
-  .results-metric-table tbody td {
-    padding: 0.7rem 0.62rem;
-    font-size: 0.86rem;
+  .results-display__caption {
+    max-width: 100%;
   }
 }
-/* End Results Tables */
+/* End Results Charts */
 '''
 
 
@@ -282,16 +227,16 @@ def build_showcase_data() -> Dict[str, object]:
 
 
 def compute_averages(data: Dict[str, object]) -> Dict[str, Dict[str, Dict[str, float]]]:
+    metric_keys = [metric['key'] for metric in RESULTS_METRICS]
     aggregates: Dict[str, Dict[str, Dict[str, List[float]]]] = {
-        view_key: {method_key: {metric['key']: [] for metric in TABLE_METRICS} for method_key, _ in METHODS}
+        view_key: {method_key: {metric_key: [] for metric_key in metric_keys} for method_key, _ in METHODS}
         for view_key, _ in VIEWS
     }
 
     for scene in data['scenes']:
         for view_key, _ in VIEWS:
             view_entry = scene['views'][view_key]
-            for metric in TABLE_METRICS:
-                metric_key = metric['key']
+            for metric_key in metric_keys:
                 aggregates[view_key]['ours'][metric_key].append(view_entry['ours']['metrics'][metric_key])
                 for method_key, _ in METHODS:
                     if method_key == 'ours':
@@ -316,79 +261,175 @@ def best_methods_for_metric(view_stats: Dict[str, Dict[str, float]], metric_key:
     return [method_key for method_key, value in values if abs(value - best_value) <= 1e-9]
 
 
-def render_results_tables(data: Dict[str, object]) -> str:
+def metric_axis_formatter(metric_key: str) -> FuncFormatter:
+    if metric_key == 'psnr':
+        return FuncFormatter(lambda value, pos: f'{value:.0f}')
+    if metric_key == 'ssim':
+        return FuncFormatter(lambda value, pos: f'{value:.2f}')
+    if metric_key == 'lpips':
+        return FuncFormatter(lambda value, pos: f'{value:.2f}')
+    if metric_key == 'train_time':
+        return FuncFormatter(lambda value, pos: f'{value:.0f}')
+    return FuncFormatter(lambda value, pos: f'{value:g}')
+
+
+def generate_results_charts(data: Dict[str, object]) -> None:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     averages = compute_averages(data)
-    cards = []
 
     for view_key, view_label in VIEWS:
+        fig, axes = plt.subplots(2, 3, figsize=(14.2, 8.3), dpi=160)
+        fig.patch.set_facecolor('#f4f7fb')
+        flat_axes = axes.flatten()
+        metric_axes = flat_axes[:5]
+        legend_ax = flat_axes[5]
+        legend_ax.axis('off')
+        legend_ax.set_facecolor('#ffffff')
         view_stats = averages[view_key]
-        best_map = {
-            metric['key']: set(best_methods_for_metric(view_stats, metric['key'], metric['higher_better']))
-            for metric in TABLE_METRICS
-        }
-        rows = []
-        for method_key, method_label in METHODS:
-            row_class = ' class="is-ours"' if method_key == 'ours' else ''
-            display_label = 'SGS-4DGS (Ours)' if method_key == 'ours' else method_label
-            cells = []
-            for metric in TABLE_METRICS:
-                classes = []
-                if method_key in best_map[metric['key']]:
-                    classes.append('is-best')
-                if method_key == 'ours':
-                    classes.append('is-ours')
-                class_attr = f' class="{" ".join(classes)}"' if classes else ''
-                value = metric['formatter'](view_stats[method_key][metric['key']])
-                cells.append(f'<td{class_attr}>{html.escape(value)}</td>')
-            rows.append(
-                f'<tr{row_class}><th scope="row">{html.escape(display_label)}</th>{"".join(cells)}</tr>'
+        method_keys = [method_key for method_key, _ in METHODS]
+        x_positions = list(range(len(method_keys)))
+
+        for axis, metric in zip(metric_axes, RESULTS_METRICS):
+            axis.set_facecolor('#ffffff')
+            axis.grid(True, axis='y', color='#d9e2ef', linewidth=0.85, alpha=0.9)
+            axis.grid(False, axis='x')
+            axis.set_axisbelow(True)
+
+            values = [metric['transform'](view_stats[method_key][metric['key']]) for method_key in method_keys]
+            best_methods = set(best_methods_for_metric(view_stats, metric['key'], metric['higher_better']))
+            bars = axis.bar(
+                x_positions,
+                values,
+                width=0.68,
+                color=[METHOD_COLORS[method_key] for method_key in method_keys],
+                edgecolor='none',
+                alpha=0.96,
+                zorder=3,
             )
 
-        header_cells = ''.join(f'<th scope="col">{html.escape(metric["label"])}</th>' for metric in TABLE_METRICS)
-        cards.append(
-            f'''
-            <article class="results-table-card">
-              <div class="results-table-card__header">
-                <h3 class="results-table-card__title">{html.escape(view_label)}</h3>
-                <p class="results-table-card__meta">Average over 6 N3D scenes</p>
-              </div>
-              <div class="results-table-scroll">
-                <table class="results-metric-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Method</th>
-                      {header_cells}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {''.join(rows)}
-                  </tbody>
-                </table>
-              </div>
-            </article>
-            '''.strip()
+            for bar, method_key in zip(bars, method_keys):
+                if method_key in best_methods:
+                    bar.set_edgecolor('#d4a017')
+                    bar.set_linewidth(2.6)
+                elif method_key == 'ours':
+                    bar.set_edgecolor('#0b1e33')
+                    bar.set_linewidth(1.4)
+                else:
+                    bar.set_edgecolor((0, 0, 0, 0.08))
+                    bar.set_linewidth(0.8)
+
+            if metric['log_scale']:
+                axis.set_yscale('log')
+                axis.minorticks_off()
+
+            axis.set_title(metric['title'], loc='left', fontsize=12.2, fontweight='bold', color='#173c68', pad=10)
+            axis.text(
+                0.0,
+                1.01,
+                metric['note'],
+                transform=axis.transAxes,
+                ha='left',
+                va='bottom',
+                fontsize=8.9,
+                color='#64748b',
+            )
+            axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=25, ha='right')
+            axis.tick_params(axis='x', labelsize=9, colors='#334155')
+            axis.tick_params(axis='y', labelsize=9, colors='#475569')
+            axis.yaxis.set_major_formatter(metric_axis_formatter(metric['key']))
+            axis.margins(x=0.05)
+
+            for spine in ['top', 'right']:
+                axis.spines[spine].set_visible(False)
+            axis.spines['left'].set_color('#c7d3e3')
+            axis.spines['bottom'].set_color('#c7d3e3')
+
+        legend_ax.text(0.0, 0.97, 'Methods', fontsize=12.0, fontweight='bold', color='#173c68', va='top')
+        for index, (method_key, method_label) in enumerate(METHODS):
+            y = 0.85 - index * 0.11
+            legend_ax.add_patch(Rectangle((0.0, y - 0.03), 0.06, 0.05, transform=legend_ax.transAxes, facecolor=METHOD_COLORS[method_key], edgecolor='none'))
+            legend_ax.text(0.09, y, method_label, transform=legend_ax.transAxes, fontsize=10.2, color='#334155', va='center')
+        legend_ax.text(
+            0.0,
+            0.12,
+            'Average over 6 N3D scenes. Gold outlines mark the best method in each metric panel. FPS uses a log axis for readability.',
+            transform=legend_ax.transAxes,
+            fontsize=9.4,
+            color='#64748b',
+            va='top',
+            wrap=True,
         )
+
+        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.985, ha='left', fontsize=18, fontweight='bold', color='#173c68')
+        fig.text(0.05, 0.953, 'Generated directly from the current result.json logs for SGS-4DGS and five dynamic Gaussian splatting baselines.', fontsize=10.2, color='#5b6b84')
+        fig.tight_layout(rect=(0, 0, 1, 0.935))
+        fig.savefig(RESULTS_DIR / f'results-{view_key}-bars.svg', format='svg', bbox_inches='tight')
+        plt.close(fig)
+
+
+def render_results_charts(_: Dict[str, object]) -> str:
+    items = []
+    for view_key, view_label in VIEWS:
+        caption = f'{view_label} averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+        items.append(
+            f'''
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-{view_key}-bars.svg"
+                    data-caption="{html.escape(caption)}">
+                    <img src="./static/images/results/results-{view_key}-bars.svg" alt="{html.escape(view_label)} results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">{html.escape(view_label)} Results</span>
+                  </button>
+            '''.rstrip()
+        )
+
+    first_view_key, first_view_label = VIEWS[0]
+    first_caption = f'{first_view_label} averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
 
     return f'''
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column results-panel">
+        <div class="column results-panel" data-results-gallery>
           <h2 class="title is-3 results-title">Results</h2>
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view N3D metrics averaged across six scenes. The three tables below summarize
-              the current 2-view, 3-view, and 4-view means for SGS-4DGS and five dynamic Gaussian splatting baselines,
-              using PSNR, SSIM, LPIPS, training time, and model size.
+              We report the latest sparse-view N3D metrics averaged across six scenes. Use the horizontal selector below to switch
+              between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
             </p>
             <p class="results-summary-note">
-              Highlighted cells indicate the best value in each metric column. Training time is shown in minutes and
-              model size is shown in megabytes.
+              The results are generated directly from the current <code>result.json</code> logs. Gold outlines mark the best method in each metric panel.
             </p>
           </div>
-          <div class="results-table-grid">
-            {''.join(cards)}
+
+          <div class="results-selector-shell">
+            <button class="results-selector__arrow" type="button" data-results-prev aria-label="Show previous results">
+              <span aria-hidden="true">&#10094;</span>
+            </button>
+            <div class="results-selector">
+              <div class="results-selector__viewport">
+                <div class="results-selector__track">
+{''.join(items)}
+                </div>
+              </div>
+            </div>
+            <button class="results-selector__arrow" type="button" data-results-next aria-label="Show next results">
+              <span aria-hidden="true">&#10095;</span>
+            </button>
+          </div>
+
+          <div class="results-display" data-results-display>
+            <div class="results-display__viewport">
+              <div class="results-display__stage is-current" data-results-display-stage>
+                <img class="results-display__image" data-results-display-image
+                  src="./static/images/results/results-{first_view_key}-bars.svg"
+                  alt="{html.escape(first_view_label)} bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
+                <p class="results-display__caption" data-results-display-caption>
+                  {html.escape(first_caption)}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -417,7 +458,7 @@ def update_index_html(results_section: str) -> None:
 
 def update_index_css() -> None:
     text = INDEX_CSS.read_text()
-    pattern = re.compile(r'/\* Results Tables \*/.*?/\* End Results Tables \*/', flags=re.S)
+    pattern = re.compile(r'/\* Results (?:Tables|Charts) \*/.*?/\* End Results (?:Tables|Charts) \*/', flags=re.S)
     if pattern.search(text):
         text = pattern.sub(RESULTS_CSS.strip(), text, count=1)
     else:
@@ -427,7 +468,8 @@ def update_index_css() -> None:
 
 def main() -> None:
     data = build_showcase_data()
-    results_section = render_results_tables(data)
+    generate_results_charts(data)
+    results_section = render_results_charts(data)
     update_index_html(results_section)
     update_index_css()
 
