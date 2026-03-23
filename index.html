@@ -164,10 +164,10 @@
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We evaluate SGS-4DGS on diverse benchmark and real-world scenes. Across the representative metrics below,
-              our method consistently improves training efficiency, rendering throughput, and model compactness while
-              preserving competitive reconstruction quality. Use the selector to browse different charts and summary
-              tables comparing Ours against common baselines.
+              We report the current sparse-view N3D evaluation metrics averaged across six scenes under the 2-view,
+              3-view, and 4-view settings. The charts below are generated directly from the current
+              <code>result.json</code> logs for SGS-4DGS and five dynamic Gaussian splatting baselines, replacing the
+              previous placeholder figures with the latest measured results.
             </p>
           </div>
 
@@ -180,52 +180,52 @@
                 <div class="results-selector__track">
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-01-compression.svg"
-                    data-caption="Average model size across representative real scenes (lower is better).">
-                    <img src="./static/images/results/chart-01-compression.svg" alt="Compression results thumbnail."
+                    data-caption="Average model size across 6 N3D scenes under 2-view, 3-view, and 4-view settings (lower is better, MB, log scale).">
+                    <img src="./static/images/results/chart-01-compression.svg" alt="Model size results thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">Compression Results</span>
+                    <span class="is-sr-only">Model Size Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-02-training.svg"
-                    data-caption="Average training time comparison across benchmark datasets (lower is better).">
+                    data-caption="Average training time across 6 N3D scenes under 2-view, 3-view, and 4-view settings (lower is better, minutes, log scale).">
                     <img src="./static/images/results/chart-02-training.svg" alt="Training time results thumbnail."
                       loading="lazy" decoding="async">
                     <span class="is-sr-only">Training Time Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-03-fps.svg"
-                    data-caption="Rendering throughput comparison on representative scenes (higher is better).">
+                    data-caption="Average rendering throughput across 6 N3D scenes under 2-view, 3-view, and 4-view settings (higher is better, log scale).">
                     <img src="./static/images/results/chart-03-fps.svg" alt="Rendering FPS results thumbnail."
                       loading="lazy" decoding="async">
                     <span class="is-sr-only">Rendering Throughput Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-04-psnr.svg"
-                    data-caption="PSNR comparison across representative scenes.">
+                    data-caption="Average PSNR across 6 N3D scenes under 2-view, 3-view, and 4-view settings (higher is better).">
                     <img src="./static/images/results/chart-04-psnr.svg" alt="PSNR results thumbnail." loading="lazy"
                       decoding="async">
                     <span class="is-sr-only">PSNR Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-05-ssim.svg"
-                    data-caption="SSIM comparison across representative scenes.">
+                    data-caption="Average SSIM across 6 N3D scenes under 2-view, 3-view, and 4-view settings (higher is better).">
                     <img src="./static/images/results/chart-05-ssim.svg" alt="SSIM results thumbnail." loading="lazy"
                       decoding="async">
                     <span class="is-sr-only">SSIM Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-06-lpips.svg"
-                    data-caption="LPIPS comparison across representative scenes (lower is better).">
+                    data-caption="Average LPIPS across 6 N3D scenes under 2-view, 3-view, and 4-view settings (lower is better).">
                     <img src="./static/images/results/chart-06-lpips.svg" alt="LPIPS results thumbnail." loading="lazy"
                       decoding="async">
                     <span class="is-sr-only">LPIPS Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
                     data-full-src="./static/images/results/chart-07-breakdown.svg"
-                    data-caption="Overall efficiency summary comparing Ours with representative baselines.">
-                    <img src="./static/images/results/chart-07-breakdown.svg" alt="Efficiency summary thumbnail."
+                    data-caption="Average evaluation time across 6 N3D scenes under 2-view, 3-view, and 4-view settings (lower is better, seconds, log scale).">
+                    <img src="./static/images/results/chart-07-breakdown.svg" alt="Evaluation time results thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">Efficiency Summary</span>
+                    <span class="is-sr-only">Evaluation Time Results</span>
                   </button>
                 </div>
               </div>
@@ -239,10 +239,10 @@
             <div class="results-display__viewport">
               <div class="results-display__stage is-current" data-results-display-stage>
                 <img class="results-display__image" data-results-display-image
-                  src="./static/images/results/chart-03-fps.svg"
-                  alt="Rendering throughput comparison on representative scenes." loading="lazy" decoding="async">
+                  src="./static/images/results/chart-01-compression.svg"
+                  alt="Average model size across 6 N3D scenes under 2-view, 3-view, and 4-view settings." loading="lazy" decoding="async">
                 <p class="results-display__caption" data-results-display-caption>
-                  Rendering throughput comparison on representative scenes (higher is better).
+                  Average model size across 6 N3D scenes under 2-view, 3-view, and 4-view settings (lower is better, MB, log scale).
                 </p>
               </div>
             </div>
