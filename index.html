@@ -16,12 +16,15 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/n3d-showcase.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script src="./static/js/n3d-showcase-data.js"></script>
+  <script src="./static/js/n3d-showcase.js"></script>
 </head>
 
 <body>
@@ -69,55 +72,22 @@
     </div>
   </section>
 
-  <section class="hero teaser scene-showcase-section">
-    <div class="container is-max-desktop">
+  <section class="hero teaser n3d-showcase-section" data-n3d-showcase>
+    <div class="container is-max-fullhd n3d-showcase-container">
       <div class="hero-body">
-        <div class="abstract-panel">
-          <h2 class="title is-3 abstract-title">Lightweight Showcase</h2>
-          <div class="abstract-divider" aria-hidden="true"></div>
-          <div class="content has-text-centered abstract-copy">
-            <p>
-              This lightweight public snapshot keeps the project page layout, static figures, and qualitative image
-              comparisons. Large demo videos are intentionally omitted from this repository.
+        <div class="n3d-showcase-shell">
+          <div class="n3d-showcase-header">
+            <h2 class="title is-3 n3d-showcase-title">Sparse-View N3D Comparisons</h2>
+            <p class="n3d-showcase-summary">
+              Select a scene to update all three sparse-view video comparisons. Each card shows a synchronized
+              vertical video slider for 2-view, 3-view, and 4-view reconstruction, with metrics rendered directly on
+              top of the videos. The right-hand baseline varies by scene so the full set covers all five comparison
+              methods.
             </p>
           </div>
-          <div class="columns is-multiline is-mobile">
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/bicycle_thumb.jpg" alt="Bicycle scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Bicycle</strong></p>
-            </div>
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/garden_thumb.jpg" alt="Garden scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Garden</strong></p>
-            </div>
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/stump_thumb.jpg" alt="Stump scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Stump</strong></p>
-            </div>
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/kitchen_thumb.jpg" alt="Kitchen scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Kitchen</strong></p>
-            </div>
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/bonsai_thumb.jpg" alt="Bonsai scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Bonsai</strong></p>
-            </div>
-            <div class="column is-one-third-desktop is-half-tablet is-half-mobile">
-              <figure class="image">
-                <img src="./static/videos/truck_thumb.jpg" alt="Truck scene thumbnail." loading="lazy" decoding="async">
-              </figure>
-              <p class="has-text-centered"><strong>Truck</strong></p>
-            </div>
+          <div class="scene-selector n3d-scene-selector" role="group" aria-label="N3D scene selector" data-n3d-selector></div>
+          <div class="n3d-showcase-stage">
+            <div class="scene-compare-grid" data-n3d-grid></div>
           </div>
         </div>
       </div>
@@ -153,8 +123,8 @@
           </div>
           <div class="publication-video">
             <div class="notification is-light">
-              Interactive teaser videos are omitted in this lightweight public snapshot. The method overview and static
-              qualitative comparisons remain available below.
+              This lightweight public snapshot includes selected sparse-view N3D video comparisons below while keeping
+              the page compact for public hosting.
             </div>
           </div>
         </div>
@@ -194,7 +164,7 @@
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We evaluate GADO-GS on diverse benchmark and real-world scenes. Across the representative metrics below,
+              We evaluate SGS-4DGS on diverse benchmark and real-world scenes. Across the representative metrics below,
               our method consistently improves training efficiency, rendering throughput, and model compactness while
               preserving competitive reconstruction quality. Use the selector to browse different charts and summary
               tables comparing Ours against common baselines.
