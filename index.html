@@ -182,43 +182,6 @@
               failure regions during optimization (bottom).
             </figcaption>
           </figure>
-          <div class="content method-overview-copy">
-            <div class="method-overview-steps">
-              <div class="method-overview-step">
-                <div class="method-overview-step__marker" aria-hidden="true">
-                  <span class="method-overview-step__label">Step</span>
-                  <span class="method-overview-step__number">1</span>
-                </div>
-                <p class="method-overview-step__text">
-                  <strong>Decouple the Gaussian representation.</strong> The scene is split into geometry and
-                  appearance fields so that coarse structure can stabilize before high-frequency appearance begins to
-                  dominate training.
-                </p>
-              </div>
-              <div class="method-overview-step">
-                <div class="method-overview-step__marker" aria-hidden="true">
-                  <span class="method-overview-step__label">Step</span>
-                  <span class="method-overview-step__number">2</span>
-                </div>
-                <p class="method-overview-step__text">
-                  <strong>Constrain view rendering explicitly.</strong> Rotation, scale, and opacity are normalized or
-                  controlled explicitly, reducing geometry-appearance ambiguity and preventing redundant Gaussian
-                  growth.
-                </p>
-              </div>
-              <div class="method-overview-step">
-                <div class="method-overview-step__marker" aria-hidden="true">
-                  <span class="method-overview-step__label">Step</span>
-                  <span class="method-overview-step__number">3</span>
-                </div>
-                <p class="method-overview-step__text">
-                  <strong>Regularize with cross-view consistency.</strong> Multi-view geometric consistency and PSA
-                  color prediction work together to produce cleaner geometry, fewer artifacts, and a more compact final
-                  3D Gaussian representation.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
