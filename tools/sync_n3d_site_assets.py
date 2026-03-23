@@ -399,17 +399,7 @@ def generate_results_charts(data: Dict[str, object]) -> None:
                     bar.set_edgecolor((0, 0, 0, 0.08))
                     bar.set_linewidth(0.8)
 
-            axis.set_title(metric['title'], loc='left', fontsize=12.6, fontweight='bold', color='#173c68', pad=11)
-            axis.text(
-                0.0,
-                1.02,
-                metric['note'],
-                transform=axis.transAxes,
-                ha='left',
-                va='bottom',
-                fontsize=9.0,
-                color='#63748c',
-            )
+            axis.set_title(metric['title'], loc='left', fontsize=12.6, fontweight='bold', color='#173c68', pad=8)
             axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=22, ha='right')
             axis.tick_params(axis='x', labelsize=9.2, colors='#334155')
             axis.tick_params(axis='y', labelsize=9.1, colors='#475569')
@@ -446,9 +436,8 @@ def generate_results_charts(data: Dict[str, object]) -> None:
             wrap=True,
         )
 
-        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.982, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
-        fig.text(0.05, 0.95, 'PSNR, SSIM, LPIPS, train time, and FPS', fontsize=10.4, color='#5f6f86')
-        fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.93))
+        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.972, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
+        fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.955))
         fig.savefig(RESULTS_DIR / f'results-{view_key}-bars.svg', format='svg', bbox_inches='tight')
         plt.close(fig)
 
