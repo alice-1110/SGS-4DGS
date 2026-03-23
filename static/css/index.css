@@ -3305,3 +3305,61 @@ body {
 [data-n3d-showcase] .n3d-showcase-shell {
   box-sizing: border-box;
 }
+
+
+/* Explicit Shell Width Alignment */
+:root {
+  --page-shell-width: min(1180px, calc(100vw - 2rem));
+}
+
+.publication-hero .container.is-max-desktop,
+[data-n3d-showcase] .n3d-showcase-container,
+.section.section-tight > .container.is-max-desktop,
+.visual-comparisons-container {
+  width: 100%;
+  max-width: none !important;
+}
+
+.publication-hero .container.is-max-desktop > .columns,
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered,
+.abstract-panel,
+.method-overview-panel,
+.results-panel,
+.visual-comparisons-panel,
+[data-n3d-showcase] .n3d-showcase-shell {
+  width: var(--page-shell-width);
+  max-width: var(--page-shell-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --page-shell-width: calc(100vw - 1.5rem);
+  }
+}
+
+
+/* Hero Frame Removal */
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  padding-top: 0.7rem;
+  padding-bottom: 0.95rem;
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered::before {
+  content: none;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+    padding-top: 0.5rem;
+    padding-bottom: 0.8rem;
+  }
+}
