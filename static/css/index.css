@@ -998,20 +998,6 @@ body {
   height: auto;
 }
 
-.method-overview-embed {
-  display: block;
-  width: 100%;
-  aspect-ratio: 960 / 516;
-  min-height: 360px;
-  border: 0;
-  background: #ffffff;
-}
-
-@media screen and (max-width: 768px) {
-  .method-overview-embed {
-    min-height: 220px;
-  }
-}
 
 .method-overview-copy {
   margin-bottom: 0 !important;
