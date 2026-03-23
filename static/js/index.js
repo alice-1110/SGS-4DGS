@@ -612,8 +612,16 @@ function initImageComparisons() {
     return;
   }
 
+  var data = window.VISUAL_COMPARISONS_DATA;
+  var selectorRoot = section.querySelector('[data-visual-selector]');
   var imageMediaReady = false;
   var activeButton;
+  var buttons;
+  var sceneMap = {};
+
+  if (!data || !Array.isArray(data.scenes) || !data.scenes.length || !selectorRoot) {
+    return;
+  }
 
   function createImageCompareCard(card) {
     var headerInner = card.querySelector('.visual-compare-header__inner');
@@ -662,9 +670,9 @@ function initImageComparisons() {
       var ratio = getImageRatio();
       var height;
       var isMobile = window.innerWidth <= 768;
-      var minWidth = Math.min(availableWidth, isMobile ? 265 : 360);
-      var minHeight = isMobile ? 180 : 250;
-      var maxHeight = isMobile ? 290 : 450;
+      var minWidth = Math.min(availableWidth, isMobile ? 265 : 300);
+      var minHeight = isMobile ? 180 : 210;
+      var maxHeight = isMobile ? 290 : 360;
       var width;
 
       if (!availableWidth || !ratio) {
@@ -886,59 +894,114 @@ function initImageComparisons() {
     };
   }
 
+  function createSceneButton(scene, isActive) {
+    var button = document.createElement('button');
+    var preview = document.createElement('span');
+    var image = document.createElement('img');
+    var label = document.createElement('span');
+
+    button.className = 'scene-selector__item' + (isActive ? ' is-active' : '');
+    button.type = 'button';
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    button.setAttribute('data-scene-key', scene.key);
+
+    preview.className = 'scene-selector__preview';
+    preview.setAttribute('aria-hidden', 'true');
+    image.src = scene.thumb;
+    image.alt = '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    preview.appendChild(image);
+
+    label.className = 'n3d-scene-selector__label';
+    label.textContent = scene.label;
+
+    button.appendChild(preview);
+    button.appendChild(label);
+    return button;
+  }
+
+  function getViewLabel(viewKey) {
+    var match = (data.viewOrder || []).find(function(view) {
+      return view.key === viewKey;
+    });
+
+    return match ? match.label : viewKey;
+  }
+
+  function buildContent(scene, viewKey) {
+    var viewEntry = scene.views && scene.views[viewKey];
+    var methodOrder = data.methodOrder || [];
+
+    if (!viewEntry || !viewEntry.ours) {
+      return null;
+    }
+
+    return {
+      methodOptions: methodOrder.map(function(method) {
+        var baseline = viewEntry.baselines ? viewEntry.baselines[method.key] : null;
+
+        return {
+          key: method.key,
+          disabled: !baseline,
+          leftImage: viewEntry.ours.image,
+          rightImage: baseline ? baseline.image : viewEntry.ours.image,
+          leftLabel: viewEntry.ours.label || 'Ours',
+          rightLabel: baseline ? baseline.label : (method.label || 'Method')
+        };
+      })
+    };
+  }
+
+  data.scenes.forEach(function(scene, index) {
+    var isActive = scene.key === data.defaultScene || (!data.defaultScene && index === 0);
+    sceneMap[scene.key] = scene;
+    selectorRoot.appendChild(createSceneButton(scene, isActive));
+  });
+
+  buttons = section.querySelectorAll('.scene-selector__item');
+
   var imageCards = Array.prototype.map.call(
     section.querySelectorAll('[data-image-compare-card]'),
-    createImageCompareCard
+    function(card) {
+      var compareCard = createImageCompareCard(card);
+      var viewKey = card.getAttribute('data-view-key') || '';
+      var viewLabel = getViewLabel(viewKey);
+      var labelNode = card.querySelector('[data-compare-view-label]');
+      var selector = card.querySelector('.visual-compare-selector');
+
+      if (labelNode) {
+        labelNode.textContent = viewLabel;
+      }
+
+      if (selector) {
+        selector.setAttribute('aria-label', viewLabel + ' baseline selector');
+      }
+
+      if (!compareCard) {
+        return null;
+      }
+
+      return {
+        controller: compareCard,
+        viewKey: viewKey
+      };
+    }
   ).filter(function(item) {
     return !!item;
   });
-  var buttons = section.querySelectorAll('.scene-selector__item');
 
-  if (!imageCards.length) {
-    return;
-  }
-
-  if (!buttons.length) {
+  if (!imageCards.length || !buttons.length) {
     return;
   }
 
   function activateScene(button) {
-    function buildSelectableMethodOption(slot, fallbackLabel) {
-      var leftImage = button.getAttribute('data-left-image-' + slot) ||
-        button.getAttribute('data-left-image-2') ||
-        button.getAttribute('data-left-image-1');
-      var rightImage = button.getAttribute('data-right-image-' + slot) ||
-        button.getAttribute('data-right-image-2') ||
-        button.getAttribute('data-right-image-1');
-      var leftLabel = button.getAttribute('data-left-label-' + slot) ||
-        button.getAttribute('data-left-label-2') ||
-        button.getAttribute('data-left-label-1');
-      var rightLabel = button.getAttribute('data-right-label-' + slot) || fallbackLabel;
+    var sceneKey = button.getAttribute('data-scene-key');
+    var scene = sceneMap[sceneKey];
 
-      return {
-        leftImage: leftImage,
-        rightImage: rightImage,
-        leftLabel: leftLabel,
-        rightLabel: rightLabel
-      };
+    if (!scene) {
+      return;
     }
-
-    var compareConfigs = [
-      {
-        leftImage: button.getAttribute('data-left-image-1'),
-        rightImage: button.getAttribute('data-right-image-1'),
-        leftLabel: button.getAttribute('data-left-label-1'),
-        rightLabel: button.getAttribute('data-right-label-1')
-      },
-      {
-        methodOptions: [
-          buildSelectableMethodOption(2, button.getAttribute('data-right-label-2') || button.getAttribute('data-right-label-1') || 'SpeedySplat'),
-          buildSelectableMethodOption(3, 'Compact-3DGS'),
-          buildSelectableMethodOption(4, 'LightGaussian'),
-          buildSelectableMethodOption(5, 'Scaffold-GS')
-        ]
-      }
-    ];
 
     activeButton = button;
 
@@ -948,8 +1011,11 @@ function initImageComparisons() {
       item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    imageCards.forEach(function(compareCard, index) {
-      compareCard.setContent(compareConfigs[index] || compareConfigs[0], imageMediaReady);
+    imageCards.forEach(function(compareCard) {
+      var content = buildContent(scene, compareCard.viewKey);
+      if (content) {
+        compareCard.controller.setContent(content, imageMediaReady);
+      }
     });
   }
 

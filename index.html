@@ -24,6 +24,7 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <script src="./static/js/n3d-showcase-data.js"></script>
+  <script src="./static/js/visual-comparisons-data.js"></script>
   <script src="./static/js/n3d-showcase.js"></script>
 </head>
 
@@ -230,100 +231,56 @@
           <h2 class="title is-3 visual-comparisons-title">Visual Comparisons</h2>
           <div class="content has-text-justified visual-comparisons-summary">
             <p>
-              Image-based comparisons highlight the visual differences between Ours and representative baselines across
-              challenging scenes.
+              Select a scene to update the image comparisons for 2-view, 3-view, and 4-view inputs. Each card keeps
+              Ours on the left and lets you switch the baseline on the right with the arrow controls.
             </p>
           </div>
 
-          <div class="visual-comparisons-stage">
-            <div class="scene-selector visual-scene-selector" role="group"
-              aria-label="Visual comparison scene selector">
-              <button class="scene-selector__item is-active" type="button"
-                data-left-image-1="./static/images/comparisons/bicycle_ours.png"
-                data-right-image-1="./static/images/comparisons/bicycle_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/bicycle_ours.png"
-                data-right-image-2="./static/images/comparisons/bicycle_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Bicycle" aria-pressed="true">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/bicycle_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Bicycle</span>
-              </button>
-              <button class="scene-selector__item" type="button"
-                data-left-image-1="./static/images/comparisons/garden_ours.png"
-                data-right-image-1="./static/images/comparisons/garden_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/garden_ours.png"
-                data-right-image-2="./static/images/comparisons/garden_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Garden" aria-pressed="false">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/garden_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Garden</span>
-              </button>
-              <button class="scene-selector__item" type="button"
-                data-left-image-1="./static/images/comparisons/stump_ours.png"
-                data-right-image-1="./static/images/comparisons/stump_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/stump_ours.png"
-                data-right-image-2="./static/images/comparisons/stump_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Stump" aria-pressed="false">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/stump_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Stump</span>
-              </button>
-              <button class="scene-selector__item" type="button"
-                data-left-image-1="./static/images/comparisons/kitchen_ours.png"
-                data-right-image-1="./static/images/comparisons/kitchen_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/kitchen_ours.png"
-                data-right-image-2="./static/images/comparisons/kitchen_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Kitchen" aria-pressed="false">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/kitchen_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Kitchen</span>
-              </button>
-              <button class="scene-selector__item" type="button"
-                data-left-image-1="./static/images/comparisons/bonsai_ours.png"
-                data-right-image-1="./static/images/comparisons/bonsai_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/bonsai_ours.png"
-                data-right-image-2="./static/images/comparisons/bonsai_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Bonsai" aria-pressed="false">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/bonsai_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Bonsai</span>
-              </button>
-              <button class="scene-selector__item" type="button"
-                data-left-image-1="./static/images/comparisons/truck_ours.png"
-                data-right-image-1="./static/images/comparisons/truck_3dgs.png" data-left-label-1="Ours"
-                data-right-label-1="3DGS" data-left-image-2="./static/images/comparisons/truck_ours.png"
-                data-right-image-2="./static/images/comparisons/truck_speedySplat.png" data-left-label-2="Ours"
-                data-right-label-2="SpeedySplat" data-label="Truck" aria-pressed="false">
-                <span class="scene-selector__preview" aria-hidden="true">
-                  <img src="./static/videos/truck_thumb.jpg" alt="" loading="lazy" decoding="async">
-                </span>
-                <span class="is-sr-only">Truck</span>
-              </button>
-            </div>
+          <div class="visual-comparisons-stage n3d-showcase-stage">
+            <div class="scene-selector visual-scene-selector n3d-scene-selector" role="group"
+              aria-label="Visual comparison scene selector" data-visual-selector></div>
 
-            <div class="scene-compare-grid visual-compare-grid">
-              <div class="scene-compare-card visual-compare-card" data-image-compare-card="1">
-                <div class="visual-compare-header visual-compare-header--centered">
-                  <div class="visual-compare-header__inner visual-compare-header__inner--centered">
-                    <p class="visual-compare-header__title visual-compare-header__title--centered">Ours vs. 3DGS</p>
+            <div class="scene-compare-grid visual-compare-grid" data-visual-grid>
+              <div class="scene-compare-card visual-compare-card" data-image-compare-card data-view-key="2views">
+                <div class="visual-compare-header">
+                  <div class="visual-compare-header__inner visual-compare-header__inner--stacked">
+                    <div class="visual-compare-header__row visual-compare-header__row--top">
+                      <span class="scene-compare-card__eyebrow visual-compare-card__eyebrow"
+                        data-compare-view-label>2 Views</span>
+                    </div>
+                    <div class="visual-compare-header__row visual-compare-header__row--bottom">
+                      <p class="visual-compare-header__title">
+                        Ours vs.
+                        <span class="visual-compare-header__chip" data-compare-baseline-chip>4DGaussians</span>
+                      </p>
+                      <div class="visual-compare-selector" role="group" aria-label="2 Views baseline selector">
+                        <button class="visual-compare-selector__button visual-compare-selector__button--prev"
+                          type="button" data-compare-method-prev aria-label="Previous baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10094;</span>
+                        </button>
+                        <div class="visual-compare-selector__window" aria-live="polite" aria-atomic="true">
+                          <span class="visual-compare-selector__value" data-compare-method-value>4DGaussians</span>
+                        </div>
+                        <button class="visual-compare-selector__button visual-compare-selector__button--next"
+                          type="button" data-compare-method-next aria-label="Next baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10095;</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="scene-compare-wrapper visual-compare-wrapper">
                   <div class="scene-compare-layer scene-compare-layer--base">
                     <img class="scene-compare-image scene-compare-image--right" data-compare-image-right
-                      src="./static/videos/bicycle_thumb.jpg" alt="3DGS qualitative comparison image." loading="lazy"
-                      decoding="async">
-                    <span class="scene-compare-badge scene-compare-badge--right" data-compare-right-label>3DGS</span>
+                      src="./n3d/thumbs/coffee_martini.png" alt="Baseline qualitative comparison image."
+                      loading="lazy" decoding="async">
+                    <span class="scene-compare-badge scene-compare-badge--right"
+                      data-compare-right-label>4DGaussians</span>
                   </div>
                   <div class="scene-compare-overlay" data-compare-overlay>
                     <div class="scene-compare-layer scene-compare-layer--overlay">
                       <img class="scene-compare-image scene-compare-image--left" data-compare-image-left
-                        src="./static/videos/bicycle_thumb.jpg" alt="Ours qualitative comparison image." loading="lazy"
+                        src="./n3d/thumbs/coffee_martini.png" alt="Ours qualitative comparison image." loading="lazy"
                         decoding="async">
                       <span class="scene-compare-badge scene-compare-badge--left" data-compare-left-label>Ours</span>
                     </div>
@@ -335,40 +292,97 @@
                 </div>
               </div>
 
-              <div class="scene-compare-card visual-compare-card" data-image-compare-card="2">
-                <div class="visual-compare-header visual-compare-header--selectable">
-                  <div class="visual-compare-header__inner visual-compare-header__inner--selectable">
-                    <p class="visual-compare-header__title">
-                      Ours vs.
-                      <span class="visual-compare-header__chip" data-compare-baseline-chip>SpeedySplat</span>
-                    </p>
-                    <div class="visual-compare-selector" role="group" aria-label="Alternative baseline selector">
-                      <button class="visual-compare-selector__button visual-compare-selector__button--prev" type="button" data-compare-method-prev
-                        aria-label="Previous baseline">
-                        <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10094;</span>
-                      </button>
-                      <div class="visual-compare-selector__window" aria-live="polite" aria-atomic="true">
-                        <span class="visual-compare-selector__value" data-compare-method-value>SpeedySplat</span>
+              <div class="scene-compare-card visual-compare-card" data-image-compare-card data-view-key="3views">
+                <div class="visual-compare-header">
+                  <div class="visual-compare-header__inner visual-compare-header__inner--stacked">
+                    <div class="visual-compare-header__row visual-compare-header__row--top">
+                      <span class="scene-compare-card__eyebrow visual-compare-card__eyebrow"
+                        data-compare-view-label>3 Views</span>
+                    </div>
+                    <div class="visual-compare-header__row visual-compare-header__row--bottom">
+                      <p class="visual-compare-header__title">
+                        Ours vs.
+                        <span class="visual-compare-header__chip" data-compare-baseline-chip>4DGaussians</span>
+                      </p>
+                      <div class="visual-compare-selector" role="group" aria-label="3 Views baseline selector">
+                        <button class="visual-compare-selector__button visual-compare-selector__button--prev"
+                          type="button" data-compare-method-prev aria-label="Previous baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10094;</span>
+                        </button>
+                        <div class="visual-compare-selector__window" aria-live="polite" aria-atomic="true">
+                          <span class="visual-compare-selector__value" data-compare-method-value>4DGaussians</span>
+                        </div>
+                        <button class="visual-compare-selector__button visual-compare-selector__button--next"
+                          type="button" data-compare-method-next aria-label="Next baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10095;</span>
+                        </button>
                       </div>
-                      <button class="visual-compare-selector__button visual-compare-selector__button--next" type="button" data-compare-method-next
-                        aria-label="Next baseline">
-                        <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10095;</span>
-                      </button>
                     </div>
                   </div>
                 </div>
                 <div class="scene-compare-wrapper visual-compare-wrapper">
                   <div class="scene-compare-layer scene-compare-layer--base">
                     <img class="scene-compare-image scene-compare-image--right" data-compare-image-right
-                      src="./static/videos/bicycle_thumb.jpg" alt="SpeedySplat qualitative comparison image."
+                      src="./n3d/thumbs/coffee_martini.png" alt="Baseline qualitative comparison image."
                       loading="lazy" decoding="async">
                     <span class="scene-compare-badge scene-compare-badge--right"
-                      data-compare-right-label>SpeedySplat</span>
+                      data-compare-right-label>4DGaussians</span>
                   </div>
                   <div class="scene-compare-overlay" data-compare-overlay>
                     <div class="scene-compare-layer scene-compare-layer--overlay">
                       <img class="scene-compare-image scene-compare-image--left" data-compare-image-left
-                        src="./static/videos/bicycle_thumb.jpg" alt="Ours qualitative comparison image." loading="lazy"
+                        src="./n3d/thumbs/coffee_martini.png" alt="Ours qualitative comparison image." loading="lazy"
+                        decoding="async">
+                      <span class="scene-compare-badge scene-compare-badge--left" data-compare-left-label>Ours</span>
+                    </div>
+                  </div>
+                  <div class="scene-compare-divider" data-compare-handle tabindex="0" role="slider"
+                    aria-label="Image comparison divider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                    <span class="scene-compare-handle"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="scene-compare-card visual-compare-card" data-image-compare-card data-view-key="4views">
+                <div class="visual-compare-header">
+                  <div class="visual-compare-header__inner visual-compare-header__inner--stacked">
+                    <div class="visual-compare-header__row visual-compare-header__row--top">
+                      <span class="scene-compare-card__eyebrow visual-compare-card__eyebrow"
+                        data-compare-view-label>4 Views</span>
+                    </div>
+                    <div class="visual-compare-header__row visual-compare-header__row--bottom">
+                      <p class="visual-compare-header__title">
+                        Ours vs.
+                        <span class="visual-compare-header__chip" data-compare-baseline-chip>4DGaussians</span>
+                      </p>
+                      <div class="visual-compare-selector" role="group" aria-label="4 Views baseline selector">
+                        <button class="visual-compare-selector__button visual-compare-selector__button--prev"
+                          type="button" data-compare-method-prev aria-label="Previous baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10094;</span>
+                        </button>
+                        <div class="visual-compare-selector__window" aria-live="polite" aria-atomic="true">
+                          <span class="visual-compare-selector__value" data-compare-method-value>4DGaussians</span>
+                        </div>
+                        <button class="visual-compare-selector__button visual-compare-selector__button--next"
+                          type="button" data-compare-method-next aria-label="Next baseline">
+                          <span class="visual-compare-selector__button-icon" aria-hidden="true">&#10095;</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="scene-compare-wrapper visual-compare-wrapper">
+                  <div class="scene-compare-layer scene-compare-layer--base">
+                    <img class="scene-compare-image scene-compare-image--right" data-compare-image-right
+                      src="./n3d/thumbs/coffee_martini.png" alt="Baseline qualitative comparison image."
+                      loading="lazy" decoding="async">
+                    <span class="scene-compare-badge scene-compare-badge--right"
+                      data-compare-right-label>4DGaussians</span>
+                  </div>
+                  <div class="scene-compare-overlay" data-compare-overlay>
+                    <div class="scene-compare-layer scene-compare-layer--overlay">
+                      <img class="scene-compare-image scene-compare-image--left" data-compare-image-left
+                        src="./n3d/thumbs/coffee_martini.png" alt="Ours qualitative comparison image." loading="lazy"
                         decoding="async">
                       <span class="scene-compare-badge scene-compare-badge--left" data-compare-left-label>Ours</span>
                     </div>

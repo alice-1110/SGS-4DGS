@@ -20,6 +20,7 @@ DEST_N3D = REPO / 'n3d'
 INDEX_HTML = REPO / 'index.html'
 INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
+VISUAL_DATA_JS = REPO / 'static' / 'js' / 'visual-comparisons-data.js'
 RESULTS_DIR = REPO / 'static' / 'images' / 'results'
 
 VIEWS: List[Tuple[str, str]] = [
@@ -171,6 +172,22 @@ def choose_video(scene_dir: Path) -> Path:
     return max(candidates, key=lambda path: (extract_iteration(path), path.stat().st_mtime_ns, str(path)))
 
 
+def choose_preview(scene_dir: Path) -> Path:
+    direct_preview = scene_dir / 'preview.png'
+    if direct_preview.exists():
+        return direct_preview
+
+    fallback = scene_dir / '00000.png'
+    if fallback.exists():
+        return fallback
+
+    candidates = sorted(scene_dir.glob('*.png'))
+    if candidates:
+        return candidates[0]
+
+    raise FileNotFoundError(f'No preview image found under {scene_dir}')
+
+
 def sync_file(src: Path, dst: Path) -> bool:
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists() and filecmp.cmp(src, dst, shallow=False):
@@ -242,6 +259,58 @@ def build_showcase_data() -> Dict[str, object]:
         data['scenes'].append(scene_entry)
 
     DATA_JS.write_text('window.N3D_SHOWCASE_DATA = ' + json.dumps(data, indent=2) + ';\n')
+    return data
+
+
+def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, object]:
+    data = {
+        'defaultScene': showcase_data['defaultScene'],
+        'viewOrder': showcase_data['viewOrder'],
+        'methodOrder': showcase_data['methodOrder'],
+        'scenes': [],
+    }
+
+    for scene in showcase_data['scenes']:
+        scene_key = scene['key']
+        scene_entry = {
+            'key': scene_key,
+            'label': scene['label'],
+            'thumb': scene['thumb'],
+            'defaultMethod': scene.get('defaultMethod', DEFAULT_METHOD_ROTATION[0]),
+            'views': {},
+        }
+
+        for view_key, view_label in VIEWS:
+            ours_src = choose_preview(SOURCE_ROOT / view_key / 'ours' / scene_key)
+            ours_dst = DEST_N3D / 'previews' / scene_key / view_key / 'ours.png'
+            sync_file(ours_src, ours_dst)
+            view_entry = {
+                'label': view_label,
+                'ours': {
+                    'label': 'Ours',
+                    'image': f'./n3d/previews/{scene_key}/{view_key}/ours.png',
+                },
+                'baselines': {},
+            }
+
+            for method_key, method_label in METHODS:
+                if method_key == 'ours':
+                    continue
+
+                preview_src = choose_preview(SOURCE_ROOT / view_key / method_key / scene_key)
+                preview_dst = DEST_N3D / 'previews' / scene_key / view_key / f'{method_key}.png'
+                sync_file(preview_src, preview_dst)
+                view_entry['baselines'][method_key] = {
+                    'key': method_key,
+                    'label': method_label,
+                    'image': f'./n3d/previews/{scene_key}/{view_key}/{method_key}.png',
+                }
+
+            scene_entry['views'][view_key] = view_entry
+
+        data['scenes'].append(scene_entry)
+
+    VISUAL_DATA_JS.write_text('window.VISUAL_COMPARISONS_DATA = ' + json.dumps(data, indent=2) + ';\n')
     return data
 
 
@@ -543,6 +612,7 @@ def update_index_css() -> None:
 
 def main() -> None:
     data = build_showcase_data()
+    build_visual_comparison_data(data)
     generate_results_charts(data)
     results_section = render_results_charts(data)
     update_index_html(results_section)
