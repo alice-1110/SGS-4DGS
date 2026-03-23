@@ -1,4 +1,4 @@
-# GADO-GS Project Page
+# SGS-4DGS Project Page
 
 Anonymous project page for double-blind review.
 
