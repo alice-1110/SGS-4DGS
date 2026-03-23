@@ -3294,3 +3294,14 @@ body {
     height: 6rem;
   }
 }
+
+
+/* Final Equal Width Fix */
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered,
+.abstract-panel,
+.method-overview-panel,
+.results-panel,
+.visual-comparisons-panel,
+[data-n3d-showcase] .n3d-showcase-shell {
+  box-sizing: border-box;
+}
