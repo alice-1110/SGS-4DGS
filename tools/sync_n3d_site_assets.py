@@ -98,32 +98,51 @@ RESULTS_CSS = '''
 /* Results Charts */
 .results-summary-note {
   margin: 0.9rem 0 0;
-  color: #67748b;
+  color: #5f6f86;
   font-size: 0.95rem;
   line-height: 1.55;
+}
+
+.results-selector__item {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 252, 0.98));
 }
 
 .results-selector__item img {
   object-fit: contain;
   aspect-ratio: 1.62 / 1;
-  background: #f4f7fb;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.92), rgba(236, 242, 248, 0.96));
+  padding: 0.32rem;
+}
+
+.results-display {
+  margin-top: 0.15rem;
 }
 
 .results-display__image {
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 1rem;
-  background: #f4f7fb;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1.1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 244, 249, 0.98));
+  padding: 0.3rem;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
 }
 
 .results-display__caption {
   max-width: 56rem;
   margin-left: auto;
   margin-right: auto;
+  color: #607087;
+  font-size: 0.98rem;
 }
 
 @media screen and (max-width: 768px) {
   .results-selector__item img {
     aspect-ratio: 1.44 / 1;
+    padding: 0.22rem;
+  }
+
+  .results-display__image {
+    padding: 0.18rem;
+    border-radius: 0.9rem;
   }
 
   .results-display__caption {
@@ -273,96 +292,163 @@ def metric_axis_formatter(metric_key: str) -> FuncFormatter:
     return FuncFormatter(lambda value, pos: f'{value:g}')
 
 
+def metric_value_label(metric_key: str, value: float) -> str:
+    if metric_key == 'psnr':
+        return f'{value:.2f}'
+    if metric_key == 'ssim':
+        return f'{value:.3f}'
+    if metric_key == 'lpips':
+        return f'{value:.3f}'
+    if metric_key == 'train_time':
+        return f'{value:.1f}m'
+    if value >= 100:
+        return f'{value:.0f}'
+    if value >= 10:
+        return f'{value:.1f}'
+    return f'{value:.2f}'
+
+
+def annotate_bar_value(axis, metric_key: str, metric_config: Dict[str, object], bar, value: float, text_color: str, face_color: str, edge_color: str) -> None:
+    x_pos = bar.get_x() + (bar.get_width() / 2.0)
+    if metric_config['log_scale']:
+        y_pos = value * 1.1
+    else:
+        y_min = min(axis.get_ylim())
+        y_max = max(axis.get_ylim())
+        offset = (y_max - y_min) * 0.035
+        y_pos = value + offset
+    axis.text(
+        x_pos,
+        y_pos,
+        metric_value_label(metric_key, value),
+        ha='center',
+        va='bottom',
+        fontsize=8.4,
+        fontweight='bold',
+        color=text_color,
+        bbox={
+            'boxstyle': 'round,pad=0.22,rounding_size=0.16',
+            'facecolor': face_color,
+            'edgecolor': edge_color,
+            'linewidth': 0.9,
+            'alpha': 0.98,
+        },
+        zorder=6,
+        clip_on=False,
+    )
+
+
 def generate_results_charts(data: Dict[str, object]) -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     averages = compute_averages(data)
 
     for view_key, view_label in VIEWS:
-        fig, axes = plt.subplots(2, 3, figsize=(14.2, 8.3), dpi=160)
-        fig.patch.set_facecolor('#f4f7fb')
+        fig, axes = plt.subplots(2, 3, figsize=(14.8, 8.6), dpi=160)
+        fig.patch.set_facecolor('#edf3f8')
         flat_axes = axes.flatten()
         metric_axes = flat_axes[:5]
         legend_ax = flat_axes[5]
         legend_ax.axis('off')
-        legend_ax.set_facecolor('#ffffff')
+        legend_ax.set_facecolor('#fbfdff')
         view_stats = averages[view_key]
         method_keys = [method_key for method_key, _ in METHODS]
         x_positions = list(range(len(method_keys)))
 
         for axis, metric in zip(metric_axes, RESULTS_METRICS):
-            axis.set_facecolor('#ffffff')
-            axis.grid(True, axis='y', color='#d9e2ef', linewidth=0.85, alpha=0.9)
+            axis.set_facecolor('#fbfdff')
+            axis.patch.set_edgecolor('#dbe5f0')
+            axis.patch.set_linewidth(1.0)
+            axis.grid(True, axis='y', color='#d8e2ee', linewidth=0.9, linestyle=(0, (3, 3)), alpha=0.9)
             axis.grid(False, axis='x')
             axis.set_axisbelow(True)
 
             values = [metric['transform'](view_stats[method_key][metric['key']]) for method_key in method_keys]
             best_methods = set(best_methods_for_metric(view_stats, metric['key'], metric['higher_better']))
+            positive_values = [value for value in values if value > 0]
+            if metric['log_scale'] and positive_values:
+                axis.set_yscale('log')
+                axis.minorticks_off()
+                axis.set_ylim(min(positive_values) * 0.72, max(values) * 2.2)
+            else:
+                max_value = max(values)
+                min_value = min(values)
+                span = max_value - min_value
+                pad = span * 0.22 if span > 0 else max_value * 0.18
+                axis.set_ylim(0, max_value + max(pad, max_value * 0.12))
+
             bars = axis.bar(
                 x_positions,
                 values,
-                width=0.68,
+                width=0.66,
                 color=[METHOD_COLORS[method_key] for method_key in method_keys],
                 edgecolor='none',
                 alpha=0.96,
                 zorder=3,
             )
 
-            for bar, method_key in zip(bars, method_keys):
+            for bar, method_key, value in zip(bars, method_keys, values):
                 if method_key in best_methods:
                     bar.set_edgecolor('#d4a017')
-                    bar.set_linewidth(2.6)
+                    bar.set_linewidth(2.8)
+                    annotate_bar_value(axis, metric['key'], metric, bar, value, '#6a4800', '#fff6d9', '#d4a017')
                 elif method_key == 'ours':
                     bar.set_edgecolor('#0b1e33')
-                    bar.set_linewidth(1.4)
+                    bar.set_linewidth(1.6)
+                    annotate_bar_value(axis, metric['key'], metric, bar, value, '#173c68', '#eff5fb', '#b6c8dd')
                 else:
                     bar.set_edgecolor((0, 0, 0, 0.08))
                     bar.set_linewidth(0.8)
 
-            if metric['log_scale']:
-                axis.set_yscale('log')
-                axis.minorticks_off()
-
-            axis.set_title(metric['title'], loc='left', fontsize=12.2, fontweight='bold', color='#173c68', pad=10)
+            axis.set_title(metric['title'], loc='left', fontsize=12.6, fontweight='bold', color='#173c68', pad=11)
             axis.text(
                 0.0,
-                1.01,
+                1.02,
                 metric['note'],
                 transform=axis.transAxes,
                 ha='left',
                 va='bottom',
-                fontsize=8.9,
-                color='#64748b',
+                fontsize=9.0,
+                color='#63748c',
             )
-            axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=25, ha='right')
-            axis.tick_params(axis='x', labelsize=9, colors='#334155')
-            axis.tick_params(axis='y', labelsize=9, colors='#475569')
+            axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=22, ha='right')
+            axis.tick_params(axis='x', labelsize=9.2, colors='#334155')
+            axis.tick_params(axis='y', labelsize=9.1, colors='#475569')
             axis.yaxis.set_major_formatter(metric_axis_formatter(metric['key']))
-            axis.margins(x=0.05)
+            axis.margins(x=0.06)
 
             for spine in ['top', 'right']:
                 axis.spines[spine].set_visible(False)
-            axis.spines['left'].set_color('#c7d3e3')
-            axis.spines['bottom'].set_color('#c7d3e3')
+            axis.spines['left'].set_color('#c8d4e3')
+            axis.spines['bottom'].set_color('#c8d4e3')
 
-        legend_ax.text(0.0, 0.97, 'Methods', fontsize=12.0, fontweight='bold', color='#173c68', va='top')
+        legend_ax.text(0.0, 0.965, 'Methods', fontsize=12.6, fontweight='bold', color='#173c68', va='top')
         for index, (method_key, method_label) in enumerate(METHODS):
-            y = 0.85 - index * 0.11
-            legend_ax.add_patch(Rectangle((0.0, y - 0.03), 0.06, 0.05, transform=legend_ax.transAxes, facecolor=METHOD_COLORS[method_key], edgecolor='none'))
-            legend_ax.text(0.09, y, method_label, transform=legend_ax.transAxes, fontsize=10.2, color='#334155', va='center')
+            y = 0.845 - index * 0.108
+            legend_ax.add_patch(Rectangle((0.0, y - 0.03), 0.065, 0.052, transform=legend_ax.transAxes, facecolor=METHOD_COLORS[method_key], edgecolor='#d4a017' if method_key == 'ours' else 'none', linewidth=1.0))
+            legend_ax.text(0.095, y, method_label, transform=legend_ax.transAxes, fontsize=10.3, color='#334155', va='center')
         legend_ax.text(
             0.0,
-            0.12,
-            'Average over 6 N3D scenes. Gold outlines mark the best method in each metric panel. FPS uses a log axis for readability.',
+            0.17,
+            'Average over 6 N3D scenes.',
+            transform=legend_ax.transAxes,
+            fontsize=9.8,
+            color='#5f6f86',
+            va='top',
+        )
+        legend_ax.text(
+            0.0,
+            0.09,
+            'Gold outlines mark the best method in each panel. Blue value tags call out SGS-4DGS.',
             transform=legend_ax.transAxes,
             fontsize=9.4,
-            color='#64748b',
+            color='#6a7a91',
             va='top',
             wrap=True,
         )
 
-        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.985, ha='left', fontsize=18, fontweight='bold', color='#173c68')
-        fig.text(0.05, 0.953, 'Generated directly from the current result.json logs for SGS-4DGS and five dynamic Gaussian splatting baselines.', fontsize=10.2, color='#5b6b84')
-        fig.tight_layout(rect=(0, 0, 1, 0.935))
+        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.982, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
+        fig.text(0.05, 0.95, 'PSNR, SSIM, LPIPS, train time, and FPS', fontsize=10.4, color='#5f6f86')
+        fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.93))
         fig.savefig(RESULTS_DIR / f'results-{view_key}-bars.svg', format='svg', bbox_inches='tight')
         plt.close(fig)
 
@@ -399,7 +485,7 @@ def render_results_charts(_: Dict[str, object]) -> str:
               between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
             </p>
             <p class="results-summary-note">
-              The results are generated directly from the current <code>result.json</code> logs. Gold outlines mark the best method in each metric panel.
+              Gold outlines mark the best method in each metric panel, and blue value tags call out SGS-4DGS.
             </p>
           </div>
 
