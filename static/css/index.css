@@ -2754,3 +2754,328 @@ body {
 }
 /* End Visual Comparisons Refresh */
 
+/* Page Aesthetic Refresh */
+body {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(183, 205, 228, 0.38), rgba(183, 205, 228, 0) 32%),
+    radial-gradient(circle at top right, rgba(236, 225, 206, 0.48), rgba(236, 225, 206, 0) 28%),
+    linear-gradient(180deg, #f4f7fb 0%, #f9fbfd 18rem, #ffffff 36rem, #fafcfd 100%);
+}
+
+.publication-hero .container.is-max-desktop > .columns,
+.section.section-tight .columns.is-centered {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section.section-tight .columns.is-centered > .column {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+  position: relative;
+  padding: 1.9rem 2rem 1.7rem;
+  border: 1px solid rgba(112, 127, 149, 0.16);
+  border-radius: 1.7rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 252, 0.93));
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  overflow: hidden;
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered::before,
+.abstract-panel::before,
+.method-overview-panel::before,
+.results-panel::before,
+.visual-comparisons-panel::before,
+[data-n3d-showcase] .n3d-showcase-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(23, 60, 104, 0.96), rgba(111, 163, 216, 0.72) 55%, rgba(111, 163, 216, 0));
+}
+
+.publication-title {
+  font-family: 'Castoro', serif;
+  font-size: clamp(2.55rem, 4.7vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  color: #17314e;
+  text-wrap: balance;
+}
+
+.publication-title__line {
+  display: block;
+}
+
+.publication-title__line + .publication-title__line {
+  margin-top: 0.12rem;
+}
+
+.publication-authors {
+  color: #66758b;
+  letter-spacing: 0.01em;
+}
+
+.publication-hero .column.has-text-centered .column.has-text-centered {
+  padding: 0;
+  margin-top: 0.3rem;
+}
+
+.publication-links {
+  margin-top: 1.35rem;
+}
+
+.publication-links .link-block a {
+  min-width: 8.85rem;
+  min-height: 2.9rem;
+  border-radius: 999px !important;
+  border: 1px solid rgba(24, 52, 79, 0.12);
+  background: linear-gradient(135deg, #18344f 0%, #294869 100%);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.publication-links .link-block a:hover {
+  background: linear-gradient(135deg, #142b42 0%, #21425f 100%);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.2), 0 0 0 4px rgba(117, 152, 194, 0.12);
+}
+
+[data-n3d-showcase] .n3d-showcase-shell {
+  position: relative;
+  width: min(100%, clamp(1080px, 71vw, 1360px));
+  padding: 1.35rem 1.4rem 1.3rem;
+  border-radius: 1.7rem;
+  border: 1px solid rgba(112, 127, 149, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(243, 247, 251, 0.93));
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.abstract-panel,
+.method-overview-panel,
+.results-panel,
+.visual-comparisons-panel {
+  position: relative;
+  padding: 1.55rem 1.65rem 1.75rem;
+  border: 1px solid rgba(112, 127, 149, 0.16);
+  border-radius: 1.45rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(247, 250, 252, 0.94));
+  box-shadow: 0 22px 46px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.abstract-title,
+.method-overview-title,
+.results-title,
+.visual-comparisons-title,
+[data-n3d-showcase] .n3d-showcase-title {
+  font-family: 'Castoro', serif;
+  font-size: clamp(1.92rem, 2.8vw, 2.35rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #16314d;
+  text-wrap: balance;
+}
+
+.abstract-title::after,
+.method-overview-title::after,
+.results-title::after,
+.visual-comparisons-title::after,
+[data-n3d-showcase] .n3d-showcase-title::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  margin: 0.68rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #173c68, #8cb4da);
+}
+
+.abstract-divider,
+.results-divider {
+  display: none;
+}
+
+.abstract-copy,
+.results-summary,
+.visual-comparisons-summary,
+[data-n3d-showcase] .n3d-showcase-summary {
+  max-width: 54rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abstract-copy,
+.method-overview-caption,
+.results-summary,
+.visual-comparisons-summary,
+.results-display__caption,
+[data-n3d-showcase] .n3d-showcase-summary,
+.project-footer__note {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.abstract-copy p,
+.results-summary p,
+.visual-comparisons-summary p,
+[data-n3d-showcase] .n3d-showcase-summary,
+.method-overview-caption {
+  color: #596880;
+  font-size: 1rem;
+  line-height: 1.82;
+}
+
+.results-summary-note {
+  margin-top: 0.72rem;
+  color: #687790;
+  font-size: 0.92rem;
+}
+
+.method-overview-figure {
+  padding: 0.95rem;
+  border-radius: 1.28rem;
+  background: linear-gradient(180deg, rgba(246, 249, 252, 0.98), rgba(239, 244, 249, 0.96));
+  border: 1px solid rgba(124, 138, 160, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.method-overview-figure img {
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+}
+
+.method-overview-caption {
+  max-width: 54rem;
+  margin: 1rem auto 0;
+}
+
+.results-selector-shell {
+  margin-top: 0.1rem;
+}
+
+.results-display {
+  margin-top: 0.42rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(126, 141, 163, 0.15);
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 246, 251, 0.96));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 16px 34px rgba(15, 23, 42, 0.06);
+}
+
+.results-display__image {
+  border-radius: 1rem;
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.09);
+}
+
+.results-display__caption {
+  margin-top: 0.8rem;
+  color: #607087;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.visual-comparisons-container {
+  max-width: var(--page-width-showcase) !important;
+}
+
+[data-visual-comparisons] .scene-compare-card__header {
+  align-items: center;
+  text-align: center;
+  gap: 0.72rem;
+}
+
+[data-visual-comparisons] .scene-compare-card__eyebrow {
+  align-self: center;
+}
+
+[data-visual-comparisons] .scene-compare-switcher {
+  width: 100%;
+  max-width: 18.75rem;
+  margin: 0 auto;
+}
+
+[data-visual-comparisons] .scene-compare-switcher__text {
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0.78rem 1rem 0.84rem;
+}
+
+[data-visual-comparisons] .scene-compare-switcher__method {
+  text-align: center;
+}
+
+[data-visual-comparisons] .visual-compare-grid .visual-compare-card,
+[data-n3d-showcase] .scene-compare-card {
+  border-radius: 1.3rem;
+  border: 1px solid rgba(133, 148, 173, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 252, 0.93));
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+}
+
+[data-visual-comparisons] .visual-compare-wrapper,
+[data-n3d-showcase] .scene-compare-wrapper {
+  border-radius: 1.12rem;
+  overflow: hidden;
+}
+
+[data-visual-comparisons] .visual-comparisons-stage.n3d-showcase-stage {
+  gap: 1.02rem;
+}
+
+.project-footer {
+  margin-top: 2.6rem;
+  padding-top: 2.1rem;
+  padding-bottom: 1.4rem;
+  background: transparent;
+  border-top: 0;
+}
+
+.project-footer__icons .icon-link {
+  border: 1px solid rgba(112, 127, 149, 0.14);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+}
+
+@media screen and (max-width: 768px) {
+  .publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+    padding: 1.45rem 1rem 1.25rem;
+    border-radius: 1.3rem;
+  }
+
+  .publication-title {
+    font-size: clamp(2.05rem, 9vw, 2.7rem);
+  }
+
+  .abstract-panel,
+  .method-overview-panel,
+  .results-panel,
+  .visual-comparisons-panel {
+    padding: 1.15rem 1rem 1.25rem;
+    border-radius: 1.2rem;
+  }
+
+  .abstract-title,
+  .method-overview-title,
+  .results-title,
+  .visual-comparisons-title,
+  [data-n3d-showcase] .n3d-showcase-title {
+    font-size: 1.72rem;
+  }
+
+  .method-overview-figure {
+    padding: 0.62rem;
+    border-radius: 1rem;
+  }
+
+  .results-display {
+    padding: 0.85rem;
+    border-radius: 1rem;
+  }
+
+  [data-visual-comparisons] .scene-compare-switcher {
+    max-width: none;
+  }
+}
+/* End Page Aesthetic Refresh */
+
