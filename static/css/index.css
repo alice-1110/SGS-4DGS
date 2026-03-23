@@ -1971,6 +1971,10 @@ body {
   padding-bottom: var(--section-space-y);
 }
 
+.section + .section {
+  padding-top: 0.15rem;
+}
+
 .scene-showcase-section+.section {
   padding-top: 1.9rem;
 }
@@ -2517,6 +2521,10 @@ body {
   .section {
     padding-top: var(--section-space-y-mobile);
     padding-bottom: var(--section-space-y-mobile);
+  }
+
+  .section + .section {
+    padding-top: 0.1rem;
   }
 
   .scene-showcase-section+.section {
