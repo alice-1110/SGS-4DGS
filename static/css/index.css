@@ -3216,3 +3216,81 @@ body {
   }
 }
 
+
+/* Final Width and Results Tuning */
+:root {
+  --page-width-unified: 1180px;
+}
+
+.publication-hero .hero-body,
+.n3d-showcase-section .hero-body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.publication-hero .container.is-max-desktop,
+[data-n3d-showcase] .n3d-showcase-container,
+.section.section-tight > .container.is-max-desktop,
+.visual-comparisons-container {
+  max-width: var(--page-width-unified) !important;
+}
+
+.publication-hero .container.is-max-desktop > .columns,
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered,
+[data-n3d-showcase] .n3d-showcase-shell {
+  width: 100%;
+  max-width: 100%;
+}
+
+.publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+  margin: 0 auto;
+  padding: 1.82rem 2.1rem 1.68rem;
+}
+
+[data-n3d-showcase] .n3d-showcase-shell {
+  padding: 1.48rem 1.55rem 1.45rem;
+}
+
+.results-panel {
+  --results-card-width: clamp(5.45rem, 6.8vw, 6.35rem);
+  --results-step: clamp(6.55rem, 8vw, 7.3rem);
+}
+
+.results-selector__viewport {
+  height: 7.45rem;
+}
+
+.results-selector__item {
+  padding: 0.28rem;
+  border-radius: 1rem;
+}
+
+.results-selector__item img {
+  aspect-ratio: 1.68 / 1;
+  padding: 0.24rem;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-hero .hero-body,
+  .n3d-showcase-section .hero-body {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .publication-hero .container.is-max-desktop > .columns > .column.has-text-centered {
+    padding: 1.45rem 1rem 1.28rem;
+  }
+
+  [data-n3d-showcase] .n3d-showcase-shell {
+    padding: 1.12rem 0.95rem 1.12rem;
+  }
+
+  .results-panel {
+    --results-card-width: 4.9rem;
+    --results-step: 5.7rem;
+  }
+
+  .results-selector__viewport {
+    height: 6rem;
+  }
+}
