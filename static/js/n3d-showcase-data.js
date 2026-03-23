@@ -56,7 +56,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1218.1255309581757,
               "eval_time": 84.0890474319458,
               "fps": 472.66295782075514,
-              "model_size": 31238511
+              "model_size": 31238511.0
             }
           },
           "baselines": {
@@ -71,7 +71,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3084.0,
                 "eval_time": 169.0,
                 "fps": 11.192607609321284,
-                "model_size": 29189943
+                "model_size": 29189943.0
               }
             },
             "cem4dgs": {
@@ -85,7 +85,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 0.0,
                 "eval_time": 362.0,
                 "fps": 0.8287292817679558,
-                "model_size": 242127172
+                "model_size": 242127172.0
               }
             },
             "ex4dgs": {
@@ -99,7 +99,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3652.0,
                 "eval_time": 4568.0,
                 "fps": 54.95181266363482,
-                "model_size": 163160732
+                "model_size": 163160732.0
               }
             },
             "spacetimegs": {
@@ -113,7 +113,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3046.5629482269287,
                 "eval_time": 1014.3318891525269,
                 "fps": 9.823955057327161,
-                "model_size": 6211976
+                "model_size": 6211976.0
               }
             },
             "swift4d": {
@@ -127,7 +127,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3801.0,
                 "eval_time": 147.0,
                 "fps": 138.78174052276393,
-                "model_size": 33777125
+                "model_size": 33777125.0
               }
             }
           }
@@ -145,7 +145,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1323.3471503257751,
               "eval_time": 69.05672717094421,
               "fps": 455.7325700594685,
-              "model_size": 34843223
+              "model_size": 34843223.0
             }
           },
           "baselines": {
@@ -160,7 +160,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3675.0,
                 "eval_time": 78.06277751922607,
                 "fps": 10.015238725357628,
-                "model_size": 30287999
+                "model_size": 30287999.0
               }
             },
             "cem4dgs": {
@@ -174,7 +174,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 8184.0,
                 "eval_time": 718.0,
                 "fps": 0.4178272980501393,
-                "model_size": 255477752
+                "model_size": 255477752.0
               }
             },
             "ex4dgs": {
@@ -188,7 +188,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4896.0,
                 "eval_time": 2167.0,
                 "fps": 57.61404120276391,
-                "model_size": 122380288
+                "model_size": 122380288.0
               }
             },
             "spacetimegs": {
@@ -202,7 +202,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3382.0,
                 "eval_time": 1068.0,
                 "fps": 11.553932241920574,
-                "model_size": 17715209
+                "model_size": 17715209.0
               }
             },
             "swift4d": {
@@ -216,7 +216,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1913.0,
                 "eval_time": 62.725200176239014,
                 "fps": 165.7683696883042,
-                "model_size": 40604562
+                "model_size": 40604562.0
               }
             }
           }
@@ -234,7 +234,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1417.6564111709595,
               "eval_time": 68.2707302570343,
               "fps": 391.6116328232314,
-              "model_size": 38654096
+              "model_size": 38654096.0
             }
           },
           "baselines": {
@@ -249,7 +249,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3289.0,
                 "eval_time": 76.0,
                 "fps": 10.41789291534261,
-                "model_size": 38246616
+                "model_size": 38246616.0
               }
             },
             "cem4dgs": {
@@ -263,7 +263,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 7529.0,
                 "eval_time": 350.0,
                 "fps": 0.8571428571428571,
-                "model_size": 222928624
+                "model_size": 222928624.0
               }
             },
             "ex4dgs": {
@@ -277,7 +277,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4637.0,
                 "eval_time": 1056.0,
                 "fps": 62.21673130882169,
-                "model_size": 106387555
+                "model_size": 106387555.0
               }
             },
             "spacetimegs": {
@@ -291,7 +291,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3284.0,
                 "eval_time": 1015.0,
                 "fps": 12.292214006515096,
-                "model_size": 15082889
+                "model_size": 15082889.0
               }
             },
             "swift4d": {
@@ -305,7 +305,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1903.0,
                 "eval_time": 65.0,
                 "fps": 156.90375686651123,
-                "model_size": 48426894
+                "model_size": 48426894.0
               }
             }
           }
@@ -331,7 +331,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1082.0,
               "eval_time": 78.74148154258728,
               "fps": 558.5998527600212,
-              "model_size": 28623559
+              "model_size": 28623559.0
             }
           },
           "baselines": {
@@ -346,7 +346,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1727.0,
                 "eval_time": 163.0,
                 "fps": 12.724423720726282,
-                "model_size": 29745647
+                "model_size": 29745647.0
               }
             },
             "cem4dgs": {
@@ -360,7 +360,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 11342.0,
                 "eval_time": 715.0,
                 "fps": 0.4195804195804196,
-                "model_size": 328972120
+                "model_size": 328972120.0
               }
             },
             "ex4dgs": {
@@ -374,7 +374,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4765.0,
                 "eval_time": 4321.0,
                 "fps": 69.04792834059798,
-                "model_size": 133443279
+                "model_size": 133443279.0
               }
             },
             "spacetimegs": {
@@ -388,7 +388,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1761.0,
                 "eval_time": 980.1054708957672,
                 "fps": 9.890649774868269,
-                "model_size": 2540168
+                "model_size": 2540168.0
               }
             },
             "swift4d": {
@@ -402,7 +402,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1890.2538223266602,
                 "eval_time": 62.245927810668945,
                 "fps": 155.71077232908058,
-                "model_size": 27342053
+                "model_size": 27342053.0
               }
             }
           }
@@ -414,13 +414,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/cook_spinach/3views/ours.mp4",
             "metrics": {
-              "psnr": 29.726309247572267,
+              "psnr": 30.0928614825359,
               "ssim": 0.9273534590005874,
               "lpips": 0.05449379425495863,
               "train_time": 1147.0,
               "eval_time": 72.0,
               "fps": 614.3460106040219,
-              "model_size": 35934695
+              "model_size": 32459207.0
             }
           },
           "baselines": {
@@ -435,7 +435,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1736.0,
                 "eval_time": 80.0,
                 "fps": 10.236668559106851,
-                "model_size": 32459207
+                "model_size": 32459207.0
               }
             },
             "cem4dgs": {
@@ -449,7 +449,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 11733.0,
                 "eval_time": 730.0,
                 "fps": 0.410958904109589,
-                "model_size": 342790064
+                "model_size": 342790064.0
               }
             },
             "ex4dgs": {
@@ -463,7 +463,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4894.0,
                 "eval_time": 2237.0,
                 "fps": 57.932638247885706,
-                "model_size": 129727539
+                "model_size": 129727539.0
               }
             },
             "spacetimegs": {
@@ -477,7 +477,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1689.277854681015,
                 "eval_time": 1008.0,
                 "fps": 11.681769987866709,
-                "model_size": 5164808
+                "model_size": 5164808.0
               }
             },
             "swift4d": {
@@ -491,7 +491,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2089.0,
                 "eval_time": 65.23647046089172,
                 "fps": 140.2553698614051,
-                "model_size": 31166153
+                "model_size": 31166153.0
               }
             }
           }
@@ -509,7 +509,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1235.0,
               "eval_time": 70.01408076286316,
               "fps": 463.504469695588,
-              "model_size": 36052432
+              "model_size": 36052432.0
             }
           },
           "baselines": {
@@ -524,7 +524,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1667.0,
                 "eval_time": 71.5747139453888,
                 "fps": 11.142619665243283,
-                "model_size": 33087255
+                "model_size": 33087255.0
               }
             },
             "cem4dgs": {
@@ -538,7 +538,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 11353.0,
                 "eval_time": 351.0,
                 "fps": 0.8547008547008547,
-                "model_size": 345425944
+                "model_size": 345425944.0
               }
             },
             "ex4dgs": {
@@ -552,7 +552,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4668.0,
                 "eval_time": 1064.0,
                 "fps": 71.31158081661032,
-                "model_size": 136200891
+                "model_size": 136200891.0
               }
             },
             "spacetimegs": {
@@ -566,7 +566,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1668.5660395622253,
                 "eval_time": 970.1443161964417,
                 "fps": 11.738339018016294,
-                "model_size": 7073288
+                "model_size": 7073288.0
               }
             },
             "swift4d": {
@@ -580,7 +580,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1876.0,
                 "eval_time": 67.0,
                 "fps": 157.19061361270823,
-                "model_size": 33470945
+                "model_size": 33470945.0
               }
             }
           }
@@ -600,13 +600,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/cut_roasted_beef/2views/ours.mp4",
             "metrics": {
-              "psnr": 24.915570957758572,
-              "ssim": 0.8772301294406255,
-              "lpips": 0.1071621182312568,
+              "psnr": 26.755822696311668,
+              "ssim": 0.8800894737243652,
+              "lpips": 0.10099755754073461,
               "train_time": 1061.0,
               "eval_time": 71.0,
               "fps": 618.3381630062664,
-              "model_size": 30044143
+              "model_size": 27902183.0
             }
           },
           "baselines": {
@@ -621,7 +621,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1694.0,
                 "eval_time": 165.0,
                 "fps": 12.588555967497214,
-                "model_size": 27902183
+                "model_size": 27902183.0
               }
             },
             "cem4dgs": {
@@ -635,7 +635,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 7407.0,
                 "eval_time": 666.0,
                 "fps": 0.45045045045045046,
-                "model_size": 207214712
+                "model_size": 207214712.0
               }
             },
             "ex4dgs": {
@@ -649,7 +649,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4867.0,
                 "eval_time": 2185.0,
                 "fps": 57.275767410445624,
-                "model_size": 139280568
+                "model_size": 139280568.0
               }
             },
             "spacetimegs": {
@@ -663,7 +663,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1719.1845293045044,
                 "eval_time": 1006.7388818264008,
                 "fps": 11.086579665192952,
-                "model_size": 3139848
+                "model_size": 3139848.0
               }
             },
             "swift4d": {
@@ -677,7 +677,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1960.5865099430084,
                 "eval_time": 72.0,
                 "fps": 141.2417928978662,
-                "model_size": 146608057
+                "model_size": 146608057.0
               }
             }
           }
@@ -695,7 +695,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1174.5850257873535,
               "eval_time": 67.0,
               "fps": 599.4473731443857,
-              "model_size": 36214504
+              "model_size": 36214504.0
             }
           },
           "baselines": {
@@ -710,7 +710,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1706.0,
                 "eval_time": 69.0,
                 "fps": 12.2122260918766,
-                "model_size": 33652207
+                "model_size": 33652207.0
               }
             },
             "cem4dgs": {
@@ -724,7 +724,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 7566.0,
                 "eval_time": 713.0,
                 "fps": 0.42075736325385693,
-                "model_size": 187136136
+                "model_size": 187136136.0
               }
             },
             "ex4dgs": {
@@ -738,7 +738,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4748.0,
                 "eval_time": 2085.0,
                 "fps": 72.6436470304404,
-                "model_size": 134944187
+                "model_size": 134944187.0
               }
             },
             "spacetimegs": {
@@ -752,7 +752,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1687.1115653514862,
                 "eval_time": 1022.0,
                 "fps": 12.177795437777341,
-                "model_size": 4909320
+                "model_size": 4909320.0
               }
             },
             "swift4d": {
@@ -766,7 +766,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2101.0,
                 "eval_time": 65.14013123512268,
                 "fps": 149.56807457312587,
-                "model_size": 150978745
+                "model_size": 150978745.0
               }
             }
           }
@@ -784,7 +784,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1179.0,
               "eval_time": 64.60210657119751,
               "fps": 539.7231125208108,
-              "model_size": 34230639
+              "model_size": 34230639.0
             }
           },
           "baselines": {
@@ -799,7 +799,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1689.0,
                 "eval_time": 80.0,
                 "fps": 10.142482178451726,
-                "model_size": 33902023
+                "model_size": 33902023.0
               }
             },
             "cem4dgs": {
@@ -813,7 +813,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 7356.0,
                 "eval_time": 349.0,
                 "fps": 0.8595988538681948,
-                "model_size": 193085084
+                "model_size": 193085084.0
               }
             },
             "ex4dgs": {
@@ -827,7 +827,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4674.0,
                 "eval_time": 1031.0,
                 "fps": 70.99358411466541,
-                "model_size": 123438779
+                "model_size": 123438779.0
               }
             },
             "spacetimegs": {
@@ -841,7 +841,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1666.0,
                 "eval_time": 974.0363972187042,
                 "fps": 12.358968442511571,
-                "model_size": 5139080
+                "model_size": 5139080.0
               }
             },
             "swift4d": {
@@ -855,7 +855,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1926.0,
                 "eval_time": 72.0,
                 "fps": 148.6323850158369,
-                "model_size": 152949638
+                "model_size": 152949638.0
               }
             }
           }
@@ -864,7 +864,7 @@ window.N3D_SHOWCASE_DATA = {
     },
     {
       "key": "flame_salmon_1",
-      "label": "Flame Salmon",
+      "label": "Flame Salmon 1",
       "thumb": "./n3d/thumbs/flame_salmon_1.png",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -881,7 +881,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1189.4726622104645,
               "eval_time": 73.0,
               "fps": 431.5023525345807,
-              "model_size": 41231664
+              "model_size": 41231664.0
             }
           },
           "baselines": {
@@ -896,7 +896,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 5681.0,
                 "eval_time": 82.0,
                 "fps": 9.656534118338119,
-                "model_size": 29238503
+                "model_size": 29238503.0
               }
             },
             "cem4dgs": {
@@ -910,7 +910,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 8216.0,
                 "eval_time": 726.0,
                 "fps": 0.4132231404958678,
-                "model_size": 274677424
+                "model_size": 274677424.0
               }
             },
             "ex4dgs": {
@@ -924,7 +924,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4724.0,
                 "eval_time": 2160.0,
                 "fps": 57.37108353549837,
-                "model_size": 136522975
+                "model_size": 136522975.0
               }
             },
             "spacetimegs": {
@@ -938,7 +938,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3449.515545129776,
                 "eval_time": 1021.0,
                 "fps": 11.140832670613088,
-                "model_size": 9459208
+                "model_size": 9459208.0
               }
             },
             "swift4d": {
@@ -952,7 +952,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1919.583872795105,
                 "eval_time": 64.0,
                 "fps": 167.00389738869498,
-                "model_size": 35524494
+                "model_size": 35524494.0
               }
             }
           }
@@ -970,7 +970,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1310.0,
               "eval_time": 66.09568786621094,
               "fps": 400.33231992714735,
-              "model_size": 37114720
+              "model_size": 37114720.0
             }
           },
           "baselines": {
@@ -985,7 +985,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3081.0,
                 "eval_time": 75.0,
                 "fps": 10.656327440139965,
-                "model_size": 32628359
+                "model_size": 32628359.0
               }
             },
             "cem4dgs": {
@@ -999,7 +999,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 8249.0,
                 "eval_time": 718.0,
                 "fps": 0.4178272980501393,
-                "model_size": 252091084
+                "model_size": 252091084.0
               }
             },
             "ex4dgs": {
@@ -1013,7 +1013,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4657.0,
                 "eval_time": 2189.0,
                 "fps": 67.59060760689218,
-                "model_size": 109200043
+                "model_size": 109200043.0
               }
             },
             "spacetimegs": {
@@ -1027,7 +1027,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3172.0,
                 "eval_time": 1083.0,
                 "fps": 11.87514726554196,
-                "model_size": 15772425
+                "model_size": 15772425.0
               }
             },
             "swift4d": {
@@ -1041,7 +1041,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2251.0,
                 "eval_time": 77.0,
                 "fps": 139.98527879419257,
-                "model_size": 44470746
+                "model_size": 44470746.0
               }
             }
           }
@@ -1059,7 +1059,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1398.0,
               "eval_time": 66.17241215705872,
               "fps": 389.80983905677465,
-              "model_size": 38887144
+              "model_size": 38887144.0
             }
           },
           "baselines": {
@@ -1074,7 +1074,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3185.0,
                 "eval_time": 63.0,
                 "fps": 12.6494597075685,
-                "model_size": 37463392
+                "model_size": 37463392.0
               }
             },
             "cem4dgs": {
@@ -1088,7 +1088,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 8296.0,
                 "eval_time": 351.0,
                 "fps": 0.8547008547008547,
-                "model_size": 258219652
+                "model_size": 258219652.0
               }
             },
             "ex4dgs": {
@@ -1102,7 +1102,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4487.0,
                 "eval_time": 1068.0,
                 "fps": 67.25024924275174,
-                "model_size": 110470400
+                "model_size": 110470400.0
               }
             },
             "spacetimegs": {
@@ -1116,7 +1116,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 3188.0,
                 "eval_time": 1001.0,
                 "fps": 11.833216584490824,
-                "model_size": 18357257
+                "model_size": 18357257.0
               }
             },
             "swift4d": {
@@ -1130,7 +1130,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2149.0,
                 "eval_time": 66.4632477760315,
                 "fps": 157.61498639324716,
-                "model_size": 48773646
+                "model_size": 48773646.0
               }
             }
           }
@@ -1156,7 +1156,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1143.546737909317,
               "eval_time": 70.65627884864807,
               "fps": 414.46351617312644,
-              "model_size": 28413239
+              "model_size": 28413239.0
             }
           },
           "baselines": {
@@ -1171,7 +1171,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1700.0,
                 "eval_time": 172.0,
                 "fps": 9.495256808036862,
-                "model_size": 25034247
+                "model_size": 25034247.0
               }
             },
             "cem4dgs": {
@@ -1185,7 +1185,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4958.0,
                 "eval_time": 666.0,
                 "fps": 0.45045045045045046,
-                "model_size": 315693660
+                "model_size": 315693660.0
               }
             },
             "ex4dgs": {
@@ -1199,7 +1199,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4593.0,
                 "eval_time": 2218.0,
                 "fps": 70.28182483443145,
-                "model_size": 109606915
+                "model_size": 109606915.0
               }
             },
             "spacetimegs": {
@@ -1213,7 +1213,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1664.0,
                 "eval_time": 941.3222398757935,
                 "fps": 11.43147565848963,
-                "model_size": 2844424
+                "model_size": 2844424.0
               }
             },
             "swift4d": {
@@ -1227,7 +1227,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1996.0,
                 "eval_time": 63.43224596977234,
                 "fps": 156.3851066042538,
-                "model_size": 144938305
+                "model_size": 144938305.0
               }
             }
           }
@@ -1239,13 +1239,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/flame_steak/3views/ours.mp4",
             "metrics": {
-              "psnr": 29.31457406804342,
+              "psnr": 30.352577969821482,
               "ssim": 0.9362490077813467,
               "lpips": 0.04335693967839082,
-              "train_time": 2010.0,
+              "train_time": 1674.0,
               "eval_time": 69.16911005973816,
               "fps": 606.4232209761625,
-              "model_size": 35024607
+              "model_size": 32185983.0
             }
           },
           "baselines": {
@@ -1260,7 +1260,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1674.0,
                 "eval_time": 70.0,
                 "fps": 11.902680233775255,
-                "model_size": 32185983
+                "model_size": 32185983.0
               }
             },
             "cem4dgs": {
@@ -1274,7 +1274,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 5033.0,
                 "eval_time": 323.0,
                 "fps": 0.9287925696594427,
-                "model_size": 261412028
+                "model_size": 261412028.0
               }
             },
             "ex4dgs": {
@@ -1288,7 +1288,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 5904.0,
                 "eval_time": 1091.0,
                 "fps": 53.19811540246669,
-                "model_size": 102366255
+                "model_size": 102366255.0
               }
             },
             "spacetimegs": {
@@ -1302,7 +1302,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1805.418470621109,
                 "eval_time": 953.3610155582428,
                 "fps": 12.326746015748649,
-                "model_size": 5143816
+                "model_size": 5143816.0
               }
             },
             "swift4d": {
@@ -1316,7 +1316,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2271.0,
                 "eval_time": 62.8696084022522,
                 "fps": 165.89028726565013,
-                "model_size": 149703877
+                "model_size": 149703877.0
               }
             }
           }
@@ -1334,7 +1334,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1175.0,
               "eval_time": 65.0,
               "fps": 554.6353985082454,
-              "model_size": 34317823
+              "model_size": 34317823.0
             }
           },
           "baselines": {
@@ -1349,7 +1349,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1658.0,
                 "eval_time": 69.0,
                 "fps": 11.641275540902008,
-                "model_size": 32392391
+                "model_size": 32392391.0
               }
             },
             "cem4dgs": {
@@ -1363,7 +1363,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4664.0,
                 "eval_time": 340.0,
                 "fps": 0.8823529411764706,
-                "model_size": 235288296
+                "model_size": 235288296.0
               }
             },
             "ex4dgs": {
@@ -1377,7 +1377,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4689.0,
                 "eval_time": 1080.0,
                 "fps": 63.19486626010552,
-                "model_size": 119871595
+                "model_size": 119871595.0
               }
             },
             "spacetimegs": {
@@ -1391,7 +1391,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1667.8839609622955,
                 "eval_time": 969.6961464881897,
                 "fps": 12.40474280357456,
-                "model_size": 4760584
+                "model_size": 4760584.0
               }
             },
             "swift4d": {
@@ -1405,7 +1405,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2053.0,
                 "eval_time": 66.0,
                 "fps": 151.63103161347377,
-                "model_size": 151810849
+                "model_size": 151810849.0
               }
             }
           }
@@ -1431,7 +1431,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1167.0,
               "eval_time": 71.0835485458374,
               "fps": 517.9401977714534,
-              "model_size": 27245015
+              "model_size": 27245015.0
             }
           },
           "baselines": {
@@ -1446,7 +1446,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2824.0,
                 "eval_time": 73.26945424079895,
                 "fps": 11.585408306097795,
-                "model_size": 24432407
+                "model_size": 24432407.0
               }
             },
             "cem4dgs": {
@@ -1460,7 +1460,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4974.0,
                 "eval_time": 711.0,
                 "fps": 0.4219409282700422,
-                "model_size": 284442136
+                "model_size": 284442136.0
               }
             },
             "ex4dgs": {
@@ -1474,7 +1474,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4644.0,
                 "eval_time": 2168.0,
                 "fps": 66.03126674239745,
-                "model_size": 97714515
+                "model_size": 97714515.0
               }
             },
             "spacetimegs": {
@@ -1488,7 +1488,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1706.66179728508,
                 "eval_time": 1011.0,
                 "fps": 12.811737996091496,
-                "model_size": 3543816
+                "model_size": 3543816.0
               }
             },
             "swift4d": {
@@ -1502,7 +1502,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1990.0,
                 "eval_time": 62.59413552284241,
                 "fps": 157.09578344403513,
-                "model_size": 144467317
+                "model_size": 144467317.0
               }
             }
           }
@@ -1514,13 +1514,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/sear_steak/3views/ours.mp4",
             "metrics": {
-              "psnr": 29.749656044469976,
+              "psnr": 30.607906393361784,
               "ssim": 0.9349427555004756,
               "lpips": 0.04592712658147017,
               "train_time": 1140.0134842395782,
               "eval_time": 73.0,
               "fps": 613.5642584883761,
-              "model_size": 35105207
+              "model_size": 32546639.0
             }
           },
           "baselines": {
@@ -1535,7 +1535,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1683.0,
                 "eval_time": 75.0,
                 "fps": 11.821533038410443,
-                "model_size": 32546639
+                "model_size": 32546639.0
               }
             },
             "cem4dgs": {
@@ -1549,7 +1549,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4777.0,
                 "eval_time": 341.0,
                 "fps": 0.8797653958944281,
-                "model_size": 283661304
+                "model_size": 283661304.0
               }
             },
             "ex4dgs": {
@@ -1563,7 +1563,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4583.0,
                 "eval_time": 1048.0,
                 "fps": 71.4972489580133,
-                "model_size": 100320319
+                "model_size": 100320319.0
               }
             },
             "spacetimegs": {
@@ -1577,7 +1577,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1766.2953736782074,
                 "eval_time": 976.0,
                 "fps": 10.702036434205077,
-                "model_size": 5159560
+                "model_size": 5159560.0
               }
             },
             "swift4d": {
@@ -1591,7 +1591,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2257.0,
                 "eval_time": 61.11591410636902,
                 "fps": 154.78720144516137,
-                "model_size": 149469517
+                "model_size": 149469517.0
               }
             }
           }
@@ -1609,7 +1609,7 @@ window.N3D_SHOWCASE_DATA = {
               "train_time": 1260.0,
               "eval_time": 63.0,
               "fps": 521.4954656261448,
-              "model_size": 34564223
+              "model_size": 34564223.0
             }
           },
           "baselines": {
@@ -1624,7 +1624,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1622.0,
                 "eval_time": 65.02623867988586,
                 "fps": 12.526156654494494,
-                "model_size": 32913631
+                "model_size": 32913631.0
               }
             },
             "cem4dgs": {
@@ -1638,7 +1638,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4904.0,
                 "eval_time": 351.0,
                 "fps": 0.8547008547008547,
-                "model_size": 269949056
+                "model_size": 269949056.0
               }
             },
             "ex4dgs": {
@@ -1652,7 +1652,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 4575.0,
                 "eval_time": 986.0,
                 "fps": 103.14019488770384,
-                "model_size": 101632863
+                "model_size": 101632863.0
               }
             },
             "spacetimegs": {
@@ -1666,7 +1666,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 1561.0,
                 "eval_time": 1114.3148121833801,
                 "fps": 12.522983576217673,
-                "model_size": 4682248
+                "model_size": 4682248.0
               }
             },
             "swift4d": {
@@ -1680,7 +1680,7 @@ window.N3D_SHOWCASE_DATA = {
                 "train_time": 2168.0,
                 "eval_time": 67.44346284866333,
                 "fps": 149.14891737431606,
-                "model_size": 151231249
+                "model_size": 151231249.0
               }
             }
           }
