@@ -61,16 +61,8 @@
   function createSyncController(leftVideo, rightVideo, leftSource, rightSource) {
     var desiredPlaying = true;
     var internalUpdate = false;
-    var syncFrame = null;
     var suppressPauseHandlers = false;
     var suppressPauseTimer = null;
-
-    function stopSyncLoop() {
-      if (syncFrame) {
-        window.cancelAnimationFrame(syncFrame);
-        syncFrame = null;
-      }
-    }
 
     function suppressPauseDuringSwitch() {
       suppressPauseHandlers = true;
@@ -88,29 +80,11 @@
         return;
       }
 
-      if (force || Math.abs(leftVideo.currentTime - rightVideo.currentTime) > 0.05) {
+      if (force || Math.abs(leftVideo.currentTime - rightVideo.currentTime) > 0.18) {
         try {
           rightVideo.currentTime = leftVideo.currentTime;
         } catch (error) {}
       }
-    }
-
-    function startSyncLoop() {
-      if (syncFrame) {
-        return;
-      }
-
-      function step() {
-        if (!desiredPlaying || leftVideo.paused) {
-          syncFrame = null;
-          return;
-        }
-
-        syncTimes(false);
-        syncFrame = window.requestAnimationFrame(step);
-      }
-
-      syncFrame = window.requestAnimationFrame(step);
     }
 
     function startPlayback(forceSync) {
@@ -127,7 +101,6 @@
       syncTimes(true);
       safePlay(rightVideo);
       internalUpdate = false;
-      startSyncLoop();
     }
 
     [leftVideo, rightVideo].forEach(function(video) {
@@ -161,22 +134,26 @@
       internalUpdate = true;
       rightVideo.pause();
       internalUpdate = false;
-      stopSyncLoop();
     });
 
     rightVideo.addEventListener('pause', function() {
       if (internalUpdate || suppressPauseHandlers || !desiredPlaying || leftVideo.paused) {
         return;
       }
-      startPlayback(true);
+      syncTimes(true);
+      safePlay(rightVideo);
+    });
+
+    rightVideo.addEventListener('ended', function() {
+      if (!desiredPlaying) {
+        return;
+      }
+      syncTimes(true);
+      safePlay(rightVideo);
     });
 
     leftVideo.addEventListener('seeking', function() {
       syncTimes(true);
-    });
-
-    leftVideo.addEventListener('timeupdate', function() {
-      syncTimes(false);
     });
 
     leftVideo.addEventListener('ratechange', function() {
@@ -188,7 +165,6 @@
         desiredPlaying = true;
         suppressPauseDuringSwitch();
         internalUpdate = true;
-        stopSyncLoop();
         leftVideo.pause();
         rightVideo.pause();
         leftVideo.poster = posterSrc || '';
@@ -205,10 +181,10 @@
         });
         window.setTimeout(function() {
           startPlayback(true);
-        }, 180);
+        }, 220);
         window.setTimeout(function() {
           startPlayback(true);
-        }, 520);
+        }, 700);
       },
       pause: function() {
         desiredPlaying = false;
@@ -216,7 +192,6 @@
         leftVideo.pause();
         rightVideo.pause();
         internalUpdate = false;
-        stopSyncLoop();
       }
     };
   }
@@ -227,8 +202,16 @@
     card.setAttribute('data-n3d-card', viewConfig.key);
     card.innerHTML = [
       '<div class="scene-compare-card__header">',
-      '  <p class="scene-compare-caption">' + viewConfig.label + '</p>',
-      '  <div class="scene-compare-methods" data-n3d-methods></div>',
+      '  <div class="scene-compare-card__eyebrow">' + viewConfig.label + '</div>',
+      '  <div class="scene-compare-switcher">',
+      '    <button class="scene-compare-nav" type="button" data-n3d-prev aria-label="Show previous baseline">&#10094;</button>',
+      '    <div class="scene-compare-switcher__text">',
+      '      <span class="scene-compare-switcher__ours">Ours</span>',
+      '      <span class="scene-compare-switcher__vs">vs</span>',
+      '      <span class="scene-compare-switcher__method" data-n3d-switch-label></span>',
+      '    </div>',
+      '    <button class="scene-compare-nav" type="button" data-n3d-next aria-label="Show next baseline">&#10095;</button>',
+      '  </div>',
       '</div>',
       '<div class="scene-compare-wrapper">',
       '  <div class="scene-compare-layer scene-compare-layer--base">',
@@ -256,7 +239,9 @@
     var wrapper = card.querySelector('.scene-compare-wrapper');
     var overlay = card.querySelector('[data-compare-overlay]');
     var divider = card.querySelector('[data-compare-handle]');
-    var methodsRoot = card.querySelector('[data-n3d-methods]');
+    var prevButton = card.querySelector('[data-n3d-prev]');
+    var nextButton = card.querySelector('[data-n3d-next]');
+    var switchLabel = card.querySelector('[data-n3d-switch-label]');
     var leftVideo = card.querySelector('.scene-compare-video--left');
     var rightVideo = card.querySelector('.scene-compare-video--right');
     var leftSource = card.querySelector('.scene-compare-source--left');
@@ -269,16 +254,46 @@
     var syncController = createSyncController(leftVideo, rightVideo, leftSource, rightSource);
     var currentScene = null;
     var activeMethodKey = methodOrder[0] ? methodOrder[0].key : '';
-    var methodButtons = [];
 
-    function updateMethodButtons() {
-      methodButtons.forEach(function(entry) {
-        var enabled = !!(currentScene && currentScene.views && currentScene.views[viewConfig.key] && currentScene.views[viewConfig.key].baselines[entry.key]);
-        var active = enabled && entry.key === activeMethodKey;
-        entry.button.disabled = !enabled;
-        entry.button.classList.toggle('is-active', active);
-        entry.button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    function getAvailableMethods() {
+      if (!currentScene || !currentScene.views || !currentScene.views[viewConfig.key]) {
+        return [];
+      }
+
+      return methodOrder.filter(function(method) {
+        return !!currentScene.views[viewConfig.key].baselines[method.key];
       });
+    }
+
+    function shiftMethod(direction) {
+      var availableMethods = getAvailableMethods();
+      var currentIndex;
+      var nextIndex;
+
+      if (!availableMethods.length) {
+        return;
+      }
+
+      currentIndex = availableMethods.findIndex(function(method) {
+        return method.key === activeMethodKey;
+      });
+
+      if (currentIndex === -1) {
+        currentIndex = 0;
+      }
+
+      nextIndex = (currentIndex + direction + availableMethods.length) % availableMethods.length;
+      activeMethodKey = availableMethods[nextIndex].key;
+      renderContent();
+    }
+
+    function updateSwitcher(baseline) {
+      var availableCount = getAvailableMethods().length;
+      var disabled = availableCount <= 1;
+
+      switchLabel.textContent = baseline ? baseline.label : '--';
+      prevButton.disabled = disabled;
+      nextButton.disabled = disabled;
     }
 
     function renderContent() {
@@ -302,7 +317,7 @@
       }
 
       activeMethodKey = baseline.key;
-      updateMethodButtons();
+      updateSwitcher(baseline);
       leftBadge.textContent = ours.label;
       rightBadge.textContent = baseline.label;
       leftMetrics.innerHTML = createMetricLines(ours.metrics || {});
@@ -313,19 +328,12 @@
       syncController.setSources(ours.video, baseline.video, sceneView.poster || currentScene.thumb);
     }
 
-    methodOrder.forEach(function(method) {
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'scene-compare-method';
-      button.textContent = method.label;
-      button.setAttribute('data-method-key', method.key);
-      button.setAttribute('aria-pressed', 'false');
-      button.addEventListener('click', function() {
-        activeMethodKey = method.key;
-        renderContent();
-      });
-      methodsRoot.appendChild(button);
-      methodButtons.push({ key: method.key, button: button });
+    prevButton.addEventListener('click', function() {
+      shiftMethod(-1);
+    });
+
+    nextButton.addEventListener('click', function() {
+      shiftMethod(1);
     });
 
     if (compareInteraction) {
