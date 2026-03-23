@@ -99,12 +99,54 @@
   gap: 0.72rem;
 }
 
+.scene-compare-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.52rem;
+}
+
 .n3d-showcase-stage .scene-compare-caption {
   margin: 0;
   color: #4b5871;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+.scene-compare-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.scene-compare-method {
+  padding: 0.34rem 0.7rem 0.38rem;
+  border: 1px solid rgba(108, 122, 145, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #49566f;
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.scene-compare-method:hover {
+  transform: translateY(-1px);
+  border-color: rgba(31, 92, 163, 0.34);
+}
+
+.scene-compare-method.is-active {
+  border-color: rgba(24, 71, 124, 0.42);
+  background: #173c68;
+  color: #ffffff;
+}
+
+.scene-compare-method:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
 }
 
 .n3d-showcase-stage .scene-compare-wrapper {
@@ -181,6 +223,10 @@
 
   .n3d-scene-selector__label {
     font-size: 0.76rem;
+  }
+
+  .scene-compare-method {
+    font-size: 0.72rem;
   }
 
   .n3d-showcase-stage .scene-compare-grid {

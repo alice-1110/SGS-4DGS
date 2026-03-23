@@ -61,27 +61,59 @@
   function createSyncController(leftVideo, rightVideo, leftSource, rightSource) {
     var desiredPlaying = true;
     var internalUpdate = false;
+    var syncFrame = null;
+    var suppressPauseHandlers = false;
+    var suppressPauseTimer = null;
+
+    function stopSyncLoop() {
+      if (syncFrame) {
+        window.cancelAnimationFrame(syncFrame);
+        syncFrame = null;
+      }
+    }
+
+    function suppressPauseDuringSwitch() {
+      suppressPauseHandlers = true;
+      if (suppressPauseTimer) {
+        window.clearTimeout(suppressPauseTimer);
+      }
+      suppressPauseTimer = window.setTimeout(function() {
+        suppressPauseHandlers = false;
+        suppressPauseTimer = null;
+      }, 500);
+    }
 
     function syncTimes(force) {
       if (!leftVideo.currentSrc || !rightVideo.currentSrc) {
         return;
       }
 
-      if (force || Math.abs(leftVideo.currentTime - rightVideo.currentTime) > 0.08) {
+      if (force || Math.abs(leftVideo.currentTime - rightVideo.currentTime) > 0.05) {
         try {
           rightVideo.currentTime = leftVideo.currentTime;
         } catch (error) {}
       }
     }
 
-    function pauseBoth() {
-      internalUpdate = true;
-      leftVideo.pause();
-      rightVideo.pause();
-      internalUpdate = false;
+    function startSyncLoop() {
+      if (syncFrame) {
+        return;
+      }
+
+      function step() {
+        if (!desiredPlaying || leftVideo.paused) {
+          syncFrame = null;
+          return;
+        }
+
+        syncTimes(false);
+        syncFrame = window.requestAnimationFrame(step);
+      }
+
+      syncFrame = window.requestAnimationFrame(step);
     }
 
-    function playBoth(forceSync) {
+    function startPlayback(forceSync) {
       if (!desiredPlaying || leftVideo.readyState < 2 || rightVideo.readyState < 2) {
         return;
       }
@@ -90,25 +122,12 @@
       if (forceSync) {
         syncTimes(true);
       }
+      rightVideo.playbackRate = leftVideo.playbackRate || 1;
       safePlay(leftVideo);
       syncTimes(true);
-      rightVideo.playbackRate = leftVideo.playbackRate;
       safePlay(rightVideo);
       internalUpdate = false;
-    }
-
-    function handleWaiting() {
-      if (!desiredPlaying) {
-        return;
-      }
-      pauseBoth();
-    }
-
-    function handleReady() {
-      if (!desiredPlaying) {
-        return;
-      }
-      playBoth(true);
+      startSyncLoop();
     }
 
     [leftVideo, rightVideo].forEach(function(video) {
@@ -118,11 +137,12 @@
       video.loop = true;
       video.playsInline = true;
       video.preload = 'auto';
-      video.addEventListener('loadeddata', handleReady);
-      video.addEventListener('canplay', handleReady);
-      video.addEventListener('waiting', handleWaiting);
-      video.addEventListener('stalled', handleWaiting);
-      video.addEventListener('emptied', handleWaiting);
+      video.addEventListener('loadeddata', function() {
+        startPlayback(true);
+      });
+      video.addEventListener('canplay', function() {
+        startPlayback(true);
+      });
     });
 
     leftVideo.addEventListener('play', function() {
@@ -130,15 +150,25 @@
         return;
       }
       desiredPlaying = true;
-      playBoth(true);
+      startPlayback(true);
     });
 
     leftVideo.addEventListener('pause', function() {
-      if (internalUpdate) {
+      if (internalUpdate || suppressPauseHandlers) {
         return;
       }
       desiredPlaying = false;
-      pauseBoth();
+      internalUpdate = true;
+      rightVideo.pause();
+      internalUpdate = false;
+      stopSyncLoop();
+    });
+
+    rightVideo.addEventListener('pause', function() {
+      if (internalUpdate || suppressPauseHandlers || !desiredPlaying || leftVideo.paused) {
+        return;
+      }
+      startPlayback(true);
     });
 
     leftVideo.addEventListener('seeking', function() {
@@ -150,13 +180,15 @@
     });
 
     leftVideo.addEventListener('ratechange', function() {
-      rightVideo.playbackRate = leftVideo.playbackRate;
+      rightVideo.playbackRate = leftVideo.playbackRate || 1;
     });
 
     return {
       setSources: function(leftSrc, rightSrc, posterSrc) {
         desiredPlaying = true;
+        suppressPauseDuringSwitch();
         internalUpdate = true;
+        stopSyncLoop();
         leftVideo.pause();
         rightVideo.pause();
         leftVideo.poster = posterSrc || '';
@@ -169,22 +201,35 @@
         } catch (error) {}
         internalUpdate = false;
         window.requestAnimationFrame(function() {
-          playBoth(true);
+          startPlayback(true);
         });
+        window.setTimeout(function() {
+          startPlayback(true);
+        }, 180);
+        window.setTimeout(function() {
+          startPlayback(true);
+        }, 520);
       },
       pause: function() {
         desiredPlaying = false;
-        pauseBoth();
+        internalUpdate = true;
+        leftVideo.pause();
+        rightVideo.pause();
+        internalUpdate = false;
+        stopSyncLoop();
       }
     };
   }
 
-  function createCompareCard(viewConfig) {
+  function createCompareCard(viewConfig, methodOrder) {
     var card = document.createElement('article');
     card.className = 'scene-compare-card';
     card.setAttribute('data-n3d-card', viewConfig.key);
     card.innerHTML = [
-      '<p class="scene-compare-caption">' + viewConfig.label + '</p>',
+      '<div class="scene-compare-card__header">',
+      '  <p class="scene-compare-caption">' + viewConfig.label + '</p>',
+      '  <div class="scene-compare-methods" data-n3d-methods></div>',
+      '</div>',
       '<div class="scene-compare-wrapper">',
       '  <div class="scene-compare-layer scene-compare-layer--base">',
       '    <video class="scene-compare-video scene-compare-video--right" autoplay muted loop playsinline preload="auto">',
@@ -211,6 +256,7 @@
     var wrapper = card.querySelector('.scene-compare-wrapper');
     var overlay = card.querySelector('[data-compare-overlay]');
     var divider = card.querySelector('[data-compare-handle]');
+    var methodsRoot = card.querySelector('[data-n3d-methods]');
     var leftVideo = card.querySelector('.scene-compare-video--left');
     var rightVideo = card.querySelector('.scene-compare-video--right');
     var leftSource = card.querySelector('.scene-compare-source--left');
@@ -221,6 +267,66 @@
     var rightBadge = card.querySelector('.scene-compare-badge--right');
     var compareInteraction = typeof attachCompareInteraction === 'function' ? attachCompareInteraction(wrapper, overlay, divider) : null;
     var syncController = createSyncController(leftVideo, rightVideo, leftSource, rightSource);
+    var currentScene = null;
+    var activeMethodKey = methodOrder[0] ? methodOrder[0].key : '';
+    var methodButtons = [];
+
+    function updateMethodButtons() {
+      methodButtons.forEach(function(entry) {
+        var enabled = !!(currentScene && currentScene.views && currentScene.views[viewConfig.key] && currentScene.views[viewConfig.key].baselines[entry.key]);
+        var active = enabled && entry.key === activeMethodKey;
+        entry.button.disabled = !enabled;
+        entry.button.classList.toggle('is-active', active);
+        entry.button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    function renderContent() {
+      var sceneView;
+      var baseline;
+      var ours;
+
+      if (!currentScene) {
+        return;
+      }
+
+      sceneView = currentScene.views[viewConfig.key];
+      if (!sceneView) {
+        return;
+      }
+
+      ours = sceneView.ours;
+      baseline = sceneView.baselines[activeMethodKey] || sceneView.baselines[currentScene.defaultMethod] || sceneView.baselines[methodOrder[0].key];
+      if (!baseline) {
+        return;
+      }
+
+      activeMethodKey = baseline.key;
+      updateMethodButtons();
+      leftBadge.textContent = ours.label;
+      rightBadge.textContent = baseline.label;
+      leftMetrics.innerHTML = createMetricLines(ours.metrics || {});
+      rightMetrics.innerHTML = createMetricLines(baseline.metrics || {});
+      if (compareInteraction) {
+        compareInteraction.setComparePosition(0.5);
+      }
+      syncController.setSources(ours.video, baseline.video, sceneView.poster || currentScene.thumb);
+    }
+
+    methodOrder.forEach(function(method) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'scene-compare-method';
+      button.textContent = method.label;
+      button.setAttribute('data-method-key', method.key);
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', function() {
+        activeMethodKey = method.key;
+        renderContent();
+      });
+      methodsRoot.appendChild(button);
+      methodButtons.push({ key: method.key, button: button });
+    });
 
     if (compareInteraction) {
       compareInteraction.setComparePosition(0.5);
@@ -228,15 +334,12 @@
 
     return {
       element: card,
-      setContent: function(content) {
-        leftBadge.textContent = content.leftLabel;
-        rightBadge.textContent = content.rightLabel;
-        leftMetrics.innerHTML = createMetricLines(content.leftMetrics || {});
-        rightMetrics.innerHTML = createMetricLines(content.rightMetrics || {});
-        if (compareInteraction) {
-          compareInteraction.setComparePosition(0.5);
+      setScene: function(scene) {
+        currentScene = scene;
+        if (!(scene.views[viewConfig.key].baselines[activeMethodKey])) {
+          activeMethodKey = scene.defaultMethod || methodOrder[0].key;
         }
-        syncController.setSources(content.leftVideo, content.rightVideo, content.poster);
+        renderContent();
       },
       pause: function() {
         syncController.pause();
@@ -265,7 +368,7 @@
     });
 
     data.viewOrder.forEach(function(viewConfig) {
-      var controller = createCompareCard(viewConfig);
+      var controller = createCompareCard(viewConfig, data.methodOrder || []);
       controllers.push({ key: viewConfig.key, controller: controller });
       grid.appendChild(controller.element);
     });
@@ -283,10 +386,7 @@
       });
 
       controllers.forEach(function(entry) {
-        var content = scene.views[entry.key];
-        if (content) {
-          entry.controller.setContent(content);
-        }
+        entry.controller.setScene(scene);
       });
     }
 
