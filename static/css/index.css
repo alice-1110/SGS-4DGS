@@ -3367,9 +3367,9 @@ body {
 
 /* Method Overview Width Tuning */
 .columns.is-centered > .column.method-overview-panel {
-  flex: 0 1 1060px;
-  width: min(100%, 1060px);
-  max-width: min(100%, 1060px);
+  flex: 0 1 var(--page-shell-width);
+  width: var(--page-shell-width);
+  max-width: var(--page-shell-width);
   margin-left: auto;
   margin-right: auto;
 }
