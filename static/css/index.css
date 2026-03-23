@@ -2667,60 +2667,27 @@ body {
   align-items: center;
 }
 
-.visual-compare-header {
+.visual-comparisons-stage.n3d-showcase-stage .visual-compare-header {
   width: 100%;
   margin-bottom: 0;
+  min-height: 0;
 }
 
-.visual-compare-header__inner--stacked {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.72rem;
+.visual-comparisons-stage.n3d-showcase-stage .visual-compare-header__inner {
   width: 100%;
+  min-height: 0;
 }
 
-.visual-compare-header__row {
-  display: flex;
-  width: 100%;
-}
-
-.visual-compare-header__row--top {
-  justify-content: flex-start;
-}
-
-.visual-compare-header__row--bottom {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.95rem;
-}
-
-.visual-compare-card__eyebrow {
-  align-self: flex-start;
-}
-
-.visual-compare-header__title {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.12rem;
+.visual-comparisons-stage.n3d-showcase-stage .visual-compare-header__chip {
   min-width: 0;
-  margin: 0;
-}
-
-.visual-compare-header__chip {
-  min-width: 0;
-  margin-left: 0.22rem;
-  padding: 0 0.08rem 0.1rem;
-}
-
-.visual-compare-selector {
-  justify-content: flex-end;
-}
-
-.visual-compare-selector__window {
-  min-width: 9.75rem;
+  margin-left: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .visual-comparisons-stage.n3d-showcase-stage .visual-compare-wrapper {
@@ -2759,22 +2726,12 @@ body {
     max-width: none;
   }
 
-  .visual-compare-header__inner--stacked {
-    gap: 0.58rem;
+  .visual-comparisons-stage.n3d-showcase-stage .scene-compare-switcher {
+    gap: 0.55rem;
   }
 
-  .visual-compare-header__row--bottom {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-    gap: 0.62rem;
-  }
-
-  .visual-compare-selector {
-    justify-content: flex-start;
-  }
-
-  .visual-compare-selector__window {
-    min-width: 8.8rem;
+  .visual-comparisons-stage.n3d-showcase-stage .scene-compare-switcher__text {
+    padding: 0.68rem 0.72rem 0.72rem;
   }
 }
 /* End Visual Comparisons Refresh */
