@@ -355,6 +355,41 @@
     };
   }
 
+  function createDatasetSwitch(datasets, activeKey, onChange) {
+    var root = document.createElement('div');
+    var buttonMap = {};
+
+    root.className = 'dataset-switcher';
+    root.setAttribute('role', 'tablist');
+    root.setAttribute('aria-label', 'Comparison dataset selector');
+
+    datasets.forEach(function(dataset) {
+      var button = document.createElement('button');
+      var isActive = dataset.key === activeKey;
+      button.type = 'button';
+      button.className = 'dataset-switcher__button' + (isActive ? ' is-active' : '');
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      button.textContent = dataset.label;
+      button.addEventListener('click', function() {
+        onChange(dataset.key);
+      });
+      root.appendChild(button);
+      buttonMap[dataset.key] = button;
+    });
+
+    return {
+      element: root,
+      update: function(nextKey) {
+        Object.keys(buttonMap).forEach(function(key) {
+          var isActive = key === nextKey;
+          buttonMap[key].classList.toggle('is-active', isActive);
+          buttonMap[key].setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+    };
+  }
+
   function createSceneCarousel(selector, prevButton, nextButton) {
     function getScrollAmount() {
       var firstButton = selector ? selector.querySelector('.scene-selector__item') : null;
@@ -426,9 +461,15 @@
     var data = window.N3D_SHOWCASE_DATA;
     var selector;
     var grid;
+    var carouselRoot;
     var prevButton;
     var nextButton;
     var carousel;
+    var datasetSwitch;
+    var datasetOptions = [];
+    var datasetSeen = {};
+    var activeDataset = null;
+    var selectedSceneByDataset = {};
     var controllers = [];
     var buttons = [];
     var sceneLookup = {};
@@ -439,19 +480,69 @@
 
     selector = root.querySelector('[data-n3d-selector]');
     grid = root.querySelector('[data-n3d-grid]');
+    carouselRoot = root.querySelector('[data-n3d-carousel]');
     prevButton = root.querySelector('[data-n3d-selector-prev]');
     nextButton = root.querySelector('[data-n3d-selector-next]');
     carousel = createSceneCarousel(selector, prevButton, nextButton);
 
     data.scenes.forEach(function(scene) {
       sceneLookup[scene.key] = scene;
+      if (!selectedSceneByDataset[scene.datasetKey]) {
+        selectedSceneByDataset[scene.datasetKey] = scene.key;
+      }
+      if (!datasetSeen[scene.datasetKey]) {
+        datasetSeen[scene.datasetKey] = true;
+        datasetOptions.push({
+          key: scene.datasetKey,
+          label: scene.datasetLabel || String(scene.datasetKey || '').toUpperCase()
+        });
+      }
     });
+
+    if (data.defaultScene && sceneLookup[data.defaultScene]) {
+      activeDataset = sceneLookup[data.defaultScene].datasetKey;
+      selectedSceneByDataset[activeDataset] = data.defaultScene;
+    } else {
+      activeDataset = datasetOptions[0] ? datasetOptions[0].key : null;
+    }
+
+    if (carouselRoot && datasetOptions.length > 1) {
+      datasetSwitch = createDatasetSwitch(datasetOptions, activeDataset, function(datasetKey) {
+        setDataset(datasetKey);
+      });
+      carouselRoot.parentNode.insertBefore(datasetSwitch.element, carouselRoot);
+    }
 
     data.viewOrder.forEach(function(viewConfig) {
       var controller = createCompareCard(viewConfig, data.methodOrder || []);
       controllers.push({ key: viewConfig.key, controller: controller });
       grid.appendChild(controller.element);
     });
+
+    function firstSceneKeyForDataset(datasetKey) {
+      var match = buttons.find(function(entry) {
+        return entry.scene.datasetKey === datasetKey;
+      });
+      return match ? match.key : null;
+    }
+
+    function updateVisibleButtons(activeSceneKey) {
+      var activeButton = null;
+
+      buttons.forEach(function(entry) {
+        var isVisible = entry.scene.datasetKey === activeDataset;
+        var isActive = entry.key === activeSceneKey;
+        entry.button.hidden = !isVisible;
+        entry.button.tabIndex = isVisible ? 0 : -1;
+        entry.button.classList.toggle('is-active', isActive);
+        entry.button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) {
+          activeButton = entry.button;
+        }
+      });
+
+      return activeButton;
+    }
 
     function activateScene(sceneKey, shouldScroll) {
       var scene = sceneLookup[sceneKey];
@@ -460,14 +551,14 @@
         return;
       }
 
-      buttons.forEach(function(entry) {
-        var isActive = entry.key === sceneKey;
-        entry.button.classList.toggle('is-active', isActive);
-        entry.button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        if (isActive) {
-          activeButton = entry.button;
-        }
-      });
+      activeDataset = scene.datasetKey || activeDataset;
+      selectedSceneByDataset[activeDataset] = sceneKey;
+
+      if (datasetSwitch) {
+        datasetSwitch.update(activeDataset);
+      }
+
+      activeButton = updateVisibleButtons(sceneKey);
 
       if (carousel) {
         if (shouldScroll && activeButton) {
@@ -482,11 +573,32 @@
       });
     }
 
-    data.scenes.forEach(function(scene, index) {
+    function setDataset(datasetKey) {
+      var sceneKey;
+      if (!datasetKey) {
+        return;
+      }
+
+      activeDataset = datasetKey;
+      sceneKey = selectedSceneByDataset[datasetKey] || firstSceneKeyForDataset(datasetKey);
+
+      if (selector) {
+        selector.scrollTo({ left: 0, behavior: 'auto' });
+      }
+
+      if (sceneKey) {
+        activateScene(sceneKey, false);
+      }
+    }
+
+    data.scenes.forEach(function(scene) {
+      var isInitiallyVisible = scene.datasetKey === activeDataset;
       var button = document.createElement('button');
       button.type = 'button';
-      button.className = 'scene-selector__item' + (index === 0 ? ' is-active' : '');
-      button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+      button.className = 'scene-selector__item';
+      button.hidden = !isInitiallyVisible;
+      button.tabIndex = isInitiallyVisible ? 0 : -1;
+      button.setAttribute('aria-pressed', 'false');
       button.setAttribute('data-scene-key', scene.key);
       button.innerHTML = [
         '<span class="scene-selector__preview" aria-hidden="true">',
@@ -498,10 +610,10 @@
         activateScene(scene.key, true);
       });
       selector.appendChild(button);
-      buttons.push({ key: scene.key, button: button });
+      buttons.push({ key: scene.key, scene: scene, button: button });
     });
 
-    activateScene(data.defaultScene || data.scenes[0].key, false);
+    setDataset(activeDataset);
   }
 
   if (document.readyState === 'loading') {

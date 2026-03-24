@@ -606,6 +606,41 @@ function initSceneShowcase() {
   }
 }
 
+function createDatasetSwitchControl(datasets, activeKey, onChange) {
+  var root = document.createElement('div');
+  var buttonMap = {};
+
+  root.className = 'dataset-switcher';
+  root.setAttribute('role', 'tablist');
+  root.setAttribute('aria-label', 'Comparison dataset selector');
+
+  datasets.forEach(function(dataset) {
+    var button = document.createElement('button');
+    var isActive = dataset.key === activeKey;
+    button.type = 'button';
+    button.className = 'dataset-switcher__button' + (isActive ? ' is-active' : '');
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    button.textContent = dataset.label;
+    button.addEventListener('click', function() {
+      onChange(dataset.key);
+    });
+    root.appendChild(button);
+    buttonMap[dataset.key] = button;
+  });
+
+  return {
+    element: root,
+    update: function(nextKey) {
+      Object.keys(buttonMap).forEach(function(key) {
+        var isActive = key === nextKey;
+        buttonMap[key].classList.toggle('is-active', isActive);
+        buttonMap[key].setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+  };
+}
+
 function createSceneSelectorCarousel(selector, prevButton, nextButton) {
   function getScrollAmount() {
     var firstButton = selector ? selector.querySelector('.scene-selector__item') : null;
@@ -680,16 +715,54 @@ function initImageComparisons() {
 
   var data = window.VISUAL_COMPARISONS_DATA;
   var selectorRoot = section.querySelector('[data-visual-selector]');
+  var carouselRoot = section.querySelector('[data-visual-carousel]');
   var prevButton = section.querySelector('[data-visual-selector-prev]');
   var nextButton = section.querySelector('[data-visual-selector-next]');
   var carousel;
+  var datasetSwitch;
+  var datasetOptions = [];
+  var datasetSeen = {};
+  var activeDataset = null;
+  var selectedSceneByDataset = {};
   var imageMediaReady = false;
   var activeButton;
   var buttons;
+  var sceneButtons = [];
   var sceneMap = {};
 
   if (!data || !Array.isArray(data.scenes) || !data.scenes.length || !selectorRoot) {
     return;
+  }
+
+  data.scenes.forEach(function(scene, index) {
+    if (!selectedSceneByDataset[scene.datasetKey]) {
+      selectedSceneByDataset[scene.datasetKey] = scene.key;
+    }
+    if (!datasetSeen[scene.datasetKey]) {
+      datasetSeen[scene.datasetKey] = true;
+      datasetOptions.push({
+        key: scene.datasetKey,
+        label: scene.datasetLabel || String(scene.datasetKey || '').toUpperCase()
+      });
+    }
+    if (scene.key === data.defaultScene || (!data.defaultScene && index === 0)) {
+      activeDataset = scene.datasetKey;
+    }
+  });
+
+  if (!activeDataset) {
+    activeDataset = datasetOptions[0] ? datasetOptions[0].key : null;
+  }
+
+  if (data.defaultScene && activeDataset) {
+    selectedSceneByDataset[activeDataset] = data.defaultScene;
+  }
+
+  if (carouselRoot && datasetOptions.length > 1) {
+    datasetSwitch = createDatasetSwitchControl(datasetOptions, activeDataset, function(datasetKey) {
+      setDataset(datasetKey);
+    });
+    carouselRoot.parentNode.insertBefore(datasetSwitch.element, carouselRoot);
   }
 
   carousel = createSceneSelectorCarousel(selectorRoot, prevButton, nextButton);
@@ -1024,13 +1097,19 @@ function initImageComparisons() {
     };
   }
 
-  data.scenes.forEach(function(scene, index) {
-    var isActive = scene.key === data.defaultScene || (!data.defaultScene && index === 0);
+  data.scenes.forEach(function(scene) {
+    var isVisible = scene.datasetKey === activeDataset;
+    var button = createSceneButton(scene, false);
     sceneMap[scene.key] = scene;
-    selectorRoot.appendChild(createSceneButton(scene, isActive));
+    button.hidden = !isVisible;
+    button.tabIndex = isVisible ? 0 : -1;
+    selectorRoot.appendChild(button);
+    sceneButtons.push({ scene: scene, button: button });
   });
 
-  buttons = section.querySelectorAll('.scene-selector__item');
+  buttons = sceneButtons.map(function(entry) {
+    return entry.button;
+  });
 
   var imageCards = Array.prototype.map.call(
     section.querySelectorAll('[data-image-compare-card]'),
@@ -1066,6 +1145,32 @@ function initImageComparisons() {
     return;
   }
 
+  function getVisibleButtons() {
+    return sceneButtons.filter(function(entry) {
+      return entry.scene.datasetKey === activeDataset;
+    }).map(function(entry) {
+      return entry.button;
+    });
+  }
+
+  function firstSceneButtonForDataset(datasetKey) {
+    var match = sceneButtons.find(function(entry) {
+      return entry.scene.datasetKey === datasetKey;
+    });
+    return match ? match.button : null;
+  }
+
+  function updateSceneButtonState(activeSceneKey) {
+    sceneButtons.forEach(function(entry) {
+      var isVisible = entry.scene.datasetKey === activeDataset;
+      var isActive = entry.scene.key === activeSceneKey;
+      entry.button.hidden = !isVisible;
+      entry.button.tabIndex = isVisible ? 0 : -1;
+      entry.button.classList.toggle('is-active', isActive);
+      entry.button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
   function activateScene(button, shouldScroll) {
     var sceneKey = button.getAttribute('data-scene-key');
     var scene = sceneMap[sceneKey];
@@ -1075,12 +1180,14 @@ function initImageComparisons() {
     }
 
     activeButton = button;
+    activeDataset = scene.datasetKey || activeDataset;
+    selectedSceneByDataset[activeDataset] = sceneKey;
 
-    Array.prototype.forEach.call(buttons, function(item) {
-      var isActive = item === button;
-      item.classList.toggle('is-active', isActive);
-      item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
+    if (datasetSwitch) {
+      datasetSwitch.update(activeDataset);
+    }
+
+    updateSceneButtonState(sceneKey);
 
     if (carousel) {
       if (shouldScroll && button) {
@@ -1098,20 +1205,45 @@ function initImageComparisons() {
     });
   }
 
+  function setDataset(datasetKey) {
+    var targetButton;
+    if (!datasetKey) {
+      return;
+    }
+
+    activeDataset = datasetKey;
+    targetButton = sceneButtons.find(function(entry) {
+      return entry.scene.key === selectedSceneByDataset[datasetKey];
+    });
+
+    if (!targetButton) {
+      targetButton = { button: firstSceneButtonForDataset(datasetKey) };
+    }
+
+    if (selectorRoot) {
+      selectorRoot.scrollTo({ left: 0, behavior: 'auto' });
+    }
+
+    if (targetButton && targetButton.button) {
+      activateScene(targetButton.button, false);
+    }
+  }
+
   function moveFocus(currentButton, direction) {
-    var buttonList = Array.prototype.slice.call(buttons);
+    var buttonList = getVisibleButtons();
     var currentIndex = buttonList.indexOf(currentButton);
     var nextIndex = (currentIndex + direction + buttonList.length) % buttonList.length;
     buttonList[nextIndex].focus();
     activateScene(buttonList[nextIndex], true);
   }
 
-  Array.prototype.forEach.call(buttons, function(button, index) {
+  buttons.forEach(function(button, index) {
     button.addEventListener('click', function() {
       activateScene(button, true);
     });
 
     button.addEventListener('keydown', function(event) {
+      var visibleButtons = getVisibleButtons();
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         event.preventDefault();
         moveFocus(button, 1);
@@ -1120,12 +1252,12 @@ function initImageComparisons() {
         moveFocus(button, -1);
       } else if (event.key === 'Home') {
         event.preventDefault();
-        buttons[0].focus();
-        activateScene(buttons[0], true);
+        visibleButtons[0].focus();
+        activateScene(visibleButtons[0], true);
       } else if (event.key === 'End') {
         event.preventDefault();
-        buttons[buttons.length - 1].focus();
-        activateScene(buttons[buttons.length - 1], true);
+        visibleButtons[visibleButtons.length - 1].focus();
+        activateScene(visibleButtons[visibleButtons.length - 1], true);
       } else if ((event.key === 'Enter' || event.key === ' ') && buttons[index]) {
         event.preventDefault();
         activateScene(button, true);
@@ -1133,11 +1265,18 @@ function initImageComparisons() {
     });
   });
 
-  activeButton = section.querySelector('.scene-selector__item.is-active') || buttons[0];
-  activateScene(activeButton, false);
+  activeButton = sceneButtons.find(function(entry) {
+    return entry.scene.key === selectedSceneByDataset[activeDataset];
+  });
+  activeButton = activeButton ? activeButton.button : firstSceneButtonForDataset(activeDataset);
+  if (activeButton) {
+    activateScene(activeButton, false);
+  }
   observeOnceNearViewport(section, function() {
     imageMediaReady = true;
-    activateScene(activeButton, false);
+    if (activeButton) {
+      activateScene(activeButton, false);
+    }
   }, '180px 0px');
 }
 
