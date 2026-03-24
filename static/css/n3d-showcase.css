@@ -421,11 +421,13 @@
 /* End Scene Selector Carousel */
 
 .dataset-switcher {
-  display: inline-flex;
+  display: flex;
+  width: max-content;
+  max-width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.28rem;
-  margin: 0 auto 0.88rem;
+  margin: 0 0 0.88rem;
   padding: 0.26rem;
   border-radius: 999px;
   border: 1px solid rgba(122, 138, 162, 0.16);

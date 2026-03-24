@@ -469,6 +469,7 @@
     var datasetOptions = [];
     var datasetSeen = {};
     var activeDataset = null;
+    var currentSceneKey = null;
     var selectedSceneByDataset = {};
     var controllers = [];
     var buttons = [];
@@ -500,10 +501,12 @@
     });
 
     if (data.defaultScene && sceneLookup[data.defaultScene]) {
+      currentSceneKey = data.defaultScene;
       activeDataset = sceneLookup[data.defaultScene].datasetKey;
       selectedSceneByDataset[activeDataset] = data.defaultScene;
     } else {
-      activeDataset = datasetOptions[0] ? datasetOptions[0].key : null;
+      currentSceneKey = data.scenes[0].key;
+      activeDataset = sceneLookup[currentSceneKey] ? sceneLookup[currentSceneKey].datasetKey : (datasetOptions[0] ? datasetOptions[0].key : null);
     }
 
     if (carouselRoot && datasetOptions.length > 1) {
@@ -531,7 +534,7 @@
 
       buttons.forEach(function(entry) {
         var isVisible = entry.scene.datasetKey === activeDataset;
-        var isActive = entry.key === activeSceneKey;
+        var isActive = isVisible && entry.key === activeSceneKey;
         entry.button.hidden = !isVisible;
         entry.button.tabIndex = isVisible ? 0 : -1;
         entry.button.classList.toggle('is-active', isActive);
@@ -544,6 +547,17 @@
       return activeButton;
     }
 
+    function renderScene(sceneKey) {
+      var scene = sceneLookup[sceneKey];
+      if (!scene) {
+        return;
+      }
+
+      controllers.forEach(function(entry) {
+        entry.controller.setScene(scene);
+      });
+    }
+
     function activateScene(sceneKey, shouldScroll) {
       var scene = sceneLookup[sceneKey];
       var activeButton = null;
@@ -551,6 +565,7 @@
         return;
       }
 
+      currentSceneKey = sceneKey;
       activeDataset = scene.datasetKey || activeDataset;
       selectedSceneByDataset[activeDataset] = sceneKey;
 
@@ -558,7 +573,7 @@
         datasetSwitch.update(activeDataset);
       }
 
-      activeButton = updateVisibleButtons(sceneKey);
+      activeButton = updateVisibleButtons(currentSceneKey);
 
       if (carousel) {
         if (shouldScroll && activeButton) {
@@ -568,26 +583,28 @@
         }
       }
 
-      controllers.forEach(function(entry) {
-        entry.controller.setScene(scene);
-      });
+      renderScene(currentSceneKey);
     }
 
     function setDataset(datasetKey) {
-      var sceneKey;
       if (!datasetKey) {
         return;
       }
 
       activeDataset = datasetKey;
-      sceneKey = selectedSceneByDataset[datasetKey] || firstSceneKeyForDataset(datasetKey);
+
+      if (datasetSwitch) {
+        datasetSwitch.update(activeDataset);
+      }
 
       if (selector) {
         selector.scrollTo({ left: 0, behavior: 'auto' });
       }
 
-      if (sceneKey) {
-        activateScene(sceneKey, false);
+      updateVisibleButtons(currentSceneKey);
+
+      if (carousel) {
+        carousel.update();
       }
     }
 
@@ -613,7 +630,7 @@
       buttons.push({ key: scene.key, scene: scene, button: button });
     });
 
-    setDataset(activeDataset);
+    activateScene(currentSceneKey, false);
   }
 
   if (document.readyState === 'loading') {

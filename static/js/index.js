@@ -723,6 +723,7 @@ function initImageComparisons() {
   var datasetOptions = [];
   var datasetSeen = {};
   var activeDataset = null;
+  var currentSceneKey = null;
   var selectedSceneByDataset = {};
   var imageMediaReady = false;
   var activeButton;
@@ -752,6 +753,14 @@ function initImageComparisons() {
 
   if (!activeDataset) {
     activeDataset = datasetOptions[0] ? datasetOptions[0].key : null;
+  }
+
+  currentSceneKey = data.defaultScene || (data.scenes[0] ? data.scenes[0].key : null);
+
+  if (currentSceneKey) {
+    activeDataset = (data.scenes.find(function(scene) {
+      return scene.key === currentSceneKey;
+    }) || {}).datasetKey || activeDataset;
   }
 
   if (data.defaultScene && activeDataset) {
@@ -1163,11 +1172,26 @@ function initImageComparisons() {
   function updateSceneButtonState(activeSceneKey) {
     sceneButtons.forEach(function(entry) {
       var isVisible = entry.scene.datasetKey === activeDataset;
-      var isActive = entry.scene.key === activeSceneKey;
+      var isActive = isVisible && entry.scene.key === activeSceneKey;
       entry.button.hidden = !isVisible;
       entry.button.tabIndex = isVisible ? 0 : -1;
       entry.button.classList.toggle('is-active', isActive);
       entry.button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function renderScene(sceneKey) {
+    var scene = sceneMap[sceneKey];
+
+    if (!scene) {
+      return;
+    }
+
+    imageCards.forEach(function(compareCard) {
+      var content = buildContent(scene, compareCard.viewKey);
+      if (content) {
+        compareCard.controller.setContent(content, imageMediaReady);
+      }
     });
   }
 
@@ -1179,6 +1203,7 @@ function initImageComparisons() {
       return;
     }
 
+    currentSceneKey = sceneKey;
     activeButton = button;
     activeDataset = scene.datasetKey || activeDataset;
     selectedSceneByDataset[activeDataset] = sceneKey;
@@ -1187,7 +1212,7 @@ function initImageComparisons() {
       datasetSwitch.update(activeDataset);
     }
 
-    updateSceneButtonState(sceneKey);
+    updateSceneButtonState(currentSceneKey);
 
     if (carousel) {
       if (shouldScroll && button) {
@@ -1197,35 +1222,28 @@ function initImageComparisons() {
       }
     }
 
-    imageCards.forEach(function(compareCard) {
-      var content = buildContent(scene, compareCard.viewKey);
-      if (content) {
-        compareCard.controller.setContent(content, imageMediaReady);
-      }
-    });
+    renderScene(currentSceneKey);
   }
 
   function setDataset(datasetKey) {
-    var targetButton;
     if (!datasetKey) {
       return;
     }
 
     activeDataset = datasetKey;
-    targetButton = sceneButtons.find(function(entry) {
-      return entry.scene.key === selectedSceneByDataset[datasetKey];
-    });
 
-    if (!targetButton) {
-      targetButton = { button: firstSceneButtonForDataset(datasetKey) };
+    if (datasetSwitch) {
+      datasetSwitch.update(activeDataset);
     }
 
     if (selectorRoot) {
       selectorRoot.scrollTo({ left: 0, behavior: 'auto' });
     }
 
-    if (targetButton && targetButton.button) {
-      activateScene(targetButton.button, false);
+    updateSceneButtonState(currentSceneKey);
+
+    if (carousel) {
+      carousel.update();
     }
   }
 
@@ -1266,7 +1284,7 @@ function initImageComparisons() {
   });
 
   activeButton = sceneButtons.find(function(entry) {
-    return entry.scene.key === selectedSceneByDataset[activeDataset];
+    return entry.scene.key === currentSceneKey;
   });
   activeButton = activeButton ? activeButton.button : firstSceneButtonForDataset(activeDataset);
   if (activeButton) {
@@ -1274,8 +1292,12 @@ function initImageComparisons() {
   }
   observeOnceNearViewport(section, function() {
     imageMediaReady = true;
-    if (activeButton) {
-      activateScene(activeButton, false);
+    if (currentSceneKey) {
+      updateSceneButtonState(currentSceneKey);
+      renderScene(currentSceneKey);
+      if (carousel) {
+        carousel.update();
+      }
     }
   }, '180px 0px');
 }
