@@ -43,43 +43,20 @@
 
 .n3d-scene-selector {
   --n3d-scene-item-width: clamp(8.1rem, 11vw, 8.95rem);
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--n3d-scene-item-width), 1fr));
   align-items: start;
   gap: 0.72rem;
   width: 100%;
-  padding: 0.05rem 0.08rem 0.85rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
-  scroll-padding-inline: 0.08rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(107, 124, 148, 0.46) transparent;
-}
-
-.n3d-scene-selector::-webkit-scrollbar {
-  height: 0.52rem;
-}
-
-.n3d-scene-selector::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(107, 124, 148, 0.42);
-}
-
-.n3d-scene-selector::-webkit-scrollbar-track {
-  background: transparent;
+  padding: 0.05rem 0.08rem 0.65rem;
 }
 
 .n3d-scene-selector .scene-selector__item {
-  flex: 0 0 var(--n3d-scene-item-width);
-  width: var(--n3d-scene-item-width);
-  min-width: var(--n3d-scene-item-width);
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-snap-align: start;
 }
 
 .n3d-scene-selector .scene-selector__item[hidden] {
@@ -271,7 +248,7 @@
 
 @media screen and (max-width: 1180px) {
   .n3d-scene-selector {
-    --n3d-scene-item-width: clamp(7.7rem, 19vw, 8.75rem);
+    --n3d-scene-item-width: clamp(7.2rem, 18vw, 8.25rem);
   }
 
   .n3d-showcase-stage .scene-compare-grid {
@@ -292,8 +269,8 @@
   }
 
   .n3d-scene-selector {
-    --n3d-scene-item-width: min(78vw, 10rem);
-    gap: 0.72rem;
+    --n3d-scene-item-width: min(42vw, 10rem);
+    gap: 0.6rem;
     padding-bottom: 0.56rem;
   }
 
@@ -334,10 +311,7 @@
 
 /* Scene Selector Carousel */
 .n3d-scene-carousel {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.72rem;
+  display: block;
   width: 100%;
 }
 
@@ -372,11 +346,6 @@
 .n3d-scene-selector {
   align-items: stretch;
   padding: 0.06rem 0.1rem 0.18rem;
-  scrollbar-width: none;
-}
-
-.n3d-scene-selector::-webkit-scrollbar {
-  display: none;
 }
 
 .n3d-scene-selector .scene-selector__item {
@@ -405,15 +374,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .n3d-scene-carousel {
-    gap: 0.5rem;
-  }
-
-  .n3d-scene-carousel__arrow {
-    width: 2.45rem;
-    height: 2.45rem;
-  }
-
   .n3d-scene-selector .scene-selector__item {
     grid-template-rows: auto minmax(2.2rem, auto);
   }

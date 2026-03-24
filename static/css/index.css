@@ -2651,7 +2651,8 @@ body {
 }
 
 .visual-scene-selector.n3d-scene-selector .scene-selector__item {
-  flex-basis: var(--n3d-scene-item-width);
+  width: 100%;
+  min-width: 0;
 }
 
 .visual-scene-selector.n3d-scene-selector .scene-selector__preview {
