@@ -75,16 +75,91 @@
       }, 500);
     }
 
+    function getSharedDuration() {
+      var leftDuration = leftVideo.duration;
+      var rightDuration = rightVideo.duration;
+
+      if (!isFinite(leftDuration) || !isFinite(rightDuration) || leftDuration <= 0 || rightDuration <= 0) {
+        return null;
+      }
+
+      return Math.min(leftDuration, rightDuration);
+    }
+
+    function getLoopBoundary() {
+      var sharedDuration = getSharedDuration();
+
+      if (!sharedDuration) {
+        return null;
+      }
+
+      return Math.max(sharedDuration - 1 / 30, 0);
+    }
+
+    function getSyncedTargetTime() {
+      var boundary = getLoopBoundary();
+      var targetTime = leftVideo.currentTime;
+
+      if (boundary !== null) {
+        targetTime = Math.min(targetTime, boundary);
+      }
+
+      return Math.max(0, targetTime);
+    }
+
+    function applyPlaybackRate() {
+      var targetRate = leftVideo.playbackRate || 1;
+
+      if (!isFinite(targetRate) || targetRate <= 0) {
+        targetRate = 1;
+      }
+
+      rightVideo.playbackRate = targetRate;
+    }
+
     function syncTimes(force) {
+      var targetTime;
+
       if (!leftVideo.currentSrc || !rightVideo.currentSrc) {
         return;
       }
 
-      if (force || Math.abs(leftVideo.currentTime - rightVideo.currentTime) > 0.18) {
+      targetTime = getSyncedTargetTime();
+      if (force || Math.abs(targetTime - rightVideo.currentTime) > 0.12) {
         try {
-          rightVideo.currentTime = leftVideo.currentTime;
+          rightVideo.currentTime = targetTime;
         } catch (error) {}
       }
+    }
+
+    function restartSharedLoop() {
+      if (!desiredPlaying) {
+        return false;
+      }
+
+      internalUpdate = true;
+      try {
+        leftVideo.currentTime = 0;
+        rightVideo.currentTime = 0;
+      } catch (error) {}
+      safePlay(leftVideo);
+      safePlay(rightVideo);
+      internalUpdate = false;
+      return true;
+    }
+
+    function maybeRestartSharedLoop() {
+      var boundary = getLoopBoundary();
+
+      if (boundary === null) {
+        return false;
+      }
+
+      if (leftVideo.currentTime >= boundary || rightVideo.currentTime >= boundary) {
+        return restartSharedLoop();
+      }
+
+      return false;
     }
 
     function startPlayback(forceSync) {
@@ -96,7 +171,7 @@
       if (forceSync) {
         syncTimes(true);
       }
-      rightVideo.playbackRate = leftVideo.playbackRate || 1;
+      applyPlaybackRate();
       safePlay(leftVideo);
       syncTimes(true);
       safePlay(rightVideo);
@@ -107,7 +182,7 @@
       video.muted = true;
       video.defaultMuted = true;
       video.autoplay = true;
-      video.loop = true;
+      video.loop = false;
       video.playsInline = true;
       video.preload = 'auto';
       video.addEventListener('loadeddata', function() {
@@ -115,6 +190,16 @@
       });
       video.addEventListener('canplay', function() {
         startPlayback(true);
+      });
+      video.addEventListener('timeupdate', function() {
+        if (!internalUpdate) {
+          maybeRestartSharedLoop();
+        }
+      });
+      video.addEventListener('ended', function() {
+        if (!internalUpdate) {
+          restartSharedLoop();
+        }
       });
     });
 
@@ -140,12 +225,7 @@
       if (internalUpdate || suppressPauseHandlers || !desiredPlaying || leftVideo.paused) {
         return;
       }
-      syncTimes(true);
-      safePlay(rightVideo);
-    });
-
-    rightVideo.addEventListener('ended', function() {
-      if (!desiredPlaying) {
+      if (maybeRestartSharedLoop()) {
         return;
       }
       syncTimes(true);
@@ -157,7 +237,7 @@
     });
 
     leftVideo.addEventListener('ratechange', function() {
-      rightVideo.playbackRate = leftVideo.playbackRate || 1;
+      applyPlaybackRate();
     });
 
     return {
