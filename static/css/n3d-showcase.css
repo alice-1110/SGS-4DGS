@@ -82,6 +82,10 @@
   scroll-snap-align: start;
 }
 
+.n3d-scene-selector .scene-selector__item[hidden] {
+  display: none !important;
+}
+
 .n3d-scene-selector .scene-selector__preview {
   width: 100%;
   height: auto;
