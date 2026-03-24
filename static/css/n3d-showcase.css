@@ -42,21 +42,44 @@
 }
 
 .n3d-scene-selector {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  --n3d-scene-item-width: clamp(9.8rem, 15vw, 11.8rem);
+  display: flex;
+  flex-wrap: nowrap;
   align-items: start;
   gap: 0.9rem;
   width: 100%;
-  padding: 0.05rem 0.08rem 0.75rem;
-  overflow: visible;
+  padding: 0.05rem 0.08rem 0.85rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 0.08rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107, 124, 148, 0.46) transparent;
+}
+
+.n3d-scene-selector::-webkit-scrollbar {
+  height: 0.52rem;
+}
+
+.n3d-scene-selector::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(107, 124, 148, 0.42);
+}
+
+.n3d-scene-selector::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .n3d-scene-selector .scene-selector__item {
-  width: 100%;
-  min-width: 0;
+  flex: 0 0 var(--n3d-scene-item-width);
+  width: var(--n3d-scene-item-width);
+  min-width: var(--n3d-scene-item-width);
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-snap-align: start;
 }
 
 .n3d-scene-selector .scene-selector__preview {
@@ -244,7 +267,7 @@
 
 @media screen and (max-width: 1180px) {
   .n3d-scene-selector {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    --n3d-scene-item-width: clamp(9rem, 24vw, 10.8rem);
   }
 
   .n3d-showcase-stage .scene-compare-grid {
@@ -265,9 +288,9 @@
   }
 
   .n3d-scene-selector {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    --n3d-scene-item-width: min(78vw, 10rem);
     gap: 0.72rem;
-    padding-bottom: 0.45rem;
+    padding-bottom: 0.56rem;
   }
 
   .n3d-scene-selector .scene-selector__preview {

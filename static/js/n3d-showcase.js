@@ -381,8 +381,9 @@
       grid.appendChild(controller.element);
     });
 
-    function activateScene(sceneKey) {
+    function activateScene(sceneKey, shouldScroll) {
       var scene = sceneLookup[sceneKey];
+      var activeButton = null;
       if (!scene) {
         return;
       }
@@ -391,7 +392,14 @@
         var isActive = entry.key === sceneKey;
         entry.button.classList.toggle('is-active', isActive);
         entry.button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) {
+          activeButton = entry.button;
+        }
       });
+
+      if (shouldScroll && activeButton && typeof activeButton.scrollIntoView === 'function') {
+        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
 
       controllers.forEach(function(entry) {
         entry.controller.setScene(scene);
@@ -411,13 +419,13 @@
         '<span class="n3d-scene-selector__label">' + scene.label + '</span>'
       ].join('');
       button.addEventListener('click', function() {
-        activateScene(scene.key);
+        activateScene(scene.key, true);
       });
       selector.appendChild(button);
       buttons.push({ key: scene.key, button: button });
     });
 
-    activateScene(data.defaultScene || data.scenes[0].key);
+    activateScene(data.defaultScene || data.scenes[0].key, false);
   }
 
   if (document.readyState === 'loading') {

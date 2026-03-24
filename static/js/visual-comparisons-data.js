@@ -696,6 +696,556 @@ window.VISUAL_COMPARISONS_DATA = {
           }
         }
       }
+    },
+    {
+      "key": "techni-birthday",
+      "label": "Birthday",
+      "thumb": "./n3d/thumbs/techni-birthday.jpg",
+      "defaultMethod": "4DGaussians",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-birthday/2views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-birthday/2views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-birthday/2views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-birthday/2views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-birthday/2views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-birthday/2views/swift4d.jpg"
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-birthday/3views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-birthday/3views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-birthday/3views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-birthday/3views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-birthday/3views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-birthday/3views/swift4d.jpg"
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-birthday/4views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-birthday/4views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-birthday/4views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-birthday/4views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-birthday/4views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-birthday/4views/swift4d.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-fabien",
+      "label": "Fabien",
+      "thumb": "./n3d/thumbs/techni-fabien.jpg",
+      "defaultMethod": "cem4dgs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-fabien/2views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-fabien/2views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-fabien/2views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-fabien/2views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-fabien/2views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-fabien/2views/swift4d.jpg"
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-fabien/3views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-fabien/3views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-fabien/3views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-fabien/3views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-fabien/3views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-fabien/3views/swift4d.jpg"
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-fabien/4views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-fabien/4views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-fabien/4views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-fabien/4views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-fabien/4views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-fabien/4views/swift4d.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-painter",
+      "label": "Painter",
+      "thumb": "./n3d/thumbs/techni-painter.jpg",
+      "defaultMethod": "ex4dgs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-painter/2views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-painter/2views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-painter/2views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-painter/2views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-painter/2views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-painter/2views/swift4d.jpg"
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-painter/3views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-painter/3views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-painter/3views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-painter/3views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-painter/3views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-painter/3views/swift4d.jpg"
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-painter/4views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-painter/4views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-painter/4views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-painter/4views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-painter/4views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-painter/4views/swift4d.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-theater",
+      "label": "Theater",
+      "thumb": "./n3d/thumbs/techni-theater.jpg",
+      "defaultMethod": "spacetimegs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-theater/2views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-theater/2views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-theater/2views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-theater/2views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-theater/2views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-theater/2views/swift4d.jpg"
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-theater/3views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-theater/3views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-theater/3views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-theater/3views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-theater/3views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-theater/3views/swift4d.jpg"
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-theater/4views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-theater/4views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-theater/4views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-theater/4views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-theater/4views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-theater/4views/swift4d.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-train",
+      "label": "Train",
+      "thumb": "./n3d/thumbs/techni-train.jpg",
+      "defaultMethod": "swift4d",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-train/2views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-train/2views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-train/2views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-train/2views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-train/2views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-train/2views/swift4d.jpg"
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-train/3views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-train/3views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-train/3views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-train/3views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-train/3views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-train/3views/swift4d.jpg"
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "ours": {
+            "label": "Ours",
+            "image": "./n3d/previews/techni-train/4views/ours.jpg"
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "image": "./n3d/previews/techni-train/4views/4DGaussians.jpg"
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "image": "./n3d/previews/techni-train/4views/cem4dgs.jpg"
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "image": "./n3d/previews/techni-train/4views/ex4dgs.jpg"
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "image": "./n3d/previews/techni-train/4views/spacetimegs.jpg"
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "image": "./n3d/previews/techni-train/4views/swift4d.jpg"
+            }
+          }
+        }
+      }
     }
   ]
 };

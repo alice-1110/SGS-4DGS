@@ -509,7 +509,7 @@ function initSceneShowcase() {
     }
 
     showcaseMediaReady = true;
-    activateScene(activeButton);
+    activateScene(activeButton, false);
   }
 
   function activateScene(button) {
@@ -557,7 +557,7 @@ function initSceneShowcase() {
     var currentIndex = buttonList.indexOf(currentButton);
     var nextIndex = (currentIndex + direction + buttonList.length) % buttonList.length;
     buttonList[nextIndex].focus();
-    activateScene(buttonList[nextIndex]);
+    activateScene(buttonList[nextIndex], true);
   }
 
   Array.prototype.forEach.call(buttons, function(button, index) {
@@ -565,7 +565,7 @@ function initSceneShowcase() {
       if (!showcaseMediaReady) {
         enableShowcaseMedia();
       }
-      activateScene(button);
+      activateScene(button, true);
     });
 
     button.addEventListener('keydown', function(event) {
@@ -578,20 +578,20 @@ function initSceneShowcase() {
       } else if (event.key === 'Home') {
         event.preventDefault();
         buttons[0].focus();
-        activateScene(buttons[0]);
+        activateScene(buttons[0], true);
       } else if (event.key === 'End') {
         event.preventDefault();
         buttons[buttons.length - 1].focus();
-        activateScene(buttons[buttons.length - 1]);
+        activateScene(buttons[buttons.length - 1], true);
       } else if ((event.key === 'Enter' || event.key === ' ') && buttons[index]) {
         event.preventDefault();
-        activateScene(button);
+        activateScene(button, true);
       }
     });
   });
 
   activeButton = showcase.querySelector('.scene-selector__item.is-active') || buttons[0];
-  activateScene(activeButton);
+  activateScene(activeButton, false);
 
   showcase.addEventListener('pointerenter', enableShowcaseMedia, { once: true });
   showcase.addEventListener('pointerdown', enableShowcaseMedia, { once: true });
@@ -995,7 +995,7 @@ function initImageComparisons() {
     return;
   }
 
-  function activateScene(button) {
+  function activateScene(button, shouldScroll) {
     var sceneKey = button.getAttribute('data-scene-key');
     var scene = sceneMap[sceneKey];
 
@@ -1011,6 +1011,10 @@ function initImageComparisons() {
       item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
+    if (shouldScroll && button && typeof button.scrollIntoView === 'function') {
+      button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
     imageCards.forEach(function(compareCard) {
       var content = buildContent(scene, compareCard.viewKey);
       if (content) {
@@ -1024,12 +1028,12 @@ function initImageComparisons() {
     var currentIndex = buttonList.indexOf(currentButton);
     var nextIndex = (currentIndex + direction + buttonList.length) % buttonList.length;
     buttonList[nextIndex].focus();
-    activateScene(buttonList[nextIndex]);
+    activateScene(buttonList[nextIndex], true);
   }
 
   Array.prototype.forEach.call(buttons, function(button, index) {
     button.addEventListener('click', function() {
-      activateScene(button);
+      activateScene(button, true);
     });
 
     button.addEventListener('keydown', function(event) {
@@ -1042,23 +1046,23 @@ function initImageComparisons() {
       } else if (event.key === 'Home') {
         event.preventDefault();
         buttons[0].focus();
-        activateScene(buttons[0]);
+        activateScene(buttons[0], true);
       } else if (event.key === 'End') {
         event.preventDefault();
         buttons[buttons.length - 1].focus();
-        activateScene(buttons[buttons.length - 1]);
+        activateScene(buttons[buttons.length - 1], true);
       } else if ((event.key === 'Enter' || event.key === ' ') && buttons[index]) {
         event.preventDefault();
-        activateScene(button);
+        activateScene(button, true);
       }
     });
   });
 
   activeButton = section.querySelector('.scene-selector__item.is-active') || buttons[0];
-  activateScene(activeButton);
+  activateScene(activeButton, false);
   observeOnceNearViewport(section, function() {
     imageMediaReady = true;
-    activateScene(activeButton);
+    activateScene(activeButton, false);
   }, '180px 0px');
 }
 

@@ -8,6 +8,8 @@ import re
 import shutil
 from typing import Dict, List, Tuple
 
+from PIL import Image
+
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -15,8 +17,11 @@ from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
 REPO = Path(__file__).resolve().parents[1]
-SOURCE_ROOT = Path('/home/xuepengcheng/60127A1/gado-gs.github.io/n3d')
-DEST_N3D = REPO / 'n3d'
+SOURCE_DATASETS: List[Tuple[str, Path]] = [
+    ('n3d', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/n3d')),
+    ('techni', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/techni')),
+]
+DEST_ASSETS = REPO / 'n3d'
 INDEX_HTML = REPO / 'index.html'
 INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
@@ -53,13 +58,13 @@ METHOD_COLORS = {
     'swift4d': '#4e8f2f',
 }
 DEFAULT_METHOD_ROTATION = ['4DGaussians', 'cem4dgs', 'ex4dgs', 'spacetimegs', 'swift4d', '4DGaussians']
+NUMERIC_METRIC_KEYS = {'psnr', 'ssim', 'lpips', 'train_time', 'eval_time', 'fps', 'model_size'}
 RESULTS_METRICS = [
     {
         'key': 'psnr',
         'title': 'PSNR ↑',
         'higher_better': True,
         'transform': lambda value: value,
-        'note': 'Higher is better',
         'log_scale': False,
     },
     {
@@ -67,7 +72,6 @@ RESULTS_METRICS = [
         'title': 'SSIM ↑',
         'higher_better': True,
         'transform': lambda value: value,
-        'note': 'Higher is better',
         'log_scale': False,
     },
     {
@@ -75,7 +79,6 @@ RESULTS_METRICS = [
         'title': 'LPIPS ↓',
         'higher_better': False,
         'transform': lambda value: value,
-        'note': 'Lower is better',
         'log_scale': False,
     },
     {
@@ -83,7 +86,6 @@ RESULTS_METRICS = [
         'title': 'Train Time (min) ↓',
         'higher_better': False,
         'transform': lambda value: value / 60.0,
-        'note': 'Lower is better',
         'log_scale': False,
     },
     {
@@ -91,7 +93,6 @@ RESULTS_METRICS = [
         'title': 'FPS ↑',
         'higher_better': True,
         'transform': lambda value: value,
-        'note': 'Higher is better · log axis',
         'log_scale': True,
     },
 ]
@@ -154,8 +155,38 @@ RESULTS_CSS = '''
 '''
 
 
-def scene_label(scene_key: str) -> str:
-    return ' '.join(part.capitalize() for part in scene_key.split('_'))
+def scene_label(scene_name: str) -> str:
+    return ' '.join(part.capitalize() for part in scene_name.split('_'))
+
+
+def scene_slug(scene_name: str) -> str:
+    slug = re.sub(r'[^a-z0-9]+', '-', scene_name.lower()).strip('-')
+    return slug or 'scene'
+
+
+def scene_id(dataset_key: str, scene_name: str) -> str:
+    if dataset_key == 'n3d':
+        return scene_name
+    return f'{dataset_key}-{scene_slug(scene_name)}'
+
+
+def collect_scene_sources() -> List[Dict[str, object]]:
+    scenes: List[Dict[str, object]] = []
+    for dataset_key, source_root in SOURCE_DATASETS:
+        source_dir = source_root / '2views' / 'ours'
+        dataset_scenes = []
+        for scene_dir in sorted(source_dir.iterdir(), key=lambda path: path.name.lower()):
+            if not scene_dir.is_dir() or scene_dir.name.startswith('.'):
+                continue
+            dataset_scenes.append({
+                'key': scene_id(dataset_key, scene_dir.name),
+                'label': scene_label(scene_dir.name),
+                'source_name': scene_dir.name,
+                'dataset_key': dataset_key,
+                'source_root': source_root,
+            })
+        scenes.extend(dataset_scenes)
+    return scenes
 
 
 def extract_iteration(path: Path) -> int:
@@ -164,7 +195,7 @@ def extract_iteration(path: Path) -> int:
 
 
 def choose_video(scene_dir: Path) -> Path:
-    candidates = sorted(scene_dir.rglob('*.mp4'))
+    candidates = [path for path in sorted(scene_dir.rglob('*.mp4')) if not path.name.startswith('._')]
     if not candidates:
         raise FileNotFoundError(f'No video found under {scene_dir}')
     if len(candidates) == 1:
@@ -174,14 +205,14 @@ def choose_video(scene_dir: Path) -> Path:
 
 def choose_preview(scene_dir: Path) -> Path:
     direct_preview = scene_dir / 'preview.png'
-    if direct_preview.exists():
+    if direct_preview.exists() and not direct_preview.name.startswith('._'):
         return direct_preview
 
     fallback = scene_dir / '00000.png'
-    if fallback.exists():
+    if fallback.exists() and not fallback.name.startswith('._'):
         return fallback
 
-    candidates = sorted(scene_dir.glob('*.png'))
+    candidates = [path for path in sorted(scene_dir.glob('*.png')) if not path.name.startswith('._')]
     if candidates:
         return candidates[0]
 
@@ -196,38 +227,75 @@ def sync_file(src: Path, dst: Path) -> bool:
     return True
 
 
+def scene_image_extension(dataset_key: str) -> str:
+    return '.jpg' if dataset_key == 'techni' else '.png'
+
+
+def sync_image(src: Path, dst: Path) -> bool:
+    if dst.suffix.lower() not in {'.jpg', '.jpeg'}:
+        return sync_file(src, dst)
+
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = dst.with_name(dst.name + '.tmp')
+    with Image.open(src) as image:
+        if image.mode in ('RGBA', 'LA') or (image.mode == 'P' and 'transparency' in image.info):
+            rgba_image = image.convert('RGBA')
+            rgb_image = Image.new('RGB', rgba_image.size, (255, 255, 255))
+            rgb_image.paste(rgba_image, mask=rgba_image.split()[-1])
+        else:
+            rgb_image = image.convert('RGB')
+        rgb_image.save(temp_path, format='JPEG', quality=88, optimize=True)
+
+    if dst.exists() and filecmp.cmp(temp_path, dst, shallow=False):
+        temp_path.unlink()
+        return False
+
+    temp_path.replace(dst)
+    return True
+
+
 def load_metrics(path: Path) -> Dict[str, float]:
     raw = json.loads(path.read_text())
-    return {key: float(value) for key, value in raw.items()}
+    metrics = {}
+    for key, value in raw.items():
+        if key in NUMERIC_METRIC_KEYS and isinstance(value, (int, float)):
+            metrics[key] = float(value)
+    return metrics
 
 
 def build_showcase_data() -> Dict[str, object]:
-    scenes = sorted(scene_dir.name for scene_dir in (SOURCE_ROOT / '2views' / 'ours').iterdir() if scene_dir.is_dir())
+    scene_sources = collect_scene_sources()
     data = {
-        'defaultScene': scenes[0],
+        'defaultScene': scene_sources[0]['key'],
         'viewOrder': [{'key': key, 'label': label} for key, label in VIEWS],
         'methodOrder': [{'key': key, 'label': label} for key, label in METHODS if key != 'ours'],
         'scenes': [],
     }
 
-    for scene_index, scene_key in enumerate(scenes):
-        thumb_src = SOURCE_ROOT / '2views' / 'ours' / scene_key / '00000.png'
-        thumb_dst = DEST_N3D / 'thumbs' / f'{scene_key}.png'
-        sync_file(thumb_src, thumb_dst)
+    for scene_index, scene_info in enumerate(scene_sources):
+        scene_key = scene_info['key']
+        source_name = scene_info['source_name']
+        source_root = scene_info['source_root']
+        dataset_key = scene_info['dataset_key']
+        thumb_ext = scene_image_extension(dataset_key)
+        thumb_scene_dir = source_root / '2views' / 'ours' / source_name
+        thumb_src = thumb_scene_dir / '00000.png' if (thumb_scene_dir / '00000.png').exists() else choose_preview(thumb_scene_dir)
+        thumb_dst = DEST_ASSETS / 'thumbs' / f'{scene_key}{thumb_ext}'
+        sync_image(thumb_src, thumb_dst)
         default_method = DEFAULT_METHOD_ROTATION[scene_index % len(DEFAULT_METHOD_ROTATION)]
         scene_entry = {
             'key': scene_key,
-            'label': scene_label(scene_key),
-            'thumb': f'./n3d/thumbs/{scene_key}.png',
+            'label': scene_info['label'],
+            'thumb': f'./n3d/thumbs/{scene_key}{thumb_ext}',
             'defaultMethod': default_method,
             'views': {},
         }
 
         for view_key, view_label in VIEWS:
-            poster_path = f'./n3d/thumbs/{scene_key}.png'
-            ours_metrics = load_metrics(SOURCE_ROOT / view_key / 'ours' / scene_key / 'result.json')
-            ours_video_src = choose_video(SOURCE_ROOT / view_key / 'ours' / scene_key)
-            ours_video_dst = DEST_N3D / 'videos' / scene_key / view_key / 'ours.mp4'
+            poster_path = f'./n3d/thumbs/{scene_key}{thumb_ext}'
+            ours_metrics = load_metrics(source_root / view_key / 'ours' / source_name / 'result.json')
+            ours_video_src = choose_video(source_root / view_key / 'ours' / source_name)
+            ours_video_dst = DEST_ASSETS / 'videos' / scene_key / view_key / 'ours.mp4'
             sync_file(ours_video_src, ours_video_dst)
             view_entry = {
                 'label': view_label,
@@ -243,9 +311,9 @@ def build_showcase_data() -> Dict[str, object]:
             for method_key, method_label in METHODS:
                 if method_key == 'ours':
                     continue
-                metrics = load_metrics(SOURCE_ROOT / view_key / method_key / scene_key / 'result.json')
-                video_src = choose_video(SOURCE_ROOT / view_key / method_key / scene_key)
-                video_dst = DEST_N3D / 'videos' / scene_key / view_key / f'{method_key}.mp4'
+                metrics = load_metrics(source_root / view_key / method_key / source_name / 'result.json')
+                video_src = choose_video(source_root / view_key / method_key / source_name)
+                video_dst = DEST_ASSETS / 'videos' / scene_key / view_key / f'{method_key}.mp4'
                 sync_file(video_src, video_dst)
                 view_entry['baselines'][method_key] = {
                     'key': method_key,
@@ -263,6 +331,7 @@ def build_showcase_data() -> Dict[str, object]:
 
 
 def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, object]:
+    scene_sources = {scene['key']: scene for scene in collect_scene_sources()}
     data = {
         'defaultScene': showcase_data['defaultScene'],
         'viewOrder': showcase_data['viewOrder'],
@@ -272,6 +341,11 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
 
     for scene in showcase_data['scenes']:
         scene_key = scene['key']
+        scene_source = scene_sources[scene_key]
+        source_name = scene_source['source_name']
+        source_root = scene_source['source_root']
+        dataset_key = scene_source['dataset_key']
+        preview_ext = scene_image_extension(dataset_key)
         scene_entry = {
             'key': scene_key,
             'label': scene['label'],
@@ -281,14 +355,14 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
         }
 
         for view_key, view_label in VIEWS:
-            ours_src = choose_preview(SOURCE_ROOT / view_key / 'ours' / scene_key)
-            ours_dst = DEST_N3D / 'previews' / scene_key / view_key / 'ours.png'
-            sync_file(ours_src, ours_dst)
+            ours_src = choose_preview(source_root / view_key / 'ours' / source_name)
+            ours_dst = DEST_ASSETS / 'previews' / scene_key / view_key / f'ours{preview_ext}'
+            sync_image(ours_src, ours_dst)
             view_entry = {
                 'label': view_label,
                 'ours': {
                     'label': 'Ours',
-                    'image': f'./n3d/previews/{scene_key}/{view_key}/ours.png',
+                    'image': f'./n3d/previews/{scene_key}/{view_key}/ours{preview_ext}',
                 },
                 'baselines': {},
             }
@@ -296,14 +370,13 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
             for method_key, method_label in METHODS:
                 if method_key == 'ours':
                     continue
-
-                preview_src = choose_preview(SOURCE_ROOT / view_key / method_key / scene_key)
-                preview_dst = DEST_N3D / 'previews' / scene_key / view_key / f'{method_key}.png'
-                sync_file(preview_src, preview_dst)
+                preview_src = choose_preview(source_root / view_key / method_key / source_name)
+                preview_dst = DEST_ASSETS / 'previews' / scene_key / view_key / f'{method_key}{preview_ext}'
+                sync_image(preview_src, preview_dst)
                 view_entry['baselines'][method_key] = {
                     'key': method_key,
                     'label': method_label,
-                    'image': f'./n3d/previews/{scene_key}/{view_key}/{method_key}.png',
+                    'image': f'./n3d/previews/{scene_key}/{view_key}/{method_key}{preview_ext}',
                 }
 
             scene_entry['views'][view_key] = view_entry
@@ -325,11 +398,15 @@ def compute_averages(data: Dict[str, object]) -> Dict[str, Dict[str, Dict[str, f
         for view_key, _ in VIEWS:
             view_entry = scene['views'][view_key]
             for metric_key in metric_keys:
-                aggregates[view_key]['ours'][metric_key].append(view_entry['ours']['metrics'][metric_key])
+                ours_value = view_entry['ours']['metrics'].get(metric_key)
+                if ours_value is not None:
+                    aggregates[view_key]['ours'][metric_key].append(ours_value)
                 for method_key, _ in METHODS:
                     if method_key == 'ours':
                         continue
-                    aggregates[view_key][method_key][metric_key].append(view_entry['baselines'][method_key]['metrics'][metric_key])
+                    baseline_value = view_entry['baselines'][method_key]['metrics'].get(metric_key)
+                    if baseline_value is not None:
+                        aggregates[view_key][method_key][metric_key].append(baseline_value)
 
     return {
         view_key: {
@@ -410,6 +487,7 @@ def annotate_bar_value(axis, metric_key: str, metric_config: Dict[str, object], 
 def generate_results_charts(data: Dict[str, object]) -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     averages = compute_averages(data)
+    scene_count = len(data['scenes'])
 
     for view_key, view_label in VIEWS:
         fig, axes = plt.subplots(2, 3, figsize=(14.8, 8.6), dpi=160)
@@ -488,7 +566,7 @@ def generate_results_charts(data: Dict[str, object]) -> None:
         legend_ax.text(
             0.0,
             0.17,
-            'Average over 6 N3D scenes.',
+            f'Average over {scene_count} sparse-view scenes.',
             transform=legend_ax.transAxes,
             fontsize=9.8,
             color='#5f6f86',
@@ -505,16 +583,17 @@ def generate_results_charts(data: Dict[str, object]) -> None:
             wrap=True,
         )
 
-        fig.suptitle(f'{view_label} Sparse-View N3D Averages', x=0.05, y=0.972, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
+        fig.suptitle(f'{view_label} Sparse-View Averages', x=0.05, y=0.972, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
         fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.955))
         fig.savefig(RESULTS_DIR / f'results-{view_key}-bars.svg', format='svg', bbox_inches='tight')
         plt.close(fig)
 
 
-def render_results_charts(_: Dict[str, object]) -> str:
+def render_results_charts(data: Dict[str, object]) -> str:
+    scene_count = len(data['scenes'])
     items = []
     for view_key, view_label in VIEWS:
-        caption = f'{view_label} averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+        caption = f'{view_label} averages across {scene_count} sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
         items.append(
             f'''
                   <button class="results-selector__item" type="button" data-results-item
@@ -528,10 +607,10 @@ def render_results_charts(_: Dict[str, object]) -> str:
         )
 
     first_view_key, first_view_label = VIEWS[0]
-    first_caption = f'{first_view_label} averages across 6 N3D scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+    first_caption = f'{first_view_label} averages across {scene_count} sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
 
     return f'''
-  <section class="section">
+  <section class="section section-tight">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column results-panel" data-results-gallery>
@@ -539,7 +618,7 @@ def render_results_charts(_: Dict[str, object]) -> str:
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view N3D metrics averaged across six scenes. Use the horizontal selector below to switch
+              We report the latest sparse-view metrics averaged across the current {scene_count}-scene evaluation set. Use the horizontal selector below to switch
               between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
             </p>
             <p class="results-summary-note">
@@ -584,14 +663,29 @@ def render_results_charts(_: Dict[str, object]) -> str:
 def update_index_html(results_section: str) -> None:
     text = INDEX_HTML.read_text()
     text = re.sub(
+        r'(<h2 class="title is-3 n3d-showcase-title">)(.*?)(</h2>)',
+        r'\1Sparse-View Comparisons\3',
+        text,
+        count=1,
+        flags=re.S,
+    )
+    text = re.sub(
         r'(<p class="n3d-showcase-summary">)(.*?)(</p>)',
-        r'\1\n              Select a scene to update all three sparse-view video comparisons. Each card keeps the Ours and baseline videos synchronized, lets you switch the baseline with the arrow controls, and overlays the latest per-scene metrics from the current N3D outputs.\n            \3',
+        r'\1\n              Select a scene to update all three sparse-view video comparisons. Each card keeps the SGS-4DGS and baseline videos synchronized, lets you switch the baseline with the arrow controls, and overlays the latest per-scene metrics from the current sparse-view outputs.\n            \3',
+        text,
+        count=1,
+        flags=re.S,
+    )
+    text = text.replace('aria-label="N3D scene selector"', 'aria-label="Sparse-view scene selector"', 1)
+    text = re.sub(
+        r'(<div class="content has-text-justified visual-comparisons-summary">\s*<p>)(.*?)(</p>)',
+        r'\1\n              Select a scene to update the image comparisons for 2-view, 3-view, and 4-view inputs across the current sparse-view scene set. Each card keeps SGS-4DGS on the left and lets you switch the baseline on the right with the arrow controls.\n            \3',
         text,
         count=1,
         flags=re.S,
     )
     pattern = re.compile(
-        r'  <section class="section">\n    <div class="container is-max-desktop">\n      <div class="columns is-centered has-text-centered">\n        <div class="column results-panel.*?</section>\n\n(?=  <section class="section" data-visual-comparisons>)',
+        r'  <section class="section(?: section-tight)?">\n    <div class="container is-max-desktop">\n      <div class="columns is-centered has-text-centered">\n        <div class="column results-panel.*?</section>\n\n(?=  <section class="section section-tight" data-visual-comparisons>)',
         flags=re.S,
     )
     if not pattern.search(text):

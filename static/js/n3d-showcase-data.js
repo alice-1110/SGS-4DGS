@@ -1686,6 +1686,1381 @@ window.N3D_SHOWCASE_DATA = {
           }
         }
       }
+    },
+    {
+      "key": "techni-birthday",
+      "label": "Birthday",
+      "thumb": "./n3d/thumbs/techni-birthday.jpg",
+      "defaultMethod": "4DGaussians",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-birthday/2views/ours.mp4",
+            "metrics": {
+              "psnr": 24.15092912926062,
+              "ssim": 0.9122401964664459,
+              "lpips": 0.04957142896950245,
+              "train_time": 834.4406974315643,
+              "eval_time": 145.0,
+              "fps": 148.5078,
+              "model_size": 66417289.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-birthday/2views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 22.207721522893753,
+                "ssim": 0.8162771928310394,
+                "lpips": 0.10477941945195197,
+                "train_time": 1514.0,
+                "eval_time": 20.908652305603027,
+                "fps": 101.520741,
+                "model_size": 57383136.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-birthday/2views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 20.55221696203789,
+                "ssim": 0.7828071916103363,
+                "lpips": 0.11494484469294548,
+                "train_time": 6933.583381652832,
+                "eval_time": 44.0,
+                "fps": 100.02165,
+                "model_size": 168861808.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-birthday/2views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 20.783272550984442,
+                "ssim": 0.7768670618534088,
+                "lpips": 0.12240218803286552,
+                "train_time": 3280.7168962955475,
+                "eval_time": 345.0,
+                "fps": 103.44307,
+                "model_size": 137046545.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-birthday/2views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 21.903356283611803,
+                "ssim": 0.8576951289176941,
+                "lpips": 0.08002273201942443,
+                "train_time": 973.0,
+                "eval_time": 151.0,
+                "fps": 141.821806,
+                "model_size": 58847625.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-birthday/2views/swift4d.mp4",
+              "metrics": {
+                "psnr": 21.616897138402464,
+                "ssim": 0.8225052773952484,
+                "lpips": 0.08985667854547501,
+                "train_time": 2178.0,
+                "eval_time": 17.0,
+                "fps": 104.662709,
+                "model_size": 64954818.0
+              }
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-birthday/3views/ours.mp4",
+            "metrics": {
+              "psnr": 27.640786420469762,
+              "ssim": 0.9433697152137757,
+              "lpips": 0.030184500180184842,
+              "train_time": 834.2498219013214,
+              "eval_time": 138.0,
+              "fps": 135.410534,
+              "model_size": 69700105.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-birthday/3views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 24.641796814429227,
+                "ssim": 0.8836171388626098,
+                "lpips": 0.07522224992513657,
+                "train_time": 1344.0,
+                "eval_time": 19.010681629180908,
+                "fps": 101.887696,
+                "model_size": 54145664.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-birthday/3views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 23.474183756489186,
+                "ssim": 0.8794757235050201,
+                "lpips": 0.06224777325987816,
+                "train_time": 5754.02579498291,
+                "eval_time": 42.0,
+                "fps": 100.025705,
+                "model_size": 171227840.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-birthday/3views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 23.723729123015097,
+                "ssim": 0.8785562002658844,
+                "lpips": 0.06716706097126007,
+                "train_time": 2594.1477823257446,
+                "eval_time": 298.0,
+                "fps": 104.411961,
+                "model_size": 140385945.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-birthday/3views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 24.24138620705553,
+                "ssim": 0.9131594467163086,
+                "lpips": 0.049848337471485135,
+                "train_time": 1012.0,
+                "eval_time": 164.0,
+                "fps": 138.618876,
+                "model_size": 66343305.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-birthday/3views/swift4d.mp4",
+              "metrics": {
+                "psnr": 25.120372993799887,
+                "ssim": 0.9103920161724091,
+                "lpips": 0.04109134182333946,
+                "train_time": 1780.1521492004395,
+                "eval_time": 17.0,
+                "fps": 105.309997,
+                "model_size": 71159562.0
+              }
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-birthday/4views/ours.mp4",
+            "metrics": {
+              "psnr": 19.409349053699763,
+              "ssim": 0.5468893799185753,
+              "lpips": 0.30406300086528065,
+              "train_time": 873.0,
+              "eval_time": 424.0,
+              "fps": 130.667545,
+              "model_size": 72441737.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-birthday/4views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 27.248656896552895,
+                "ssim": 0.9146671032905579,
+                "lpips": 0.0588399288803339,
+                "train_time": 1237.7124302387238,
+                "eval_time": 18.206356287002563,
+                "fps": 102.44853,
+                "model_size": 54622816.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-birthday/4views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 27.074004427709852,
+                "ssim": 0.9281661748886109,
+                "lpips": 0.0368253380805254,
+                "train_time": 8249.0,
+                "eval_time": 44.0,
+                "fps": 100.02165,
+                "model_size": 185842520.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-birthday/4views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 26.828395244040266,
+                "ssim": 0.9225128328800202,
+                "lpips": 0.03976189009845257,
+                "train_time": 2406.0,
+                "eval_time": 370.0614287853241,
+                "fps": 103.67304,
+                "model_size": 146071065.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-birthday/4views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 27.779918017987242,
+                "ssim": 0.9440721344947814,
+                "lpips": 0.028772317804396152,
+                "train_time": 811.0,
+                "eval_time": 154.42650866508484,
+                "fps": 136.541101,
+                "model_size": 69536649.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-birthday/4views/swift4d.mp4",
+              "metrics": {
+                "psnr": 29.01751571683575,
+                "ssim": 0.9473947942256927,
+                "lpips": 0.024979474283754827,
+                "train_time": 1948.0,
+                "eval_time": 17.0,
+                "fps": 105.87976,
+                "model_size": 75358890.0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-fabien",
+      "label": "Fabien",
+      "thumb": "./n3d/thumbs/techni-fabien.jpg",
+      "defaultMethod": "cem4dgs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-fabien/2views/ours.mp4",
+            "metrics": {
+              "psnr": 28.41689809028678,
+              "ssim": 0.8610762655735016,
+              "lpips": 0.09772700935602188,
+              "train_time": 844.047285079956,
+              "eval_time": 144.36811661720276,
+              "fps": 156.034523,
+              "model_size": 31985161.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-fabien/2views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 20.303386298165993,
+                "ssim": 0.6846286809444427,
+                "lpips": 0.2653520029783249,
+                "train_time": 3568.0,
+                "eval_time": 36.0,
+                "fps": 102.705749,
+                "model_size": 52313936.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-fabien/2views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 17.577615625003478,
+                "ssim": 0.6088351929187774,
+                "lpips": 0.32844575703144074,
+                "train_time": 3351.0,
+                "eval_time": 46.508764028549194,
+                "fps": 100.017056,
+                "model_size": 46890083.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-fabien/2views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 18.064003474707487,
+                "ssim": 0.6112244546413421,
+                "lpips": 0.3299690067768097,
+                "train_time": 1671.0,
+                "eval_time": 185.0,
+                "fps": 123.144023,
+                "model_size": 45141743.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-fabien/2views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 22.27613072076701,
+                "ssim": 0.7613253927230835,
+                "lpips": 0.18185690075159072,
+                "train_time": 922.0,
+                "eval_time": 153.0,
+                "fps": 143.832101,
+                "model_size": 28135433.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-fabien/2views/swift4d.mp4",
+              "metrics": {
+                "psnr": 19.60333197801017,
+                "ssim": 0.6863324916362763,
+                "lpips": 0.2552913999557495,
+                "train_time": 2113.0,
+                "eval_time": 14.71014666557312,
+                "fps": 110.581521,
+                "model_size": 26732465.0
+              }
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-fabien/3views/ours.mp4",
+            "metrics": {
+              "psnr": 31.097154780670518,
+              "ssim": 0.8868099415302276,
+              "lpips": 0.07374685809016228,
+              "train_time": 845.4841318130493,
+              "eval_time": 142.0,
+              "fps": 156.694792,
+              "model_size": 33429769.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-fabien/3views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 25.286099445934564,
+                "ssim": 0.7910409927368164,
+                "lpips": 0.17065482318401337,
+                "train_time": 1367.0,
+                "eval_time": 19.0,
+                "fps": 102.86682,
+                "model_size": 52338528.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-fabien/3views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 22.98916339185061,
+                "ssim": 0.7770421659946442,
+                "lpips": 0.170191188454628,
+                "train_time": 3484.667519569397,
+                "eval_time": 44.0,
+                "fps": 100.02165,
+                "model_size": 62869035.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-fabien/3views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 23.76016234003348,
+                "ssim": 0.7670811104774475,
+                "lpips": 0.17897436648607254,
+                "train_time": 1599.0627524852753,
+                "eval_time": 170.0,
+                "fps": 127.138291,
+                "model_size": 38388703.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-fabien/3views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 27.924559018413596,
+                "ssim": 0.8571751189231872,
+                "lpips": 0.10059030294418335,
+                "train_time": 825.0,
+                "eval_time": 150.0,
+                "fps": 141.102818,
+                "model_size": 32302729.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-fabien/3views/swift4d.mp4",
+              "metrics": {
+                "psnr": 25.337914395468314,
+                "ssim": 0.7954146432876587,
+                "lpips": 0.1506691387295723,
+                "train_time": 1253.318204164505,
+                "eval_time": 16.0,
+                "fps": 111.250196,
+                "model_size": 28430945.0
+              }
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-fabien/4views/ours.mp4",
+            "metrics": {
+              "psnr": 21.322529725561807,
+              "ssim": 0.6305805194377899,
+              "lpips": 0.3270006223767996,
+              "train_time": 865.0,
+              "eval_time": 459.0,
+              "fps": 152.460941,
+              "model_size": 35017481.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-fabien/4views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 27.614716025927965,
+                "ssim": 0.8367237281799317,
+                "lpips": 0.1405157482624054,
+                "train_time": 1214.0847182273865,
+                "eval_time": 22.0,
+                "fps": 102.104308,
+                "model_size": 53083440.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-fabien/4views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 26.114255501982424,
+                "ssim": 0.837106556892395,
+                "lpips": 0.11876570254564285,
+                "train_time": 3508.0,
+                "eval_time": 43.0,
+                "fps": 100.02363,
+                "model_size": 58077459.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-fabien/4views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 27.040909666604403,
+                "ssim": 0.8362097644805908,
+                "lpips": 0.11899347633123397,
+                "train_time": 1702.6706581115723,
+                "eval_time": 159.0,
+                "fps": 128.655659,
+                "model_size": 37000403.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-fabien/4views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 31.566073866237492,
+                "ssim": 0.8882730460166931,
+                "lpips": 0.0729306823015213,
+                "train_time": 838.0632898807526,
+                "eval_time": 154.0,
+                "fps": 139.647965,
+                "model_size": 33804681.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-fabien/4views/swift4d.mp4",
+              "metrics": {
+                "psnr": 28.665793244617806,
+                "ssim": 0.8472772300243377,
+                "lpips": 0.1120200851559639,
+                "train_time": 1224.026725769043,
+                "eval_time": 18.159003973007202,
+                "fps": 109.788947,
+                "model_size": 30926753.0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-painter",
+      "label": "Painter",
+      "thumb": "./n3d/thumbs/techni-painter.jpg",
+      "defaultMethod": "ex4dgs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-painter/2views/ours.mp4",
+            "metrics": {
+              "psnr": 33.336260753565035,
+              "ssim": 0.9423161566257476,
+              "lpips": 0.022399396784603596,
+              "train_time": 744.4656112194061,
+              "eval_time": 142.0,
+              "fps": 158.8579,
+              "model_size": 55411337.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-painter/2views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 31.4165974228069,
+                "ssim": 0.9042882943153381,
+                "lpips": 0.05099637791514397,
+                "train_time": 2704.0,
+                "eval_time": 18.10185408592224,
+                "fps": 102.502793,
+                "model_size": 46447728.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-painter/2views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 30.594152205524814,
+                "ssim": 0.9080184817314148,
+                "lpips": 0.040103333070874214,
+                "train_time": 2656.0,
+                "eval_time": 43.0,
+                "fps": 100.02363,
+                "model_size": 88278988.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-painter/2views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 30.295448384549726,
+                "ssim": 0.8982970654964447,
+                "lpips": 0.047495789900422095,
+                "train_time": 1321.0,
+                "eval_time": 245.0,
+                "fps": 108.578109,
+                "model_size": 74494664.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-painter/2views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 33.458989193410744,
+                "ssim": 0.9418819272518157,
+                "lpips": 0.02783929094672203,
+                "train_time": 899.0,
+                "eval_time": 166.0,
+                "fps": 142.337468,
+                "model_size": 51620489.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-painter/2views/swift4d.mp4",
+              "metrics": {
+                "psnr": 30.28452021361501,
+                "ssim": 0.9155258846282959,
+                "lpips": 0.03924892693758011,
+                "train_time": 1839.0,
+                "eval_time": 13.190044641494751,
+                "fps": 111.143336,
+                "model_size": 34677522.0
+              }
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-painter/3views/ours.mp4",
+            "metrics": {
+              "psnr": 34.29908839989225,
+              "ssim": 0.9540085506439209,
+              "lpips": 0.020439786314964296,
+              "train_time": 792.0,
+              "eval_time": 131.0,
+              "fps": 160.174974,
+              "model_size": 59101705.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-painter/3views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 33.715218302297785,
+                "ssim": 0.9324285995960235,
+                "lpips": 0.035993126556277275,
+                "train_time": 1239.0115010738373,
+                "eval_time": 19.0,
+                "fps": 102.446374,
+                "model_size": 52598776.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-painter/3views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 32.019926707279694,
+                "ssim": 0.9302070999145508,
+                "lpips": 0.030054885745048523,
+                "train_time": 2702.5397198200226,
+                "eval_time": 44.0,
+                "fps": 100.02165,
+                "model_size": 94054264.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-painter/3views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 32.48440573182324,
+                "ssim": 0.9279929900169372,
+                "lpips": 0.03383878991007805,
+                "train_time": 1338.0993087291718,
+                "eval_time": 218.0,
+                "fps": 109.789083,
+                "model_size": 71705843.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-painter/3views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 33.44541962653243,
+                "ssim": 0.9452491116523742,
+                "lpips": 0.0226179551333189,
+                "train_time": 750.0,
+                "eval_time": 209.0,
+                "fps": 140.839846,
+                "model_size": 55909385.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-painter/3views/swift4d.mp4",
+              "metrics": {
+                "psnr": 33.109028241471584,
+                "ssim": 0.9441702079772949,
+                "lpips": 0.02285729840397835,
+                "train_time": 1386.540320634842,
+                "eval_time": 15.129164457321167,
+                "fps": 109.373994,
+                "model_size": 38140002.0
+              }
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-painter/4views/ours.mp4",
+            "metrics": {
+              "psnr": 25.79593408917178,
+              "ssim": 0.6201075404882431,
+              "lpips": 0.19999474931508301,
+              "train_time": 820.0,
+              "eval_time": 439.0,
+              "fps": 156.365041,
+              "model_size": 60715657.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-painter/4views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 34.42627464101567,
+                "ssim": 0.940795578956604,
+                "lpips": 0.03318699616938829,
+                "train_time": 1210.0,
+                "eval_time": 21.255250453948975,
+                "fps": 102.124115,
+                "model_size": 55741176.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-painter/4views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 34.686866378527625,
+                "ssim": 0.9486569154262543,
+                "lpips": 0.02441470369696617,
+                "train_time": 2536.234537124634,
+                "eval_time": 43.0,
+                "fps": 100.02363,
+                "model_size": 100721288.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-painter/4views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 34.07164561154951,
+                "ssim": 0.9434349286556244,
+                "lpips": 0.0297587913274765,
+                "train_time": 1307.0,
+                "eval_time": 202.0,
+                "fps": 112.348629,
+                "model_size": 76275444.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-painter/4views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 35.02882701355477,
+                "ssim": 0.9555419027805329,
+                "lpips": 0.019774440377950668,
+                "train_time": 808.0,
+                "eval_time": 137.1237120628357,
+                "fps": 139.611138,
+                "model_size": 58666249.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-painter/4views/swift4d.mp4",
+              "metrics": {
+                "psnr": 34.718117906140144,
+                "ssim": 0.9536772036552429,
+                "lpips": 0.019367628283798694,
+                "train_time": 1398.2809238433838,
+                "eval_time": 18.0,
+                "fps": 107.502209,
+                "model_size": 41676066.0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-theater",
+      "label": "Theater",
+      "thumb": "./n3d/thumbs/techni-theater.jpg",
+      "defaultMethod": "spacetimegs",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-theater/2views/ours.mp4",
+            "metrics": {
+              "psnr": 21.37507292939831,
+              "ssim": 0.6643947958946228,
+              "lpips": 0.15695956856012344,
+              "train_time": 756.0,
+              "eval_time": 142.0,
+              "fps": 156.704943,
+              "model_size": 67301129.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-theater/2views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 12.601274639152967,
+                "ssim": 0.31119227468967436,
+                "lpips": 0.4180230438709259,
+                "train_time": 1489.0,
+                "eval_time": 18.559102296829224,
+                "fps": 102.470511,
+                "model_size": 73054096.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-theater/2views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 18.45593497857873,
+                "ssim": 0.48643447399139406,
+                "lpips": 0.26063020825386046,
+                "train_time": 3399.0,
+                "eval_time": 42.873003005981445,
+                "fps": 100.023888,
+                "model_size": 61156163.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-theater/2views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 17.880055121947176,
+                "ssim": 0.4732666575908661,
+                "lpips": 0.2753132623434067,
+                "train_time": 1625.3795533180237,
+                "eval_time": 192.0,
+                "fps": 114.144888,
+                "model_size": 60415143.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-theater/2views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 18.672126618065867,
+                "ssim": 0.5528737962245941,
+                "lpips": 0.22389734774827957,
+                "train_time": 701.0,
+                "eval_time": 157.0,
+                "fps": 142.500465,
+                "model_size": 57572745.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-theater/2views/swift4d.mp4",
+              "metrics": {
+                "psnr": 17.530834095022986,
+                "ssim": 0.4565680837631226,
+                "lpips": 0.27878690779209137,
+                "train_time": 1738.0,
+                "eval_time": 14.0,
+                "fps": 110.029442,
+                "model_size": 34701966.0
+              }
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-theater/3views/ours.mp4",
+            "metrics": {
+              "psnr": 22.931204275578015,
+              "ssim": 0.7368141567707062,
+              "lpips": 0.11230596184730529,
+              "train_time": 766.0,
+              "eval_time": 131.31546878814697,
+              "fps": 144.44628,
+              "model_size": 72912265.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-theater/3views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 15.778413387463544,
+                "ssim": 0.47606427609920504,
+                "lpips": 0.2516660082340241,
+                "train_time": 1487.0,
+                "eval_time": 20.0,
+                "fps": 101.711227,
+                "model_size": 86742496.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-theater/3views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 20.521237599570487,
+                "ssim": 0.6219333279132843,
+                "lpips": 0.17455660164356232,
+                "train_time": 3440.0,
+                "eval_time": 44.619250774383545,
+                "fps": 100.020468,
+                "model_size": 70989027.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-theater/3views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 20.53338822450836,
+                "ssim": 0.6224338853359223,
+                "lpips": 0.17145460844039917,
+                "train_time": 1727.4159669876099,
+                "eval_time": 193.0,
+                "fps": 113.295854,
+                "model_size": 69928063.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-theater/3views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 20.958232990224715,
+                "ssim": 0.6610812389850617,
+                "lpips": 0.15659850776195527,
+                "train_time": 755.0,
+                "eval_time": 158.0,
+                "fps": 139.722799,
+                "model_size": 67433737.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-theater/3views/swift4d.mp4",
+              "metrics": {
+                "psnr": 19.96596185464004,
+                "ssim": 0.594620451927185,
+                "lpips": 0.17067860215902328,
+                "train_time": 1409.0,
+                "eval_time": 14.256219387054443,
+                "fps": 109.487045,
+                "model_size": 40945014.0
+              }
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-theater/4views/ours.mp4",
+            "metrics": {
+              "psnr": 17.819431828769673,
+              "ssim": 0.4927990297973156,
+              "lpips": 0.3515734652429819,
+              "train_time": 836.0,
+              "eval_time": 418.0,
+              "fps": 130.0,
+              "model_size": 78719113.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-theater/4views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 18.955195301800725,
+                "ssim": 0.6264304780960083,
+                "lpips": 0.179780336022377,
+                "train_time": 1448.494160413742,
+                "eval_time": 24.0,
+                "fps": 101.27806,
+                "model_size": 90749344.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-theater/4views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 23.041179978854842,
+                "ssim": 0.7200753104686737,
+                "lpips": 0.12335551708936691,
+                "train_time": 3290.2487111091614,
+                "eval_time": 44.1103630065918,
+                "fps": 100.021436,
+                "model_size": 77482911.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-theater/4views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 23.109422251431752,
+                "ssim": 0.7231079041957855,
+                "lpips": 0.11610220789909363,
+                "train_time": 1705.0816247463226,
+                "eval_time": 187.32746577262878,
+                "fps": 115.731207,
+                "model_size": 78443184.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-theater/4views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 22.8985972175807,
+                "ssim": 0.7382278370857239,
+                "lpips": 0.11162663504481316,
+                "train_time": 764.0,
+                "eval_time": 150.75858116149902,
+                "fps": 138.715251,
+                "model_size": 72832265.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-theater/4views/swift4d.mp4",
+              "metrics": {
+                "psnr": 23.198419107622964,
+                "ssim": 0.7310315239429473,
+                "lpips": 0.1040140950679779,
+                "train_time": 1421.0,
+                "eval_time": 17.0,
+                "fps": 107.217486,
+                "model_size": 46418454.0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "techni-train",
+      "label": "Train",
+      "thumb": "./n3d/thumbs/techni-train.jpg",
+      "defaultMethod": "swift4d",
+      "views": {
+        "2views": {
+          "label": "2 Views",
+          "poster": "./n3d/thumbs/techni-train.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-train/2views/ours.mp4",
+            "metrics": {
+              "psnr": 25.401505450895776,
+              "ssim": 0.9009180033206939,
+              "lpips": 0.03706751428544521,
+              "train_time": 845.4784033298492,
+              "eval_time": 134.0,
+              "fps": 200.0,
+              "model_size": 86130953.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-train/2views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 15.88172670381713,
+                "ssim": 0.5449063098430633,
+                "lpips": 0.26067180633544923,
+                "train_time": 1714.0,
+                "eval_time": 17.77757954597473,
+                "fps": 102.208786,
+                "model_size": 96618720.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-train/2views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 19.45051926989431,
+                "ssim": 0.5810554122924805,
+                "lpips": 0.22567396968603134,
+                "train_time": 6444.376352548599,
+                "eval_time": 59.0,
+                "fps": 100.0,
+                "model_size": 179941635.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-train/2views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 18.55626516721778,
+                "ssim": 0.5750989258289337,
+                "lpips": 0.23197926074266434,
+                "train_time": 3518.0,
+                "eval_time": 695.2309868335724,
+                "fps": 101.261935,
+                "model_size": 168646804.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-train/2views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 21.428732804860665,
+                "ssim": 0.7958754920959472,
+                "lpips": 0.09268073007464409,
+                "train_time": 750.0,
+                "eval_time": 138.0,
+                "fps": 150.0,
+                "model_size": 77281545.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-train/2views/swift4d.mp4",
+              "metrics": {
+                "psnr": 16.876450918335845,
+                "ssim": 0.6714223313331604,
+                "lpips": 0.14756352603435516,
+                "train_time": 1815.0,
+                "eval_time": 15.0,
+                "fps": 106.858078,
+                "model_size": 60995646.0
+              }
+            }
+          }
+        },
+        "3views": {
+          "label": "3 Views",
+          "poster": "./n3d/thumbs/techni-train.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-train/3views/ours.mp4",
+            "metrics": {
+              "psnr": 27.770025431193467,
+              "ssim": 0.9290738308429718,
+              "lpips": 0.026087791323661805,
+              "train_time": 923.0719947814941,
+              "eval_time": 136.46762228012085,
+              "fps": 178.068179,
+              "model_size": 93078409.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-train/3views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 19.85649859611915,
+                "ssim": 0.6708907437324524,
+                "lpips": 0.2374281245470047,
+                "train_time": 1574.0,
+                "eval_time": 18.45262360572815,
+                "fps": 102.218698,
+                "model_size": 97756144.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-train/3views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 23.098095495743916,
+                "ssim": 0.771360799074173,
+                "lpips": 0.11388321399688721,
+                "train_time": 7345.574421882629,
+                "eval_time": 41.0,
+                "fps": 100.02788,
+                "model_size": 162780651.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-train/3views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 22.992592436488067,
+                "ssim": 0.758133819103241,
+                "lpips": 0.12399399682879447,
+                "train_time": 2891.146354675293,
+                "eval_time": 2483.0,
+                "fps": 101.634467,
+                "model_size": 144521004.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-train/3views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 26.074661985444564,
+                "ssim": 0.9009796416759491,
+                "lpips": 0.037038730606436726,
+                "train_time": 825.0,
+                "eval_time": 138.0,
+                "fps": 147.434453,
+                "model_size": 85482761.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-train/3views/swift4d.mp4",
+              "metrics": {
+                "psnr": 22.936917479153113,
+                "ssim": 0.847180745601654,
+                "lpips": 0.061098449304699896,
+                "train_time": 1677.2972707748413,
+                "eval_time": 16.0,
+                "fps": 106.719382,
+                "model_size": 62971326.0
+              }
+            }
+          }
+        },
+        "4views": {
+          "label": "4 Views",
+          "poster": "./n3d/thumbs/techni-train.jpg",
+          "ours": {
+            "label": "Ours",
+            "video": "./n3d/videos/techni-train/4views/ours.mp4",
+            "metrics": {
+              "psnr": 19.530632958165384,
+              "ssim": 0.5221832747757434,
+              "lpips": 0.3129433447308838,
+              "train_time": 2887.0,
+              "eval_time": 396.0,
+              "fps": 175.205592,
+              "model_size": 98871305.0
+            }
+          },
+          "baselines": {
+            "4DGaussians": {
+              "key": "4DGaussians",
+              "label": "4DGaussians",
+              "video": "./n3d/videos/techni-train/4views/4DGaussians.mp4",
+              "metrics": {
+                "psnr": 21.29609251325586,
+                "ssim": 0.6796131885051727,
+                "lpips": 0.2204598730802536,
+                "train_time": 1462.0,
+                "eval_time": 19.0,
+                "fps": 102.021645,
+                "model_size": 99360536.0
+              }
+            },
+            "cem4dgs": {
+              "key": "cem4dgs",
+              "label": "CEM-4DGS",
+              "video": "./n3d/videos/techni-train/4views/cem4dgs.mp4",
+              "metrics": {
+                "psnr": 25.247460669462438,
+                "ssim": 0.8424260008335114,
+                "lpips": 0.07279252395033836,
+                "train_time": 5077.0,
+                "eval_time": 39.0,
+                "fps": 100.032567,
+                "model_size": 170661755.0
+              }
+            },
+            "ex4dgs": {
+              "key": "ex4dgs",
+              "label": "Ex4DGS",
+              "video": "./n3d/videos/techni-train/4views/ex4dgs.mp4",
+              "metrics": {
+                "psnr": 24.793880775143872,
+                "ssim": 0.8284422433376313,
+                "lpips": 0.08755310401320457,
+                "train_time": 2622.0,
+                "eval_time": 507.0,
+                "fps": 101.973035,
+                "model_size": 150206444.0
+              }
+            },
+            "spacetimegs": {
+              "key": "spacetimegs",
+              "label": "STGS",
+              "video": "./n3d/videos/techni-train/4views/spacetimegs.mp4",
+              "metrics": {
+                "psnr": 27.868963883165257,
+                "ssim": 0.9298814308643341,
+                "lpips": 0.026055571660399436,
+                "train_time": 900.0,
+                "eval_time": 131.3769338130951,
+                "fps": 143.478628,
+                "model_size": 93290505.0
+              }
+            },
+            "swift4d": {
+              "key": "swift4d",
+              "label": "Swift4D",
+              "video": "./n3d/videos/techni-train/4views/swift4d.mp4",
+              "metrics": {
+                "psnr": 25.824904390770726,
+                "ssim": 0.8777037799358368,
+                "lpips": 0.045602311566472056,
+                "train_time": 1616.391901254654,
+                "eval_time": 16.033345937728882,
+                "fps": 106.453844,
+                "model_size": 65933082.0
+              }
+            }
+          }
+        }
+      }
     }
   ]
 };
