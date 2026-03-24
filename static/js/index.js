@@ -794,7 +794,6 @@ function initImageComparisons() {
     var lastKnownRatio = 16 / 9;
     var activeMethodIndex = 0;
     var latestContent = null;
-    var latestShouldLoadMedia = false;
     var switchTextTimer = null;
 
     if (!wrapper || !overlay || !divider || !leftImage || !rightImage || !leftLabel || !rightLabel) {
@@ -974,10 +973,10 @@ function initImageComparisons() {
       nextEnabledIndex = (currentEnabledIndex + direction + enabledMethodIndexes.length) % enabledMethodIndexes.length;
       activeMethodIndex = enabledMethodIndexes[nextEnabledIndex];
       setMethodSwitcher(methodOptions);
-      applyResolvedContent(methodOptions[activeMethodIndex], latestShouldLoadMedia);
+      applyResolvedContent(methodOptions[activeMethodIndex]);
     }
 
-    function applyResolvedContent(content, shouldLoadMedia) {
+    function applyResolvedContent(content) {
       var nextLeftImage = content.leftImage || '';
       var nextRightImage = content.rightImage || nextLeftImage;
       var resolvedLeftLabel = content.leftLabel || 'Ours';
@@ -986,11 +985,11 @@ function initImageComparisons() {
       leftLabel.textContent = resolvedLeftLabel;
       rightLabel.textContent = resolvedRightLabel;
 
-      if (shouldLoadMedia && nextLeftImage) {
+      if (nextLeftImage) {
         leftImage.setAttribute('src', nextLeftImage);
       }
 
-      if (shouldLoadMedia && nextRightImage) {
+      if (nextRightImage) {
         rightImage.setAttribute('src', nextRightImage);
       }
 
@@ -1006,7 +1005,6 @@ function initImageComparisons() {
       var resolvedContent = content;
 
       latestContent = content;
-      latestShouldLoadMedia = shouldLoadMedia;
 
       if (methodOptions.length && (baselineChip || selectorValue || prevMethodButton || nextMethodButton)) {
         activeMethodIndex = resolveActiveMethodIndex(methodOptions);
@@ -1014,7 +1012,7 @@ function initImageComparisons() {
         resolvedContent = methodOptions[activeMethodIndex];
       }
 
-      applyResolvedContent(resolvedContent, shouldLoadMedia);
+      applyResolvedContent(resolvedContent);
     }
 
     leftImage.addEventListener('load', scheduleWrapperSize);
