@@ -3057,9 +3057,9 @@ window.N3D_SHOWCASE_DATA = {
               "label": "STGS",
               "video": "./n3d/videos/techni-train/4views/spacetimegs.mp4",
               "metrics": {
-                "psnr": 27.868963883165257,
-                "ssim": 0.9298814308643341,
-                "lpips": 0.026055571660399436,
+                "psnr": 27.852930068969727,
+                "ssim": 0.9291129112243652,
+                "lpips": 0.026831457391381264,
                 "train_time": 900.0,
                 "eval_time": 131.3769338130951,
                 "fps": 143.478628,

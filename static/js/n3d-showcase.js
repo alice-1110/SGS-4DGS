@@ -160,6 +160,7 @@
         return false;
       }
 
+      suppressPauseDuringSwitch();
       internalUpdate = true;
       try {
         leftVideo.currentTime = 0;
@@ -237,7 +238,7 @@
       video.muted = true;
       video.defaultMuted = true;
       video.autoplay = false;
-      video.loop = false;
+      video.loop = true;
       video.playsInline = true;
       video.preload = 'metadata';
       video.addEventListener('loadeddata', function() {
@@ -268,6 +269,9 @@
 
     leftVideo.addEventListener('pause', function() {
       if (internalUpdate || suppressPauseHandlers) {
+        return;
+      }
+      if (maybeRestartSharedLoop()) {
         return;
       }
       desiredPlaying = false;
