@@ -224,6 +224,23 @@ def choose_preview(scene_dir: Path) -> Path:
     raise FileNotFoundError(f'No preview image found under {scene_dir}')
 
 
+def choose_thumbnail(scene_dir: Path, dataset_key: str) -> Path:
+    if dataset_key == 'techni':
+        undist_candidates = [
+            path for path in sorted(scene_dir.glob('*_undist_*_00.png'))
+            if not path.name.startswith('._')
+        ]
+        if undist_candidates:
+            return undist_candidates[0]
+        return choose_preview(scene_dir)
+
+    fallback = scene_dir / '00000.png'
+    if fallback.exists() and not fallback.name.startswith('._'):
+        return fallback
+
+    return choose_preview(scene_dir)
+
+
 def sync_file(src: Path, dst: Path) -> bool:
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists() and filecmp.cmp(src, dst, shallow=False):
@@ -284,7 +301,7 @@ def build_showcase_data() -> Dict[str, object]:
         dataset_key = scene_info['dataset_key']
         thumb_ext = scene_image_extension(dataset_key)
         thumb_scene_dir = source_root / '2views' / 'ours' / source_name
-        thumb_src = thumb_scene_dir / '00000.png' if (thumb_scene_dir / '00000.png').exists() else choose_preview(thumb_scene_dir)
+        thumb_src = choose_thumbnail(thumb_scene_dir, dataset_key)
         thumb_dst = DEST_ASSETS / 'thumbs' / f'{scene_key}{thumb_ext}'
         sync_image(thumb_src, thumb_dst)
         default_method = DEFAULT_METHOD_ROTATION[scene_index % len(DEFAULT_METHOD_ROTATION)]
