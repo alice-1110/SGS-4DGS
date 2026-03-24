@@ -1057,6 +1057,7 @@ function initImageComparisons() {
     button.type = 'button';
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     button.setAttribute('data-scene-key', scene.key);
+    button.setAttribute('data-dataset-key', scene.datasetKey || '');
 
     preview.className = 'scene-selector__preview';
     preview.setAttribute('aria-hidden', 'true');

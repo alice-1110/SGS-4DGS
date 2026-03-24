@@ -617,6 +617,7 @@
       button.tabIndex = isInitiallyVisible ? 0 : -1;
       button.setAttribute('aria-pressed', 'false');
       button.setAttribute('data-scene-key', scene.key);
+      button.setAttribute('data-dataset-key', scene.datasetKey || '');
       button.innerHTML = [
         '<span class="scene-selector__preview" aria-hidden="true">',
         '  <img src="' + scene.thumb + '" alt="' + scene.label + ' thumbnail" loading="lazy" decoding="async">',
