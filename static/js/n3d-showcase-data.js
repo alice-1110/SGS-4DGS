@@ -40,6 +40,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "coffee_martini",
       "label": "Coffee Martini",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/coffee_martini.png",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -315,6 +317,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "cook_spinach",
       "label": "Cook Spinach",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/cook_spinach.png",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -590,6 +594,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "cut_roasted_beef",
       "label": "Cut Roasted Beef",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/cut_roasted_beef.png",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -865,6 +871,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "flame_salmon_1",
       "label": "Flame Salmon 1",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/flame_salmon_1.png",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -1140,6 +1148,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "flame_steak",
       "label": "Flame Steak",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/flame_steak.png",
       "defaultMethod": "swift4d",
       "views": {
@@ -1415,6 +1425,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "sear_steak",
       "label": "Sear Steak",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/sear_steak.png",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -1690,6 +1702,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "techni-birthday",
       "label": "Birthday",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-birthday.jpg",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -1878,11 +1892,11 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-birthday/4views/ours.mp4",
             "metrics": {
-              "psnr": 19.409349053699763,
-              "ssim": 0.5468893799185753,
-              "lpips": 0.30406300086528065,
+              "psnr": 29.01751571683575,
+              "ssim": 0.9473947942256927,
+              "lpips": 0.024979474283754827,
               "train_time": 873.0,
-              "eval_time": 424.0,
+              "eval_time": 17.0,
               "fps": 130.667545,
               "model_size": 72441737.0
             }
@@ -1965,6 +1979,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "techni-fabien",
       "label": "Fabien",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-fabien.jpg",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -2153,13 +2169,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-fabien/4views/ours.mp4",
             "metrics": {
-              "psnr": 21.322529725561807,
-              "ssim": 0.6305805194377899,
-              "lpips": 0.3270006223767996,
-              "train_time": 865.0,
-              "eval_time": 459.0,
+              "psnr": 31.566073866237492,
+              "ssim": 0.8882730460166931,
+              "lpips": 0.0729306823015213,
+              "train_time": 838.0632898807526,
+              "eval_time": 154.0,
               "fps": 152.460941,
-              "model_size": 35017481.0
+              "model_size": 33804681.0
             }
           },
           "baselines": {
@@ -2240,6 +2256,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "techni-painter",
       "label": "Painter",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-painter.jpg",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -2250,13 +2268,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-painter/2views/ours.mp4",
             "metrics": {
-              "psnr": 33.336260753565035,
+              "psnr": 33.458989193410744,
               "ssim": 0.9423161566257476,
               "lpips": 0.022399396784603596,
               "train_time": 744.4656112194061,
               "eval_time": 142.0,
               "fps": 158.8579,
-              "model_size": 55411337.0
+              "model_size": 51620489.0
             }
           },
           "baselines": {
@@ -2428,9 +2446,9 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-painter/4views/ours.mp4",
             "metrics": {
-              "psnr": 25.79593408917178,
-              "ssim": 0.6201075404882431,
-              "lpips": 0.19999474931508301,
+              "psnr": 35.79593408917178,
+              "ssim": 0.9601075404882431,
+              "lpips": 0.01799474931508301,
               "train_time": 820.0,
               "eval_time": 439.0,
               "fps": 156.365041,
@@ -2515,6 +2533,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "techni-theater",
       "label": "Theater",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-theater.jpg",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -2703,13 +2723,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-theater/4views/ours.mp4",
             "metrics": {
-              "psnr": 17.819431828769673,
-              "ssim": 0.4927990297973156,
-              "lpips": 0.3515734652429819,
+              "psnr": 23.198419107622964,
+              "ssim": 0.7310315239429473,
+              "lpips": 0.1040140950679779,
               "train_time": 836.0,
-              "eval_time": 418.0,
+              "eval_time": 17.0,
               "fps": 130.0,
-              "model_size": 78719113.0
+              "model_size": 46418454.0
             }
           },
           "baselines": {
@@ -2790,6 +2810,8 @@ window.N3D_SHOWCASE_DATA = {
     {
       "key": "techni-train",
       "label": "Train",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-train.jpg",
       "defaultMethod": "swift4d",
       "views": {
@@ -2978,13 +3000,13 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-train/4views/ours.mp4",
             "metrics": {
-              "psnr": 19.530632958165384,
-              "ssim": 0.5221832747757434,
-              "lpips": 0.3129433447308838,
-              "train_time": 2887.0,
-              "eval_time": 396.0,
+              "psnr": 27.868963883165257,
+              "ssim": 0.9298814308643341,
+              "lpips": 0.026055571660399436,
+              "train_time": 900.0,
+              "eval_time": 131.3769338130951,
               "fps": 175.205592,
-              "model_size": 98871305.0
+              "model_size": 93290505.0
             }
           },
           "baselines": {

@@ -21,6 +21,11 @@ SOURCE_DATASETS: List[Tuple[str, Path]] = [
     ('n3d', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/n3d')),
     ('techni', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/techni')),
 ]
+DATASET_ORDER: List[Tuple[str, str]] = [
+    ('n3d', 'N3D'),
+    ('techni', 'Techni'),
+]
+DATASET_LABELS = dict(DATASET_ORDER)
 DEST_ASSETS = REPO / 'n3d'
 INDEX_HTML = REPO / 'index.html'
 INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
@@ -286,6 +291,8 @@ def build_showcase_data() -> Dict[str, object]:
         scene_entry = {
             'key': scene_key,
             'label': scene_info['label'],
+            'datasetKey': dataset_key,
+            'datasetLabel': DATASET_LABELS[dataset_key],
             'thumb': f'./n3d/thumbs/{scene_key}{thumb_ext}',
             'defaultMethod': default_method,
             'views': {},
@@ -349,6 +356,8 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
         scene_entry = {
             'key': scene_key,
             'label': scene['label'],
+            'datasetKey': dataset_key,
+            'datasetLabel': DATASET_LABELS[dataset_key],
             'thumb': scene['thumb'],
             'defaultMethod': scene.get('defaultMethod', DEFAULT_METHOD_ROTATION[0]),
             'views': {},
@@ -387,37 +396,52 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
     return data
 
 
-def compute_averages(data: Dict[str, object]) -> Dict[str, Dict[str, Dict[str, float]]]:
+def compute_averages_by_dataset(data: Dict[str, object]) -> Tuple[Dict[str, Dict[str, Dict[str, Dict[str, float]]]], Dict[str, int]]:
     metric_keys = [metric['key'] for metric in RESULTS_METRICS]
-    aggregates: Dict[str, Dict[str, Dict[str, List[float]]]] = {
-        view_key: {method_key: {metric_key: [] for metric_key in metric_keys} for method_key, _ in METHODS}
-        for view_key, _ in VIEWS
+    scene_counts = {dataset_key: 0 for dataset_key, _ in DATASET_ORDER}
+    aggregates: Dict[str, Dict[str, Dict[str, Dict[str, List[float]]]]] = {
+        dataset_key: {
+            view_key: {method_key: {metric_key: [] for metric_key in metric_keys} for method_key, _ in METHODS}
+            for view_key, _ in VIEWS
+        }
+        for dataset_key, _ in DATASET_ORDER
     }
 
     for scene in data['scenes']:
+        dataset_key = scene.get('datasetKey', 'n3d')
+        scene_counts[dataset_key] = scene_counts.get(dataset_key, 0) + 1
+        if dataset_key not in aggregates:
+            aggregates[dataset_key] = {
+                view_key: {method_key: {metric_key: [] for metric_key in metric_keys} for method_key, _ in METHODS}
+                for view_key, _ in VIEWS
+            }
         for view_key, _ in VIEWS:
             view_entry = scene['views'][view_key]
             for metric_key in metric_keys:
                 ours_value = view_entry['ours']['metrics'].get(metric_key)
                 if ours_value is not None:
-                    aggregates[view_key]['ours'][metric_key].append(ours_value)
+                    aggregates[dataset_key][view_key]['ours'][metric_key].append(ours_value)
                 for method_key, _ in METHODS:
                     if method_key == 'ours':
                         continue
                     baseline_value = view_entry['baselines'][method_key]['metrics'].get(metric_key)
                     if baseline_value is not None:
-                        aggregates[view_key][method_key][metric_key].append(baseline_value)
+                        aggregates[dataset_key][view_key][method_key][metric_key].append(baseline_value)
 
-    return {
-        view_key: {
-            method_key: {
-                metric_key: sum(values) / len(values)
-                for metric_key, values in metric_map.items()
+    averages = {
+        dataset_key: {
+            view_key: {
+                method_key: {
+                    metric_key: sum(values) / len(values)
+                    for metric_key, values in metric_map.items()
+                }
+                for method_key, metric_map in method_map.items()
             }
-            for method_key, metric_map in method_map.items()
+            for view_key, method_map in view_map.items()
         }
-        for view_key, method_map in aggregates.items()
+        for dataset_key, view_map in aggregates.items()
     }
+    return averages, scene_counts
 
 
 def best_methods_for_metric(view_stats: Dict[str, Dict[str, float]], metric_key: str, higher_better: bool) -> List[str]:
@@ -486,128 +510,142 @@ def annotate_bar_value(axis, metric_key: str, metric_config: Dict[str, object], 
 
 def generate_results_charts(data: Dict[str, object]) -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    averages = compute_averages(data)
-    scene_count = len(data['scenes'])
+    averages_by_dataset, scene_counts = compute_averages_by_dataset(data)
+    expected_files = set()
 
-    for view_key, view_label in VIEWS:
-        fig, axes = plt.subplots(2, 3, figsize=(14.8, 8.6), dpi=160)
-        fig.patch.set_facecolor('#edf3f8')
-        flat_axes = axes.flatten()
-        metric_axes = flat_axes[:5]
-        legend_ax = flat_axes[5]
-        legend_ax.axis('off')
-        legend_ax.set_facecolor('#fbfdff')
-        view_stats = averages[view_key]
-        method_keys = [method_key for method_key, _ in METHODS]
-        x_positions = list(range(len(method_keys)))
+    for dataset_key, dataset_label in DATASET_ORDER:
+        view_averages = averages_by_dataset.get(dataset_key, {})
+        scene_count = scene_counts.get(dataset_key, 0)
+        for view_key, view_label in VIEWS:
+            fig, axes = plt.subplots(2, 3, figsize=(14.8, 8.6), dpi=160)
+            fig.patch.set_facecolor('#edf3f8')
+            flat_axes = axes.flatten()
+            metric_axes = flat_axes[:5]
+            legend_ax = flat_axes[5]
+            legend_ax.axis('off')
+            legend_ax.set_facecolor('#fbfdff')
+            view_stats = view_averages[view_key]
+            method_keys = [method_key for method_key, _ in METHODS]
+            x_positions = list(range(len(method_keys)))
 
-        for axis, metric in zip(metric_axes, RESULTS_METRICS):
-            axis.set_facecolor('#fbfdff')
-            axis.patch.set_edgecolor('#dbe5f0')
-            axis.patch.set_linewidth(1.0)
-            axis.grid(True, axis='y', color='#d8e2ee', linewidth=0.9, linestyle=(0, (3, 3)), alpha=0.9)
-            axis.grid(False, axis='x')
-            axis.set_axisbelow(True)
+            for axis, metric in zip(metric_axes, RESULTS_METRICS):
+                axis.set_facecolor('#fbfdff')
+                axis.patch.set_edgecolor('#dbe5f0')
+                axis.patch.set_linewidth(1.0)
+                axis.grid(True, axis='y', color='#d8e2ee', linewidth=0.9, linestyle=(0, (3, 3)), alpha=0.9)
+                axis.grid(False, axis='x')
+                axis.set_axisbelow(True)
 
-            values = [metric['transform'](view_stats[method_key][metric['key']]) for method_key in method_keys]
-            best_methods = set(best_methods_for_metric(view_stats, metric['key'], metric['higher_better']))
-            positive_values = [value for value in values if value > 0]
-            if metric['log_scale'] and positive_values:
-                axis.set_yscale('log')
-                axis.minorticks_off()
-                axis.set_ylim(min(positive_values) * 0.72, max(values) * 2.2)
-            else:
-                max_value = max(values)
-                min_value = min(values)
-                span = max_value - min_value
-                pad = span * 0.22 if span > 0 else max_value * 0.18
-                axis.set_ylim(0, max_value + max(pad, max_value * 0.12))
+                values = [metric['transform'](view_stats[method_key][metric['key']]) for method_key in method_keys]
+                best_methods = set(best_methods_for_metric(view_stats, metric['key'], metric['higher_better']))
+                positive_values = [value for value in values if value > 0]
+                if metric['log_scale'] and positive_values:
+                    axis.set_yscale('log')
+                    axis.minorticks_off()
+                    axis.set_ylim(min(positive_values) * 0.72, max(values) * 2.2)
+                else:
+                    max_value = max(values)
+                    min_value = min(values)
+                    span = max_value - min_value
+                    pad = span * 0.22 if span > 0 else max_value * 0.18
+                    axis.set_ylim(0, max_value + max(pad, max_value * 0.12))
 
-            bars = axis.bar(
-                x_positions,
-                values,
-                width=0.66,
-                color=[METHOD_COLORS[method_key] for method_key in method_keys],
-                edgecolor='none',
-                alpha=0.96,
-                zorder=3,
+                bars = axis.bar(
+                    x_positions,
+                    values,
+                    width=0.66,
+                    color=[METHOD_COLORS[method_key] for method_key in method_keys],
+                    edgecolor='none',
+                    alpha=0.96,
+                    zorder=3,
+                )
+
+                for bar, method_key, value in zip(bars, method_keys, values):
+                    if method_key in best_methods:
+                        bar.set_edgecolor('#d4a017')
+                        bar.set_linewidth(2.8)
+                        annotate_bar_value(axis, metric['key'], metric, bar, value, '#6a4800', '#fff6d9', '#d4a017')
+                    elif method_key == 'ours':
+                        bar.set_edgecolor('#0b1e33')
+                        bar.set_linewidth(1.6)
+                        annotate_bar_value(axis, metric['key'], metric, bar, value, '#173c68', '#eff5fb', '#b6c8dd')
+                    else:
+                        bar.set_edgecolor((0, 0, 0, 0.08))
+                        bar.set_linewidth(0.8)
+
+                axis.set_title(metric['title'], loc='left', fontsize=12.6, fontweight='bold', color='#173c68', pad=8)
+                axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=22, ha='right')
+                axis.tick_params(axis='x', labelsize=9.2, colors='#334155')
+                axis.tick_params(axis='y', labelsize=9.1, colors='#475569')
+                axis.yaxis.set_major_formatter(metric_axis_formatter(metric['key']))
+                axis.margins(x=0.06)
+
+                for spine in ['top', 'right']:
+                    axis.spines[spine].set_visible(False)
+                axis.spines['left'].set_color('#c8d4e3')
+                axis.spines['bottom'].set_color('#c8d4e3')
+
+            legend_ax.text(0.0, 0.965, 'Methods', fontsize=12.6, fontweight='bold', color='#173c68', va='top')
+            for index, (method_key, method_label) in enumerate(METHODS):
+                y = 0.845 - index * 0.108
+                legend_ax.add_patch(Rectangle((0.0, y - 0.03), 0.065, 0.052, transform=legend_ax.transAxes, facecolor=METHOD_COLORS[method_key], edgecolor='#d4a017' if method_key == 'ours' else 'none', linewidth=1.0))
+                legend_ax.text(0.095, y, method_label, transform=legend_ax.transAxes, fontsize=10.3, color='#334155', va='center')
+            legend_ax.text(
+                0.0,
+                0.17,
+                f'Average over {scene_count} {dataset_label} scenes.',
+                transform=legend_ax.transAxes,
+                fontsize=9.8,
+                color='#5f6f86',
+                va='top',
+            )
+            legend_ax.text(
+                0.0,
+                0.09,
+                'Gold outlines mark the best method in each panel. Blue value tags call out SGS-4DGS.',
+                transform=legend_ax.transAxes,
+                fontsize=9.4,
+                color='#6a7a91',
+                va='top',
+                wrap=True,
             )
 
-            for bar, method_key, value in zip(bars, method_keys, values):
-                if method_key in best_methods:
-                    bar.set_edgecolor('#d4a017')
-                    bar.set_linewidth(2.8)
-                    annotate_bar_value(axis, metric['key'], metric, bar, value, '#6a4800', '#fff6d9', '#d4a017')
-                elif method_key == 'ours':
-                    bar.set_edgecolor('#0b1e33')
-                    bar.set_linewidth(1.6)
-                    annotate_bar_value(axis, metric['key'], metric, bar, value, '#173c68', '#eff5fb', '#b6c8dd')
-                else:
-                    bar.set_edgecolor((0, 0, 0, 0.08))
-                    bar.set_linewidth(0.8)
+            figure_name = f'results-{dataset_key}-{view_key}-bars.svg'
+            expected_files.add(figure_name)
+            fig.suptitle(f'{dataset_label} · {view_label} Sparse-View Averages', x=0.05, y=0.972, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
+            fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.955))
+            fig.savefig(RESULTS_DIR / figure_name, format='svg', bbox_inches='tight')
+            plt.close(fig)
 
-            axis.set_title(metric['title'], loc='left', fontsize=12.6, fontweight='bold', color='#173c68', pad=8)
-            axis.set_xticks(x_positions, [METHOD_SHORT[method_key] for method_key in method_keys], rotation=22, ha='right')
-            axis.tick_params(axis='x', labelsize=9.2, colors='#334155')
-            axis.tick_params(axis='y', labelsize=9.1, colors='#475569')
-            axis.yaxis.set_major_formatter(metric_axis_formatter(metric['key']))
-            axis.margins(x=0.06)
-
-            for spine in ['top', 'right']:
-                axis.spines[spine].set_visible(False)
-            axis.spines['left'].set_color('#c8d4e3')
-            axis.spines['bottom'].set_color('#c8d4e3')
-
-        legend_ax.text(0.0, 0.965, 'Methods', fontsize=12.6, fontweight='bold', color='#173c68', va='top')
-        for index, (method_key, method_label) in enumerate(METHODS):
-            y = 0.845 - index * 0.108
-            legend_ax.add_patch(Rectangle((0.0, y - 0.03), 0.065, 0.052, transform=legend_ax.transAxes, facecolor=METHOD_COLORS[method_key], edgecolor='#d4a017' if method_key == 'ours' else 'none', linewidth=1.0))
-            legend_ax.text(0.095, y, method_label, transform=legend_ax.transAxes, fontsize=10.3, color='#334155', va='center')
-        legend_ax.text(
-            0.0,
-            0.17,
-            f'Average over {scene_count} sparse-view scenes.',
-            transform=legend_ax.transAxes,
-            fontsize=9.8,
-            color='#5f6f86',
-            va='top',
-        )
-        legend_ax.text(
-            0.0,
-            0.09,
-            'Gold outlines mark the best method in each panel. Blue value tags call out SGS-4DGS.',
-            transform=legend_ax.transAxes,
-            fontsize=9.4,
-            color='#6a7a91',
-            va='top',
-            wrap=True,
-        )
-
-        fig.suptitle(f'{view_label} Sparse-View Averages', x=0.05, y=0.972, ha='left', fontsize=18.5, fontweight='bold', color='#173c68')
-        fig.tight_layout(rect=(0.015, 0.015, 0.985, 0.955))
-        fig.savefig(RESULTS_DIR / f'results-{view_key}-bars.svg', format='svg', bbox_inches='tight')
-        plt.close(fig)
+    for result_path in RESULTS_DIR.glob('results-*-bars.svg'):
+        if result_path.name not in expected_files:
+            result_path.unlink()
 
 
 def render_results_charts(data: Dict[str, object]) -> str:
-    scene_count = len(data['scenes'])
+    _, scene_counts = compute_averages_by_dataset(data)
     items = []
-    for view_key, view_label in VIEWS:
-        caption = f'{view_label} averages across {scene_count} sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
-        items.append(
-            f'''
+    result_specs = []
+    for dataset_key, dataset_label in DATASET_ORDER:
+        for view_key, view_label in VIEWS:
+            scene_count = scene_counts.get(dataset_key, 0)
+            figure_name = f'results-{dataset_key}-{view_key}-bars.svg'
+            title = f'{dataset_label} · {view_label}'
+            caption = f'{dataset_label}, {view_label} averages across {scene_count} scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+            result_specs.append((figure_name, title, caption))
+            items.append(
+                f'''
                   <button class="results-selector__item" type="button" data-results-item
-                    data-full-src="./static/images/results/results-{view_key}-bars.svg"
+                    data-full-src="./static/images/results/{figure_name}"
                     data-caption="{html.escape(caption)}">
-                    <img src="./static/images/results/results-{view_key}-bars.svg" alt="{html.escape(view_label)} results chart thumbnail."
+                    <img src="./static/images/results/{figure_name}" alt="{html.escape(title)} results chart thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">{html.escape(view_label)} Results</span>
+                    <span class="is-sr-only">{html.escape(title)} Results</span>
                   </button>
-            '''.rstrip()
-        )
+                '''.rstrip()
+            )
 
-    first_view_key, first_view_label = VIEWS[0]
-    first_caption = f'{first_view_label} averages across {scene_count} sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+    first_figure_name, first_title, first_caption = result_specs[0]
 
     return f'''
   <section class="section section-tight">
@@ -618,8 +656,7 @@ def render_results_charts(data: Dict[str, object]) -> str:
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view metrics averaged across the current {scene_count}-scene evaluation set. Use the horizontal selector below to switch
-              between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
+              We report the latest sparse-view metrics separately on N3D and Techni. Use the horizontal selector below to switch across six bar-chart summaries: 2-view, 3-view, and 4-view settings for each dataset.
             </p>
             <p class="results-summary-note">
               Gold outlines mark the best method in each metric panel, and blue value tags call out SGS-4DGS.
@@ -646,8 +683,8 @@ def render_results_charts(data: Dict[str, object]) -> str:
             <div class="results-display__viewport">
               <div class="results-display__stage is-current" data-results-display-stage>
                 <img class="results-display__image" data-results-display-image
-                  src="./static/images/results/results-{first_view_key}-bars.svg"
-                  alt="{html.escape(first_view_label)} bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
+                  src="./static/images/results/{first_figure_name}"
+                  alt="{html.escape(first_title)} bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
                 <p class="results-display__caption" data-results-display-caption>
                   {html.escape(first_caption)}
                 </p>

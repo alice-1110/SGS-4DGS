@@ -40,6 +40,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "coffee_martini",
       "label": "Coffee Martini",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/coffee_martini.png",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -150,6 +152,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "cook_spinach",
       "label": "Cook Spinach",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/cook_spinach.png",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -260,6 +264,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "cut_roasted_beef",
       "label": "Cut Roasted Beef",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/cut_roasted_beef.png",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -370,6 +376,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "flame_salmon_1",
       "label": "Flame Salmon 1",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/flame_salmon_1.png",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -480,6 +488,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "flame_steak",
       "label": "Flame Steak",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/flame_steak.png",
       "defaultMethod": "swift4d",
       "views": {
@@ -590,6 +600,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "sear_steak",
       "label": "Sear Steak",
+      "datasetKey": "n3d",
+      "datasetLabel": "N3D",
       "thumb": "./n3d/thumbs/sear_steak.png",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -700,6 +712,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "techni-birthday",
       "label": "Birthday",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-birthday.jpg",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -810,6 +824,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "techni-fabien",
       "label": "Fabien",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-fabien.jpg",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -920,6 +936,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "techni-painter",
       "label": "Painter",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-painter.jpg",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -1030,6 +1048,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "techni-theater",
       "label": "Theater",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-theater.jpg",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -1140,6 +1160,8 @@ window.VISUAL_COMPARISONS_DATA = {
     {
       "key": "techni-train",
       "label": "Train",
+      "datasetKey": "techni",
+      "datasetLabel": "Techni",
       "thumb": "./n3d/thumbs/techni-train.jpg",
       "defaultMethod": "swift4d",
       "views": {

@@ -606,6 +606,72 @@ function initSceneShowcase() {
   }
 }
 
+function createSceneSelectorCarousel(selector, prevButton, nextButton) {
+  function getScrollAmount() {
+    var firstButton = selector ? selector.querySelector('.scene-selector__item') : null;
+    var styles = selector ? window.getComputedStyle(selector) : null;
+    var gap = styles ? parseFloat(styles.columnGap || styles.gap || '0') || 0 : 0;
+    var itemWidth = firstButton ? firstButton.getBoundingClientRect().width : 0;
+    var viewportStep = selector ? selector.clientWidth * 0.82 : 0;
+    var itemStep = (itemWidth + gap) * (window.innerWidth <= 768 ? 2.25 : 3.4);
+    return Math.max(viewportStep, itemStep);
+  }
+
+  function updateButtons() {
+    var maxScrollLeft;
+    if (!selector) {
+      return;
+    }
+    maxScrollLeft = Math.max(selector.scrollWidth - selector.clientWidth, 0);
+    if (prevButton) {
+      prevButton.disabled = selector.scrollLeft <= 4;
+    }
+    if (nextButton) {
+      nextButton.disabled = selector.scrollLeft >= maxScrollLeft - 4;
+    }
+  }
+
+  function scrollByDirection(direction) {
+    if (!selector) {
+      return;
+    }
+    selector.scrollBy({ left: getScrollAmount() * direction, behavior: 'smooth' });
+    window.setTimeout(updateButtons, 240);
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener('click', function() {
+      scrollByDirection(-1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', function() {
+      scrollByDirection(1);
+    });
+  }
+
+  if (selector) {
+    selector.addEventListener('scroll', updateButtons, { passive: true });
+  }
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+
+  return {
+    reveal: function(button, shouldAnimate) {
+      if (button && typeof button.scrollIntoView === 'function') {
+        button.scrollIntoView({
+          behavior: shouldAnimate ? 'smooth' : 'auto',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+      window.setTimeout(updateButtons, shouldAnimate ? 240 : 0);
+    },
+    update: updateButtons
+  };
+}
+
 function initImageComparisons() {
   var section = document.querySelector('[data-visual-comparisons]');
   if (!section) {
@@ -614,6 +680,9 @@ function initImageComparisons() {
 
   var data = window.VISUAL_COMPARISONS_DATA;
   var selectorRoot = section.querySelector('[data-visual-selector]');
+  var prevButton = section.querySelector('[data-visual-selector-prev]');
+  var nextButton = section.querySelector('[data-visual-selector-next]');
+  var carousel;
   var imageMediaReady = false;
   var activeButton;
   var buttons;
@@ -622,6 +691,8 @@ function initImageComparisons() {
   if (!data || !Array.isArray(data.scenes) || !data.scenes.length || !selectorRoot) {
     return;
   }
+
+  carousel = createSceneSelectorCarousel(selectorRoot, prevButton, nextButton);
 
   function createImageCompareCard(card) {
     var headerInner = card.querySelector('.visual-compare-header__inner');
@@ -1011,8 +1082,12 @@ function initImageComparisons() {
       item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    if (shouldScroll && button && typeof button.scrollIntoView === 'function') {
-      button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (carousel) {
+      if (shouldScroll && button) {
+        carousel.reveal(button, true);
+      } else {
+        carousel.update();
+      }
     }
 
     imageCards.forEach(function(compareCard) {

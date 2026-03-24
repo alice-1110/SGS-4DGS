@@ -355,11 +355,80 @@
     };
   }
 
+  function createSceneCarousel(selector, prevButton, nextButton) {
+    function getScrollAmount() {
+      var firstButton = selector ? selector.querySelector('.scene-selector__item') : null;
+      var styles = selector ? window.getComputedStyle(selector) : null;
+      var gap = styles ? parseFloat(styles.columnGap || styles.gap || '0') || 0 : 0;
+      var itemWidth = firstButton ? firstButton.getBoundingClientRect().width : 0;
+      var viewportStep = selector ? selector.clientWidth * 0.82 : 0;
+      var itemStep = (itemWidth + gap) * (window.innerWidth <= 768 ? 2.25 : 3.4);
+      return Math.max(viewportStep, itemStep);
+    }
+
+    function updateButtons() {
+      var maxScrollLeft;
+      if (!selector) {
+        return;
+      }
+      maxScrollLeft = Math.max(selector.scrollWidth - selector.clientWidth, 0);
+      if (prevButton) {
+        prevButton.disabled = selector.scrollLeft <= 4;
+      }
+      if (nextButton) {
+        nextButton.disabled = selector.scrollLeft >= maxScrollLeft - 4;
+      }
+    }
+
+    function scrollByDirection(direction) {
+      if (!selector) {
+        return;
+      }
+      selector.scrollBy({ left: getScrollAmount() * direction, behavior: 'smooth' });
+      window.setTimeout(updateButtons, 240);
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener('click', function() {
+        scrollByDirection(-1);
+      });
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', function() {
+        scrollByDirection(1);
+      });
+    }
+
+    if (selector) {
+      selector.addEventListener('scroll', updateButtons, { passive: true });
+    }
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+
+    return {
+      reveal: function(button, shouldAnimate) {
+        if (button && typeof button.scrollIntoView === 'function') {
+          button.scrollIntoView({
+            behavior: shouldAnimate ? 'smooth' : 'auto',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
+        window.setTimeout(updateButtons, shouldAnimate ? 240 : 0);
+      },
+      update: updateButtons
+    };
+  }
+
   function initN3DShowcase() {
     var root = document.querySelector('[data-n3d-showcase]');
     var data = window.N3D_SHOWCASE_DATA;
     var selector;
     var grid;
+    var prevButton;
+    var nextButton;
+    var carousel;
     var controllers = [];
     var buttons = [];
     var sceneLookup = {};
@@ -370,6 +439,9 @@
 
     selector = root.querySelector('[data-n3d-selector]');
     grid = root.querySelector('[data-n3d-grid]');
+    prevButton = root.querySelector('[data-n3d-selector-prev]');
+    nextButton = root.querySelector('[data-n3d-selector-next]');
+    carousel = createSceneCarousel(selector, prevButton, nextButton);
 
     data.scenes.forEach(function(scene) {
       sceneLookup[scene.key] = scene;
@@ -397,8 +469,12 @@
         }
       });
 
-      if (shouldScroll && activeButton && typeof activeButton.scrollIntoView === 'function') {
-        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (carousel) {
+        if (shouldScroll && activeButton) {
+          carousel.reveal(activeButton, true);
+        } else {
+          carousel.update();
+        }
       }
 
       controllers.forEach(function(entry) {

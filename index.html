@@ -83,7 +83,15 @@
               Select a scene to update all three sparse-view video comparisons. Each card keeps the SGS-4DGS and baseline videos synchronized, lets you switch the baseline with the arrow controls, and overlays the latest per-scene metrics from the current sparse-view outputs.
             </p>
           </div>
-          <div class="scene-selector n3d-scene-selector" role="group" aria-label="Sparse-view scene selector" data-n3d-selector></div>
+          <div class="n3d-scene-carousel" data-n3d-carousel>
+            <button class="n3d-scene-carousel__arrow n3d-scene-carousel__arrow--prev" type="button" data-n3d-selector-prev aria-label="Show previous scenes">
+              <span aria-hidden="true">&#10094;</span>
+            </button>
+            <div class="scene-selector n3d-scene-selector" role="group" aria-label="Sparse-view scene selector" data-n3d-selector></div>
+            <button class="n3d-scene-carousel__arrow n3d-scene-carousel__arrow--next" type="button" data-n3d-selector-next aria-label="Show next scenes">
+              <span aria-hidden="true">&#10095;</span>
+            </button>
+          </div>
           <div class="n3d-showcase-stage">
             <div class="scene-compare-grid" data-n3d-grid></div>
           </div>
@@ -156,8 +164,7 @@
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view metrics averaged across the current 11-scene evaluation set. Use the horizontal selector below to switch
-              between the 2-view, 3-view, and 4-view summaries, shown as bar-chart panels for PSNR, SSIM, LPIPS, training time, and FPS.
+              We report the latest sparse-view metrics separately on N3D and Techni. Use the horizontal selector below to switch across six bar-chart summaries: 2-view, 3-view, and 4-view settings for each dataset.
             </p>
             <p class="results-summary-note">
               Gold outlines mark the best method in each metric panel, and blue value tags call out SGS-4DGS.
@@ -173,25 +180,46 @@
                 <div class="results-selector__track">
 
                   <button class="results-selector__item" type="button" data-results-item
-                    data-full-src="./static/images/results/results-2views-bars.svg"
-                    data-caption="2 Views averages across 11 sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
-                    <img src="./static/images/results/results-2views-bars.svg" alt="2 Views results chart thumbnail."
+                    data-full-src="./static/images/results/results-n3d-2views-bars.svg"
+                    data-caption="N3D, 2 Views averages across 6 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-n3d-2views-bars.svg" alt="N3D · 2 Views results chart thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">2 Views Results</span>
+                    <span class="is-sr-only">N3D · 2 Views Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
-                    data-full-src="./static/images/results/results-3views-bars.svg"
-                    data-caption="3 Views averages across 11 sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
-                    <img src="./static/images/results/results-3views-bars.svg" alt="3 Views results chart thumbnail."
+                    data-full-src="./static/images/results/results-n3d-3views-bars.svg"
+                    data-caption="N3D, 3 Views averages across 6 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-n3d-3views-bars.svg" alt="N3D · 3 Views results chart thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">3 Views Results</span>
+                    <span class="is-sr-only">N3D · 3 Views Results</span>
                   </button>
                   <button class="results-selector__item" type="button" data-results-item
-                    data-full-src="./static/images/results/results-4views-bars.svg"
-                    data-caption="4 Views averages across 11 sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
-                    <img src="./static/images/results/results-4views-bars.svg" alt="4 Views results chart thumbnail."
+                    data-full-src="./static/images/results/results-n3d-4views-bars.svg"
+                    data-caption="N3D, 4 Views averages across 6 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-n3d-4views-bars.svg" alt="N3D · 4 Views results chart thumbnail."
                       loading="lazy" decoding="async">
-                    <span class="is-sr-only">4 Views Results</span>
+                    <span class="is-sr-only">N3D · 4 Views Results</span>
+                  </button>
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-techni-2views-bars.svg"
+                    data-caption="Techni, 2 Views averages across 5 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-techni-2views-bars.svg" alt="Techni · 2 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">Techni · 2 Views Results</span>
+                  </button>
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-techni-3views-bars.svg"
+                    data-caption="Techni, 3 Views averages across 5 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-techni-3views-bars.svg" alt="Techni · 3 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">Techni · 3 Views Results</span>
+                  </button>
+                  <button class="results-selector__item" type="button" data-results-item
+                    data-full-src="./static/images/results/results-techni-4views-bars.svg"
+                    data-caption="Techni, 4 Views averages across 5 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.">
+                    <img src="./static/images/results/results-techni-4views-bars.svg" alt="Techni · 4 Views results chart thumbnail."
+                      loading="lazy" decoding="async">
+                    <span class="is-sr-only">Techni · 4 Views Results</span>
                   </button>
                 </div>
               </div>
@@ -205,10 +233,10 @@
             <div class="results-display__viewport">
               <div class="results-display__stage is-current" data-results-display-stage>
                 <img class="results-display__image" data-results-display-image
-                  src="./static/images/results/results-2views-bars.svg"
-                  alt="2 Views bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
+                  src="./static/images/results/results-n3d-2views-bars.svg"
+                  alt="N3D · 2 Views bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
                 <p class="results-display__caption" data-results-display-caption>
-                  2 Views averages across 11 sparse-view scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.
+                  N3D, 2 Views averages across 6 scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.
                 </p>
               </div>
             </div>
@@ -230,8 +258,16 @@
           </div>
 
           <div class="visual-comparisons-stage n3d-showcase-stage">
-            <div class="scene-selector visual-scene-selector n3d-scene-selector" role="group"
-              aria-label="Visual comparison scene selector" data-visual-selector></div>
+            <div class="n3d-scene-carousel visual-scene-carousel" data-visual-carousel>
+              <button class="n3d-scene-carousel__arrow n3d-scene-carousel__arrow--prev" type="button" data-visual-selector-prev aria-label="Show previous scenes">
+                <span aria-hidden="true">&#10094;</span>
+              </button>
+              <div class="scene-selector visual-scene-selector n3d-scene-selector" role="group"
+                aria-label="Visual comparison scene selector" data-visual-selector></div>
+              <button class="n3d-scene-carousel__arrow n3d-scene-carousel__arrow--next" type="button" data-visual-selector-next aria-label="Show next scenes">
+                <span aria-hidden="true">&#10095;</span>
+              </button>
+            </div>
 
             <div class="scene-compare-grid visual-compare-grid" data-visual-grid>
               <div class="scene-compare-card visual-compare-card" data-image-compare-card data-view-key="2views">
