@@ -393,6 +393,73 @@
     var currentScene = null;
     var activeMethodKey = methodOrder[0] ? methodOrder[0].key : '';
     var mediaEnabled = false;
+    var layoutFrame = null;
+    var lastKnownRatio = 1024 / 544;
+
+    function getVideoRatio() {
+      if (leftVideo.videoWidth && leftVideo.videoHeight) {
+        return leftVideo.videoWidth / leftVideo.videoHeight;
+      }
+
+      if (rightVideo.videoWidth && rightVideo.videoHeight) {
+        return rightVideo.videoWidth / rightVideo.videoHeight;
+      }
+
+      return lastKnownRatio;
+    }
+
+    function updateWrapperSize() {
+      var availableWidth = card.clientWidth;
+      var ratio = getVideoRatio();
+      var isMobile = window.innerWidth <= 768;
+      var minWidth = Math.min(availableWidth, isMobile ? 265 : 300);
+      var minHeight = isMobile ? 176 : 198;
+      var maxHeight = isMobile ? 300 : 340;
+      var width;
+      var height;
+
+      if (!availableWidth || !ratio) {
+        return;
+      }
+
+      lastKnownRatio = ratio;
+      width = availableWidth;
+      height = width / ratio;
+
+      if (height > maxHeight) {
+        height = maxHeight;
+        width = height * ratio;
+      }
+
+      if (width < minWidth) {
+        width = minWidth;
+        height = width / ratio;
+      }
+
+      if (height < minHeight) {
+        height = minHeight;
+        width = height * ratio;
+      }
+
+      if (width > availableWidth) {
+        width = availableWidth;
+        height = width / ratio;
+      }
+
+      wrapper.style.width = Math.round(width) + 'px';
+      wrapper.style.height = Math.round(height) + 'px';
+    }
+
+    function scheduleWrapperSize() {
+      if (layoutFrame) {
+        window.cancelAnimationFrame(layoutFrame);
+      }
+
+      layoutFrame = window.requestAnimationFrame(function() {
+        layoutFrame = null;
+        updateWrapperSize();
+      });
+    }
 
     function getAvailableMethods() {
       if (!currentScene || !currentScene.views || !currentScene.views[viewConfig.key]) {
@@ -465,6 +532,7 @@
       if (compareInteraction) {
         compareInteraction.setComparePosition(0.5);
       }
+      scheduleWrapperSize();
       syncController.setSources(ours.video, baseline.video, sceneView.poster || currentScene.thumb, loadMedia);
     }
 
@@ -479,6 +547,11 @@
     if (compareInteraction) {
       compareInteraction.setComparePosition(0.5);
     }
+
+    leftVideo.addEventListener('loadedmetadata', scheduleWrapperSize);
+    rightVideo.addEventListener('loadedmetadata', scheduleWrapperSize);
+    window.addEventListener('resize', scheduleWrapperSize);
+    scheduleWrapperSize();
 
     return {
       element: card,
