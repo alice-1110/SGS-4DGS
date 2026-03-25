@@ -2169,9 +2169,9 @@ window.N3D_SHOWCASE_DATA = {
             "label": "Ours",
             "video": "./n3d/videos/techni-fabien/4views/ours.mp4",
             "metrics": {
-              "psnr": 31.566073866237492,
-              "ssim": 0.8882730460166931,
-              "lpips": 0.0729306823015213,
+              "psnr": 31.60614013671875,
+              "ssim": 0.8945772051811218,
+              "lpips": 0.07443791627883911,
               "train_time": 838.0632898807526,
               "eval_time": 154.0,
               "fps": 152.460941,
