@@ -6,6 +6,7 @@ import html
 import json
 import re
 import shutil
+import subprocess
 from typing import Dict, List, Tuple
 
 from PIL import Image
@@ -249,6 +250,42 @@ def sync_file(src: Path, dst: Path) -> bool:
     return True
 
 
+def sync_video(src: Path, dst: Path) -> bool:
+    if shutil.which('ffmpeg') is None:
+        return sync_file(src, dst)
+
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = dst.with_name(f'{dst.stem}.tmp{dst.suffix}')
+    if temp_path.exists():
+        temp_path.unlink()
+
+    subprocess.run(
+        [
+            'ffmpeg',
+            '-y',
+            '-loglevel',
+            'error',
+            '-i',
+            str(src),
+            '-map',
+            '0',
+            '-c',
+            'copy',
+            '-movflags',
+            '+faststart',
+            str(temp_path),
+        ],
+        check=True,
+    )
+
+    if dst.exists() and filecmp.cmp(temp_path, dst, shallow=False):
+        temp_path.unlink()
+        return False
+
+    temp_path.replace(dst)
+    return True
+
+
 def scene_image_extension(dataset_key: str) -> str:
     return '.jpg' if dataset_key == 'techni' else '.png'
 
@@ -320,7 +357,7 @@ def build_showcase_data() -> Dict[str, object]:
             ours_metrics = load_metrics(source_root / view_key / 'ours' / source_name / 'result.json')
             ours_video_src = choose_video(source_root / view_key / 'ours' / source_name)
             ours_video_dst = DEST_ASSETS / 'videos' / scene_key / view_key / 'ours.mp4'
-            sync_file(ours_video_src, ours_video_dst)
+            sync_video(ours_video_src, ours_video_dst)
             view_entry = {
                 'label': view_label,
                 'poster': poster_path,
@@ -338,7 +375,7 @@ def build_showcase_data() -> Dict[str, object]:
                 metrics = load_metrics(source_root / view_key / method_key / source_name / 'result.json')
                 video_src = choose_video(source_root / view_key / method_key / source_name)
                 video_dst = DEST_ASSETS / 'videos' / scene_key / view_key / f'{method_key}.mp4'
-                sync_file(video_src, video_dst)
+                sync_video(video_src, video_dst)
                 view_entry['baselines'][method_key] = {
                     'key': method_key,
                     'label': method_label,
