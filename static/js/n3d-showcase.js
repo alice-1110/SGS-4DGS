@@ -557,14 +557,11 @@
       element: card,
       setScene: function(scene, shouldLoadMedia) {
         currentScene = scene;
+        mediaEnabled = !!shouldLoadMedia;
         if (!(scene.views[viewConfig.key].baselines[activeMethodKey])) {
           activeMethodKey = scene.defaultMethod || methodOrder[0].key;
         }
-        renderContent(shouldLoadMedia);
-      },
-      setMediaActive: function(nextActive) {
-        mediaEnabled = !!nextActive;
-        syncController.setActive(mediaEnabled);
+        renderContent(mediaEnabled);
       },
       pause: function() {
         mediaEnabled = false;
@@ -712,22 +709,24 @@
     }
 
     function queueControllerActivation() {
+      var scene = sceneLookup[currentSceneKey];
+
       clearActivationTimers();
 
-      if (!shouldPlayMedia()) {
+      if (!shouldPlayMedia() || !scene) {
         controllers.forEach(function(entry) {
-          entry.controller.setMediaActive(false);
+          entry.controller.pause();
         });
         return;
       }
 
       controllers.forEach(function(entry) {
-        entry.controller.setMediaActive(false);
+        entry.controller.pause();
       });
 
       controllers.forEach(function(entry, index) {
         var activate = function() {
-          entry.controller.setMediaActive(true);
+          entry.controller.setScene(scene, true);
         };
 
         if (index === 0) {
@@ -808,7 +807,7 @@
 
       clearActivationTimers();
       controllers.forEach(function(entry) {
-        entry.controller.setMediaActive(false);
+        entry.controller.pause();
         entry.controller.setScene(scene, false);
       });
 
@@ -903,7 +902,7 @@
           } else {
             clearActivationTimers();
             controllers.forEach(function(item) {
-              item.controller.setMediaActive(false);
+              item.controller.pause();
             });
           }
         });

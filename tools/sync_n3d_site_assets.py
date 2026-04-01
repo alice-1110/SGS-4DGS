@@ -33,6 +33,7 @@ INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
 VISUAL_DATA_JS = REPO / 'static' / 'js' / 'visual-comparisons-data.js'
 RESULTS_DIR = REPO / 'static' / 'images' / 'results'
+ASSET_VERSION = '20260401-anon-refresh'
 
 VIEWS: List[Tuple[str, str]] = [
     ('2views', '2 Views'),
@@ -290,6 +291,10 @@ def scene_image_extension(dataset_key: str) -> str:
     return '.jpg' if dataset_key == 'techni' else '.png'
 
 
+def versioned_asset(path: str) -> str:
+    return f'{path}?v={ASSET_VERSION}'
+
+
 def sync_image(src: Path, dst: Path) -> bool:
     if dst.suffix.lower() not in {'.jpg', '.jpeg'}:
         return sync_file(src, dst)
@@ -347,13 +352,13 @@ def build_showcase_data() -> Dict[str, object]:
             'label': scene_info['label'],
             'datasetKey': dataset_key,
             'datasetLabel': DATASET_LABELS[dataset_key],
-            'thumb': f'./n3d/thumbs/{scene_key}{thumb_ext}',
+            'thumb': versioned_asset(f'./n3d/thumbs/{scene_key}{thumb_ext}'),
             'defaultMethod': default_method,
             'views': {},
         }
 
         for view_key, view_label in VIEWS:
-            poster_path = f'./n3d/thumbs/{scene_key}{thumb_ext}'
+            poster_path = versioned_asset(f'./n3d/thumbs/{scene_key}{thumb_ext}')
             ours_metrics = load_metrics(source_root / view_key / 'ours' / source_name / 'result.json')
             ours_video_src = choose_video(source_root / view_key / 'ours' / source_name)
             ours_video_dst = DEST_ASSETS / 'videos' / scene_key / view_key / 'ours.mp4'
@@ -363,7 +368,7 @@ def build_showcase_data() -> Dict[str, object]:
                 'poster': poster_path,
                 'ours': {
                     'label': 'Ours',
-                    'video': f'./n3d/videos/{scene_key}/{view_key}/ours.mp4',
+                    'video': versioned_asset(f'./n3d/videos/{scene_key}/{view_key}/ours.mp4'),
                     'metrics': ours_metrics,
                 },
                 'baselines': {},
@@ -379,7 +384,7 @@ def build_showcase_data() -> Dict[str, object]:
                 view_entry['baselines'][method_key] = {
                     'key': method_key,
                     'label': method_label,
-                    'video': f'./n3d/videos/{scene_key}/{view_key}/{method_key}.mp4',
+                    'video': versioned_asset(f'./n3d/videos/{scene_key}/{view_key}/{method_key}.mp4'),
                     'metrics': metrics,
                 }
 
@@ -425,7 +430,7 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
                 'label': view_label,
                 'ours': {
                     'label': 'Ours',
-                    'image': f'./n3d/previews/{scene_key}/{view_key}/ours{preview_ext}',
+                    'image': versioned_asset(f'./n3d/previews/{scene_key}/{view_key}/ours{preview_ext}'),
                 },
                 'baselines': {},
             }
@@ -439,7 +444,7 @@ def build_visual_comparison_data(showcase_data: Dict[str, object]) -> Dict[str, 
                 view_entry['baselines'][method_key] = {
                     'key': method_key,
                     'label': method_label,
-                    'image': f'./n3d/previews/{scene_key}/{view_key}/{method_key}{preview_ext}',
+                    'image': versioned_asset(f'./n3d/previews/{scene_key}/{view_key}/{method_key}{preview_ext}'),
                 }
 
             scene_entry['views'][view_key] = view_entry

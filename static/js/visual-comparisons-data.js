@@ -42,40 +42,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Coffee Martini",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/coffee_martini.png",
+      "thumb": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/coffee_martini/2views/ours.png"
+            "image": "./n3d/previews/coffee_martini/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/coffee_martini/2views/4DGaussians.png"
+              "image": "./n3d/previews/coffee_martini/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/coffee_martini/2views/cem4dgs.png"
+              "image": "./n3d/previews/coffee_martini/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/coffee_martini/2views/ex4dgs.png"
+              "image": "./n3d/previews/coffee_martini/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/coffee_martini/2views/spacetimegs.png"
+              "image": "./n3d/previews/coffee_martini/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/coffee_martini/2views/swift4d.png"
+              "image": "./n3d/previews/coffee_martini/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -83,33 +83,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/coffee_martini/3views/ours.png"
+            "image": "./n3d/previews/coffee_martini/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/coffee_martini/3views/4DGaussians.png"
+              "image": "./n3d/previews/coffee_martini/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/coffee_martini/3views/cem4dgs.png"
+              "image": "./n3d/previews/coffee_martini/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/coffee_martini/3views/ex4dgs.png"
+              "image": "./n3d/previews/coffee_martini/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/coffee_martini/3views/spacetimegs.png"
+              "image": "./n3d/previews/coffee_martini/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/coffee_martini/3views/swift4d.png"
+              "image": "./n3d/previews/coffee_martini/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -117,33 +117,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/coffee_martini/4views/ours.png"
+            "image": "./n3d/previews/coffee_martini/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/coffee_martini/4views/4DGaussians.png"
+              "image": "./n3d/previews/coffee_martini/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/coffee_martini/4views/cem4dgs.png"
+              "image": "./n3d/previews/coffee_martini/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/coffee_martini/4views/ex4dgs.png"
+              "image": "./n3d/previews/coffee_martini/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/coffee_martini/4views/spacetimegs.png"
+              "image": "./n3d/previews/coffee_martini/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/coffee_martini/4views/swift4d.png"
+              "image": "./n3d/previews/coffee_martini/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -154,40 +154,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Cook Spinach",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/cook_spinach.png",
+      "thumb": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cook_spinach/2views/ours.png"
+            "image": "./n3d/previews/cook_spinach/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cook_spinach/2views/4DGaussians.png"
+              "image": "./n3d/previews/cook_spinach/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cook_spinach/2views/cem4dgs.png"
+              "image": "./n3d/previews/cook_spinach/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cook_spinach/2views/ex4dgs.png"
+              "image": "./n3d/previews/cook_spinach/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cook_spinach/2views/spacetimegs.png"
+              "image": "./n3d/previews/cook_spinach/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cook_spinach/2views/swift4d.png"
+              "image": "./n3d/previews/cook_spinach/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -195,33 +195,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cook_spinach/3views/ours.png"
+            "image": "./n3d/previews/cook_spinach/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cook_spinach/3views/4DGaussians.png"
+              "image": "./n3d/previews/cook_spinach/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cook_spinach/3views/cem4dgs.png"
+              "image": "./n3d/previews/cook_spinach/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cook_spinach/3views/ex4dgs.png"
+              "image": "./n3d/previews/cook_spinach/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cook_spinach/3views/spacetimegs.png"
+              "image": "./n3d/previews/cook_spinach/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cook_spinach/3views/swift4d.png"
+              "image": "./n3d/previews/cook_spinach/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -229,33 +229,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cook_spinach/4views/ours.png"
+            "image": "./n3d/previews/cook_spinach/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cook_spinach/4views/4DGaussians.png"
+              "image": "./n3d/previews/cook_spinach/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cook_spinach/4views/cem4dgs.png"
+              "image": "./n3d/previews/cook_spinach/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cook_spinach/4views/ex4dgs.png"
+              "image": "./n3d/previews/cook_spinach/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cook_spinach/4views/spacetimegs.png"
+              "image": "./n3d/previews/cook_spinach/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cook_spinach/4views/swift4d.png"
+              "image": "./n3d/previews/cook_spinach/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -266,40 +266,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Cut Roasted Beef",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/cut_roasted_beef.png",
+      "thumb": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cut_roasted_beef/2views/ours.png"
+            "image": "./n3d/previews/cut_roasted_beef/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cut_roasted_beef/2views/4DGaussians.png"
+              "image": "./n3d/previews/cut_roasted_beef/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/2views/cem4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/2views/ex4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cut_roasted_beef/2views/spacetimegs.png"
+              "image": "./n3d/previews/cut_roasted_beef/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cut_roasted_beef/2views/swift4d.png"
+              "image": "./n3d/previews/cut_roasted_beef/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -307,33 +307,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cut_roasted_beef/3views/ours.png"
+            "image": "./n3d/previews/cut_roasted_beef/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cut_roasted_beef/3views/4DGaussians.png"
+              "image": "./n3d/previews/cut_roasted_beef/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/3views/cem4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/3views/ex4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cut_roasted_beef/3views/spacetimegs.png"
+              "image": "./n3d/previews/cut_roasted_beef/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cut_roasted_beef/3views/swift4d.png"
+              "image": "./n3d/previews/cut_roasted_beef/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -341,33 +341,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/cut_roasted_beef/4views/ours.png"
+            "image": "./n3d/previews/cut_roasted_beef/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/cut_roasted_beef/4views/4DGaussians.png"
+              "image": "./n3d/previews/cut_roasted_beef/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/4views/cem4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/cut_roasted_beef/4views/ex4dgs.png"
+              "image": "./n3d/previews/cut_roasted_beef/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/cut_roasted_beef/4views/spacetimegs.png"
+              "image": "./n3d/previews/cut_roasted_beef/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/cut_roasted_beef/4views/swift4d.png"
+              "image": "./n3d/previews/cut_roasted_beef/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -378,40 +378,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Flame Salmon 1",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/flame_salmon_1.png",
+      "thumb": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_salmon_1/2views/ours.png"
+            "image": "./n3d/previews/flame_salmon_1/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_salmon_1/2views/4DGaussians.png"
+              "image": "./n3d/previews/flame_salmon_1/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_salmon_1/2views/cem4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_salmon_1/2views/ex4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_salmon_1/2views/spacetimegs.png"
+              "image": "./n3d/previews/flame_salmon_1/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_salmon_1/2views/swift4d.png"
+              "image": "./n3d/previews/flame_salmon_1/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -419,33 +419,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_salmon_1/3views/ours.png"
+            "image": "./n3d/previews/flame_salmon_1/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_salmon_1/3views/4DGaussians.png"
+              "image": "./n3d/previews/flame_salmon_1/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_salmon_1/3views/cem4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_salmon_1/3views/ex4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_salmon_1/3views/spacetimegs.png"
+              "image": "./n3d/previews/flame_salmon_1/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_salmon_1/3views/swift4d.png"
+              "image": "./n3d/previews/flame_salmon_1/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -453,33 +453,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_salmon_1/4views/ours.png"
+            "image": "./n3d/previews/flame_salmon_1/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_salmon_1/4views/4DGaussians.png"
+              "image": "./n3d/previews/flame_salmon_1/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_salmon_1/4views/cem4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_salmon_1/4views/ex4dgs.png"
+              "image": "./n3d/previews/flame_salmon_1/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_salmon_1/4views/spacetimegs.png"
+              "image": "./n3d/previews/flame_salmon_1/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_salmon_1/4views/swift4d.png"
+              "image": "./n3d/previews/flame_salmon_1/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -490,40 +490,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Flame Steak",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/flame_steak.png",
+      "thumb": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_steak/2views/ours.png"
+            "image": "./n3d/previews/flame_steak/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_steak/2views/4DGaussians.png"
+              "image": "./n3d/previews/flame_steak/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_steak/2views/cem4dgs.png"
+              "image": "./n3d/previews/flame_steak/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_steak/2views/ex4dgs.png"
+              "image": "./n3d/previews/flame_steak/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_steak/2views/spacetimegs.png"
+              "image": "./n3d/previews/flame_steak/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_steak/2views/swift4d.png"
+              "image": "./n3d/previews/flame_steak/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -531,33 +531,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_steak/3views/ours.png"
+            "image": "./n3d/previews/flame_steak/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_steak/3views/4DGaussians.png"
+              "image": "./n3d/previews/flame_steak/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_steak/3views/cem4dgs.png"
+              "image": "./n3d/previews/flame_steak/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_steak/3views/ex4dgs.png"
+              "image": "./n3d/previews/flame_steak/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_steak/3views/spacetimegs.png"
+              "image": "./n3d/previews/flame_steak/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_steak/3views/swift4d.png"
+              "image": "./n3d/previews/flame_steak/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -565,33 +565,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/flame_steak/4views/ours.png"
+            "image": "./n3d/previews/flame_steak/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/flame_steak/4views/4DGaussians.png"
+              "image": "./n3d/previews/flame_steak/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/flame_steak/4views/cem4dgs.png"
+              "image": "./n3d/previews/flame_steak/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/flame_steak/4views/ex4dgs.png"
+              "image": "./n3d/previews/flame_steak/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/flame_steak/4views/spacetimegs.png"
+              "image": "./n3d/previews/flame_steak/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/flame_steak/4views/swift4d.png"
+              "image": "./n3d/previews/flame_steak/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -602,40 +602,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Sear Steak",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/sear_steak.png",
+      "thumb": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/sear_steak/2views/ours.png"
+            "image": "./n3d/previews/sear_steak/2views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/sear_steak/2views/4DGaussians.png"
+              "image": "./n3d/previews/sear_steak/2views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/sear_steak/2views/cem4dgs.png"
+              "image": "./n3d/previews/sear_steak/2views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/sear_steak/2views/ex4dgs.png"
+              "image": "./n3d/previews/sear_steak/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/sear_steak/2views/spacetimegs.png"
+              "image": "./n3d/previews/sear_steak/2views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/sear_steak/2views/swift4d.png"
+              "image": "./n3d/previews/sear_steak/2views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -643,33 +643,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/sear_steak/3views/ours.png"
+            "image": "./n3d/previews/sear_steak/3views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/sear_steak/3views/4DGaussians.png"
+              "image": "./n3d/previews/sear_steak/3views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/sear_steak/3views/cem4dgs.png"
+              "image": "./n3d/previews/sear_steak/3views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/sear_steak/3views/ex4dgs.png"
+              "image": "./n3d/previews/sear_steak/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/sear_steak/3views/spacetimegs.png"
+              "image": "./n3d/previews/sear_steak/3views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/sear_steak/3views/swift4d.png"
+              "image": "./n3d/previews/sear_steak/3views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         },
@@ -677,33 +677,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/sear_steak/4views/ours.png"
+            "image": "./n3d/previews/sear_steak/4views/ours.png?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/sear_steak/4views/4DGaussians.png"
+              "image": "./n3d/previews/sear_steak/4views/4DGaussians.png?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/sear_steak/4views/cem4dgs.png"
+              "image": "./n3d/previews/sear_steak/4views/cem4dgs.png?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/sear_steak/4views/ex4dgs.png"
+              "image": "./n3d/previews/sear_steak/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/sear_steak/4views/spacetimegs.png"
+              "image": "./n3d/previews/sear_steak/4views/spacetimegs.png?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/sear_steak/4views/swift4d.png"
+              "image": "./n3d/previews/sear_steak/4views/swift4d.png?v=20260401-anon-refresh"
             }
           }
         }
@@ -714,40 +714,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Birthday",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-birthday.jpg",
+      "thumb": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-birthday/2views/ours.jpg"
+            "image": "./n3d/previews/techni-birthday/2views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-birthday/2views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-birthday/2views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-birthday/2views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/2views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-birthday/2views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-birthday/2views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-birthday/2views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-birthday/2views/swift4d.jpg"
+              "image": "./n3d/previews/techni-birthday/2views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -755,33 +755,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-birthday/3views/ours.jpg"
+            "image": "./n3d/previews/techni-birthday/3views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-birthday/3views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-birthday/3views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-birthday/3views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/3views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-birthday/3views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-birthday/3views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-birthday/3views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-birthday/3views/swift4d.jpg"
+              "image": "./n3d/previews/techni-birthday/3views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -789,33 +789,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-birthday/4views/ours.jpg"
+            "image": "./n3d/previews/techni-birthday/4views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-birthday/4views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-birthday/4views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-birthday/4views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/4views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-birthday/4views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-birthday/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-birthday/4views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-birthday/4views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-birthday/4views/swift4d.jpg"
+              "image": "./n3d/previews/techni-birthday/4views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         }
@@ -826,40 +826,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Fabien",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-fabien.jpg",
+      "thumb": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-fabien/2views/ours.jpg"
+            "image": "./n3d/previews/techni-fabien/2views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-fabien/2views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-fabien/2views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-fabien/2views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/2views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-fabien/2views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-fabien/2views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-fabien/2views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-fabien/2views/swift4d.jpg"
+              "image": "./n3d/previews/techni-fabien/2views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -867,33 +867,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-fabien/3views/ours.jpg"
+            "image": "./n3d/previews/techni-fabien/3views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-fabien/3views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-fabien/3views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-fabien/3views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/3views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-fabien/3views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-fabien/3views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-fabien/3views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-fabien/3views/swift4d.jpg"
+              "image": "./n3d/previews/techni-fabien/3views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -901,33 +901,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-fabien/4views/ours.jpg"
+            "image": "./n3d/previews/techni-fabien/4views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-fabien/4views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-fabien/4views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-fabien/4views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/4views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-fabien/4views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-fabien/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-fabien/4views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-fabien/4views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-fabien/4views/swift4d.jpg"
+              "image": "./n3d/previews/techni-fabien/4views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         }
@@ -938,40 +938,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Painter",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-painter.jpg",
+      "thumb": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-painter/2views/ours.jpg"
+            "image": "./n3d/previews/techni-painter/2views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-painter/2views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-painter/2views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-painter/2views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/2views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-painter/2views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-painter/2views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-painter/2views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-painter/2views/swift4d.jpg"
+              "image": "./n3d/previews/techni-painter/2views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -979,33 +979,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-painter/3views/ours.jpg"
+            "image": "./n3d/previews/techni-painter/3views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-painter/3views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-painter/3views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-painter/3views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/3views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-painter/3views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-painter/3views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-painter/3views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-painter/3views/swift4d.jpg"
+              "image": "./n3d/previews/techni-painter/3views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -1013,33 +1013,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-painter/4views/ours.jpg"
+            "image": "./n3d/previews/techni-painter/4views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-painter/4views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-painter/4views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-painter/4views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/4views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-painter/4views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-painter/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-painter/4views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-painter/4views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-painter/4views/swift4d.jpg"
+              "image": "./n3d/previews/techni-painter/4views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         }
@@ -1050,40 +1050,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Theater",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-theater.jpg",
+      "thumb": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-theater/2views/ours.jpg"
+            "image": "./n3d/previews/techni-theater/2views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-theater/2views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-theater/2views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-theater/2views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/2views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-theater/2views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-theater/2views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-theater/2views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-theater/2views/swift4d.jpg"
+              "image": "./n3d/previews/techni-theater/2views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -1091,33 +1091,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-theater/3views/ours.jpg"
+            "image": "./n3d/previews/techni-theater/3views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-theater/3views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-theater/3views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-theater/3views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/3views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-theater/3views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-theater/3views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-theater/3views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-theater/3views/swift4d.jpg"
+              "image": "./n3d/previews/techni-theater/3views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -1125,33 +1125,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-theater/4views/ours.jpg"
+            "image": "./n3d/previews/techni-theater/4views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-theater/4views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-theater/4views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-theater/4views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/4views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-theater/4views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-theater/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-theater/4views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-theater/4views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-theater/4views/swift4d.jpg"
+              "image": "./n3d/previews/techni-theater/4views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         }
@@ -1162,40 +1162,40 @@ window.VISUAL_COMPARISONS_DATA = {
       "label": "Train",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-train.jpg",
+      "thumb": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
         "2views": {
           "label": "2 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-train/2views/ours.jpg"
+            "image": "./n3d/previews/techni-train/2views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-train/2views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-train/2views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-train/2views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-train/2views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-train/2views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-train/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-train/2views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-train/2views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-train/2views/swift4d.jpg"
+              "image": "./n3d/previews/techni-train/2views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -1203,33 +1203,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "3 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-train/3views/ours.jpg"
+            "image": "./n3d/previews/techni-train/3views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-train/3views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-train/3views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-train/3views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-train/3views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-train/3views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-train/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-train/3views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-train/3views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-train/3views/swift4d.jpg"
+              "image": "./n3d/previews/techni-train/3views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         },
@@ -1237,33 +1237,33 @@ window.VISUAL_COMPARISONS_DATA = {
           "label": "4 Views",
           "ours": {
             "label": "Ours",
-            "image": "./n3d/previews/techni-train/4views/ours.jpg"
+            "image": "./n3d/previews/techni-train/4views/ours.jpg?v=20260401-anon-refresh"
           },
           "baselines": {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "image": "./n3d/previews/techni-train/4views/4DGaussians.jpg"
+              "image": "./n3d/previews/techni-train/4views/4DGaussians.jpg?v=20260401-anon-refresh"
             },
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "image": "./n3d/previews/techni-train/4views/cem4dgs.jpg"
+              "image": "./n3d/previews/techni-train/4views/cem4dgs.jpg?v=20260401-anon-refresh"
             },
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "image": "./n3d/previews/techni-train/4views/ex4dgs.jpg"
+              "image": "./n3d/previews/techni-train/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "image": "./n3d/previews/techni-train/4views/spacetimegs.jpg"
+              "image": "./n3d/previews/techni-train/4views/spacetimegs.jpg?v=20260401-anon-refresh"
             },
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "image": "./n3d/previews/techni-train/4views/swift4d.jpg"
+              "image": "./n3d/previews/techni-train/4views/swift4d.jpg?v=20260401-anon-refresh"
             }
           }
         }

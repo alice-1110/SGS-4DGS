@@ -42,15 +42,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Coffee Martini",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/coffee_martini.png",
+      "thumb": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/coffee_martini.png",
+          "poster": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/coffee_martini/2views/ours.mp4",
+            "video": "./n3d/videos/coffee_martini/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 23.08164504536519,
               "ssim": 0.8369954574108124,
@@ -65,7 +65,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/coffee_martini/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/coffee_martini/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.125154095547703,
                 "ssim": 0.718804228703181,
@@ -79,7 +79,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/coffee_martini/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 17.728174767366113,
                 "ssim": 0.6508133848508199,
@@ -93,7 +93,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/coffee_martini/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.828580029876363,
                 "ssim": 0.6541710905234019,
@@ -107,7 +107,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/coffee_martini/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/coffee_martini/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.328774885804147,
                 "ssim": 0.7253071709473928,
@@ -121,7 +121,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/coffee_martini/2views/swift4d.mp4",
+              "video": "./n3d/videos/coffee_martini/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.170319634325725,
                 "ssim": 0.7301559269428253,
@@ -136,10 +136,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/coffee_martini.png",
+          "poster": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/coffee_martini/3views/ours.mp4",
+            "video": "./n3d/videos/coffee_martini/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 23.29858496556455,
               "ssim": 0.8487583102782568,
@@ -154,7 +154,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/coffee_martini/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/coffee_martini/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.577693790889754,
                 "ssim": 0.8160680884122848,
@@ -168,7 +168,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/coffee_martini/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.174283981323242,
                 "ssim": 0.7966552972793579,
@@ -182,7 +182,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/coffee_martini/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.44724464416504,
                 "ssim": 0.8016988039016724,
@@ -196,7 +196,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/coffee_martini/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/coffee_martini/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.44465280797078,
                 "ssim": 0.806564414302508,
@@ -210,7 +210,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/coffee_martini/3views/swift4d.mp4",
+              "video": "./n3d/videos/coffee_martini/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.886722099314174,
                 "ssim": 0.8210614603757859,
@@ -225,10 +225,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/coffee_martini.png",
+          "poster": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/coffee_martini/4views/ours.mp4",
+            "video": "./n3d/videos/coffee_martini/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 24.2056043088034,
               "ssim": 0.8616299617290497,
@@ -243,7 +243,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/coffee_martini/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/coffee_martini/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.666999684878398,
                 "ssim": 0.8627799852689108,
@@ -257,7 +257,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/coffee_martini/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.282773971557617,
                 "ssim": 0.8450766801834106,
@@ -271,7 +271,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/coffee_martini/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/coffee_martini/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.862403869628906,
                 "ssim": 0.8388805389404297,
@@ -285,7 +285,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/coffee_martini/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/coffee_martini/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.403733222610498,
                 "ssim": 0.8492854982614517,
@@ -299,7 +299,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/coffee_martini/4views/swift4d.mp4",
+              "video": "./n3d/videos/coffee_martini/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.61077272129022,
                 "ssim": 0.858230442404747,
@@ -319,15 +319,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Cook Spinach",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/cook_spinach.png",
+      "thumb": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/cook_spinach.png",
+          "poster": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cook_spinach/2views/ours.mp4",
+            "video": "./n3d/videos/cook_spinach/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 27.833907727526316,
               "ssim": 0.9004861378669738,
@@ -342,7 +342,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cook_spinach/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/cook_spinach/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.371225989728046,
                 "ssim": 0.8248419078191122,
@@ -356,7 +356,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cook_spinach/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.900306701660156,
                 "ssim": 0.7949084043502808,
@@ -370,7 +370,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cook_spinach/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.345916748046875,
                 "ssim": 0.7837618589401245,
@@ -384,7 +384,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cook_spinach/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/cook_spinach/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.63858264839381,
                 "ssim": 0.8062880575656891,
@@ -398,7 +398,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cook_spinach/2views/swift4d.mp4",
+              "video": "./n3d/videos/cook_spinach/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.261410811578124,
                 "ssim": 0.8323418486118317,
@@ -413,10 +413,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/cook_spinach.png",
+          "poster": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cook_spinach/3views/ours.mp4",
+            "video": "./n3d/videos/cook_spinach/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 30.0928614825359,
               "ssim": 0.9273534590005874,
@@ -431,7 +431,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cook_spinach/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/cook_spinach/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 29.726309247572267,
                 "ssim": 0.9235472699006398,
@@ -445,7 +445,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cook_spinach/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.59340476989746,
                 "ssim": 0.8877400755882263,
@@ -459,7 +459,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cook_spinach/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.381954193115234,
                 "ssim": 0.8865537643432617,
@@ -473,7 +473,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cook_spinach/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/cook_spinach/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.12563827126954,
                 "ssim": 0.894811202287674,
@@ -487,7 +487,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cook_spinach/3views/swift4d.mp4",
+              "video": "./n3d/videos/cook_spinach/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 29.745576943149256,
                 "ssim": 0.9216883357365926,
@@ -502,10 +502,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/cook_spinach.png",
+          "poster": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cook_spinach/4views/ours.mp4",
+            "video": "./n3d/videos/cook_spinach/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 30.145447495853162,
               "ssim": 0.9229107944170634,
@@ -520,7 +520,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cook_spinach/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/cook_spinach/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.368130130967042,
                 "ssim": 0.8924264319737752,
@@ -534,7 +534,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cook_spinach/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.262975692749023,
                 "ssim": 0.8619443774223328,
@@ -548,7 +548,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cook_spinach/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/cook_spinach/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.372793197631836,
                 "ssim": 0.8507135510444641,
@@ -562,7 +562,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cook_spinach/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/cook_spinach/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.86577632270489,
                 "ssim": 0.8619192765156428,
@@ -576,7 +576,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cook_spinach/4views/swift4d.mp4",
+              "video": "./n3d/videos/cook_spinach/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.43763416121402,
                 "ssim": 0.8925828651587169,
@@ -596,15 +596,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Cut Roasted Beef",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/cut_roasted_beef.png",
+      "thumb": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/cut_roasted_beef.png",
+          "poster": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cut_roasted_beef/2views/ours.mp4",
+            "video": "./n3d/videos/cut_roasted_beef/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 26.755822696311668,
               "ssim": 0.8800894737243652,
@@ -619,7 +619,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cut_roasted_beef/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.915570957758572,
                 "ssim": 0.8772301294406255,
@@ -633,7 +633,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.03363037109375,
                 "ssim": 0.8539521098136902,
@@ -647,7 +647,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.192514419555664,
                 "ssim": 0.818864643573761,
@@ -661,7 +661,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cut_roasted_beef/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.906085981963656,
                 "ssim": 0.8365503259499868,
@@ -675,7 +675,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cut_roasted_beef/2views/swift4d.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.208126840114605,
                 "ssim": 0.8782920106252035,
@@ -690,10 +690,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/cut_roasted_beef.png",
+          "poster": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cut_roasted_beef/3views/ours.mp4",
+            "video": "./n3d/videos/cut_roasted_beef/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 32.40423569255146,
               "ssim": 0.9400700585047403,
@@ -708,7 +708,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cut_roasted_beef/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 29.26652994666924,
                 "ssim": 0.9157961289087931,
@@ -722,7 +722,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.768535614013672,
                 "ssim": 0.8929112553596497,
@@ -736,7 +736,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.300355911254883,
                 "ssim": 0.8900780081748962,
@@ -750,7 +750,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cut_roasted_beef/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.502981397963584,
                 "ssim": 0.8897890120744705,
@@ -764,7 +764,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cut_roasted_beef/3views/swift4d.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.983601160132686,
                 "ssim": 0.9146123868227005,
@@ -779,10 +779,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/cut_roasted_beef.png",
+          "poster": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/cut_roasted_beef/4views/ours.mp4",
+            "video": "./n3d/videos/cut_roasted_beef/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 31.08280122192451,
               "ssim": 0.9312269270420075,
@@ -797,7 +797,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/cut_roasted_beef/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.0012224543237,
                 "ssim": 0.9177999979257584,
@@ -811,7 +811,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.343557357788086,
                 "ssim": 0.9080167412757874,
@@ -825,7 +825,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/cut_roasted_beef/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.88844108581543,
                 "ssim": 0.8893084526062012,
@@ -839,7 +839,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/cut_roasted_beef/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.075475065811432,
                 "ssim": 0.8981981805960337,
@@ -853,7 +853,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/cut_roasted_beef/4views/swift4d.mp4",
+              "video": "./n3d/videos/cut_roasted_beef/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.26964570168214,
                 "ssim": 0.9207714871565501,
@@ -873,15 +873,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Flame Salmon 1",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/flame_salmon_1.png",
+      "thumb": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/flame_salmon_1.png",
+          "poster": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_salmon_1/2views/ours.mp4",
+            "video": "./n3d/videos/flame_salmon_1/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 22.766238078495284,
               "ssim": 0.8315377565224965,
@@ -896,7 +896,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_salmon_1/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_salmon_1/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 13.848545776592994,
                 "ssim": 0.7032816998163859,
@@ -910,7 +910,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_salmon_1/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.362274169921875,
                 "ssim": 0.6865867376327515,
@@ -924,7 +924,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_salmon_1/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.764041900634766,
                 "ssim": 0.6876862645149231,
@@ -938,7 +938,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_salmon_1/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 17.454174655466495,
                 "ssim": 0.6892848042647044,
@@ -952,7 +952,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_salmon_1/2views/swift4d.mp4",
+              "video": "./n3d/videos/flame_salmon_1/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.90732994728444,
                 "ssim": 0.7551112099488576,
@@ -967,10 +967,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/flame_salmon_1.png",
+          "poster": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_salmon_1/3views/ours.mp4",
+            "video": "./n3d/videos/flame_salmon_1/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 25.998593988886043,
               "ssim": 0.8775751461585363,
@@ -985,7 +985,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_salmon_1/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_salmon_1/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.6553247443134,
                 "ssim": 0.8311823707818985,
@@ -999,7 +999,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_salmon_1/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.039775848388672,
                 "ssim": 0.8156500458717346,
@@ -1013,7 +1013,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_salmon_1/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.304092407226562,
                 "ssim": 0.8141327500343323,
@@ -1027,7 +1027,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_salmon_1/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.367415798521414,
                 "ssim": 0.8257749464114507,
@@ -1041,7 +1041,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_salmon_1/3views/swift4d.mp4",
+              "video": "./n3d/videos/flame_salmon_1/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.35991115983431,
                 "ssim": 0.8331762381394704,
@@ -1056,10 +1056,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/flame_salmon_1.png",
+          "poster": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_salmon_1/4views/ours.mp4",
+            "video": "./n3d/videos/flame_salmon_1/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 26.25726357480839,
               "ssim": 0.8914286830027898,
@@ -1074,7 +1074,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_salmon_1/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_salmon_1/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.27102307755233,
                 "ssim": 0.8649693071842194,
@@ -1088,7 +1088,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_salmon_1/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.56334590825241,
                 "ssim": 0.8319910707076391,
@@ -1102,7 +1102,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_salmon_1/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.14757537841797,
                 "ssim": 0.8252931833267212,
@@ -1116,7 +1116,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_salmon_1/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_salmon_1/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.858659701239564,
                 "ssim": 0.8572610280911128,
@@ -1130,7 +1130,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_salmon_1/4views/swift4d.mp4",
+              "video": "./n3d/videos/flame_salmon_1/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.078674109653033,
                 "ssim": 0.8644771218299866,
@@ -1150,15 +1150,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Flame Steak",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/flame_steak.png",
+      "thumb": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/flame_steak.png",
+          "poster": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_steak/2views/ours.mp4",
+            "video": "./n3d/videos/flame_steak/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 27.986509049322716,
               "ssim": 0.9123515168825785,
@@ -1173,7 +1173,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_steak/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_steak/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.835774289394507,
                 "ssim": 0.8655202982823054,
@@ -1187,7 +1187,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_steak/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.80161476135254,
                 "ssim": 0.8275541067123413,
@@ -1201,7 +1201,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_steak/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.30785369873047,
                 "ssim": 0.7968456745147705,
@@ -1215,7 +1215,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_steak/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_steak/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.59147395909698,
                 "ssim": 0.8174168539047241,
@@ -1229,7 +1229,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_steak/2views/swift4d.mp4",
+              "video": "./n3d/videos/flame_steak/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.772733083552236,
                 "ssim": 0.8575271966060003,
@@ -1244,10 +1244,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/flame_steak.png",
+          "poster": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_steak/3views/ours.mp4",
+            "video": "./n3d/videos/flame_steak/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 30.352577969821482,
               "ssim": 0.9362490077813467,
@@ -1262,7 +1262,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_steak/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_steak/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.352577969821482,
                 "ssim": 0.9312463078896205,
@@ -1276,7 +1276,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_steak/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.836536407470703,
                 "ssim": 0.9066805243492126,
@@ -1290,7 +1290,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_steak/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.49890899658203,
                 "ssim": 0.8973500728607178,
@@ -1304,7 +1304,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_steak/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_steak/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.980349463817127,
                 "ssim": 0.9106026842196783,
@@ -1318,7 +1318,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_steak/3views/swift4d.mp4",
+              "video": "./n3d/videos/flame_steak/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 29.623140683672155,
                 "ssim": 0.9326186203956603,
@@ -1333,10 +1333,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/flame_steak.png",
+          "poster": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/flame_steak/4views/ours.mp4",
+            "video": "./n3d/videos/flame_steak/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 29.577273554068462,
               "ssim": 0.9317676764726639,
@@ -1351,7 +1351,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/flame_steak/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/flame_steak/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.69013134603613,
                 "ssim": 0.903408100605011,
@@ -1365,7 +1365,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/flame_steak/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.688535842302432,
                 "ssim": 0.8603860600789388,
@@ -1379,7 +1379,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/flame_steak/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/flame_steak/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.268964871482066,
                 "ssim": 0.8619313607613246,
@@ -1393,7 +1393,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/flame_steak/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/flame_steak/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.82021615118254,
                 "ssim": 0.8811829447746277,
@@ -1407,7 +1407,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/flame_steak/4views/swift4d.mp4",
+              "video": "./n3d/videos/flame_steak/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.674024816811542,
                 "ssim": 0.9039766081174214,
@@ -1427,15 +1427,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Sear Steak",
       "datasetKey": "n3d",
       "datasetLabel": "N3D",
-      "thumb": "./n3d/thumbs/sear_steak.png",
+      "thumb": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/sear_steak.png",
+          "poster": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/sear_steak/2views/ours.mp4",
+            "video": "./n3d/videos/sear_steak/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 28.062767080969177,
               "ssim": 0.9135538309812545,
@@ -1450,7 +1450,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/sear_steak/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/sear_steak/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.973571653280036,
                 "ssim": 0.8604873740673065,
@@ -1464,7 +1464,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/sear_steak/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.743938446044922,
                 "ssim": 0.8090876340866089,
@@ -1478,7 +1478,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/sear_steak/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.882848739624023,
                 "ssim": 0.8066728115081787,
@@ -1492,7 +1492,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/sear_steak/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/sear_steak/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.027658480205808,
                 "ssim": 0.8387350314855575,
@@ -1506,7 +1506,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/sear_steak/2views/swift4d.mp4",
+              "video": "./n3d/videos/sear_steak/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.269967779585325,
                 "ssim": 0.8632067535320918,
@@ -1521,10 +1521,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/sear_steak.png",
+          "poster": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/sear_steak/3views/ours.mp4",
+            "video": "./n3d/videos/sear_steak/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 30.607906393361784,
               "ssim": 0.9349427555004756,
@@ -1539,7 +1539,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/sear_steak/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/sear_steak/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.607906393361784,
                 "ssim": 0.9317794410387675,
@@ -1553,7 +1553,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/sear_steak/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.12763023376465,
                 "ssim": 0.9151225686073303,
@@ -1567,7 +1567,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/sear_steak/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.985355377197266,
                 "ssim": 0.8970187306404114,
@@ -1581,7 +1581,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/sear_steak/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/sear_steak/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.492802492870688,
                 "ssim": 0.9144265508651733,
@@ -1595,7 +1595,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/sear_steak/3views/swift4d.mp4",
+              "video": "./n3d/videos/sear_steak/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.187652215408452,
                 "ssim": 0.9325418768326441,
@@ -1610,10 +1610,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/sear_steak.png",
+          "poster": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/sear_steak/4views/ours.mp4",
+            "video": "./n3d/videos/sear_steak/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 29.30485682011606,
               "ssim": 0.929949791431427,
@@ -1628,7 +1628,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/sear_steak/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/sear_steak/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 29.209977230909438,
                 "ssim": 0.9057774905363719,
@@ -1642,7 +1642,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/sear_steak/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.864793844826355,
                 "ssim": 0.8738460910320281,
@@ -1656,7 +1656,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/sear_steak/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/sear_steak/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.497313291454606,
                 "ssim": 0.876953887740771,
@@ -1670,7 +1670,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/sear_steak/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/sear_steak/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.585882631493476,
                 "ssim": 0.8806581246852875,
@@ -1684,7 +1684,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/sear_steak/4views/swift4d.mp4",
+              "video": "./n3d/videos/sear_steak/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.712750966785723,
                 "ssim": 0.9004149518410365,
@@ -1704,15 +1704,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Birthday",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-birthday.jpg",
+      "thumb": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "poster": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-birthday/2views/ours.mp4",
+            "video": "./n3d/videos/techni-birthday/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 24.15092912926062,
               "ssim": 0.9122401964664459,
@@ -1727,7 +1727,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-birthday/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-birthday/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.207721522893753,
                 "ssim": 0.8162771928310394,
@@ -1741,7 +1741,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-birthday/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.55221696203789,
                 "ssim": 0.7828071916103363,
@@ -1755,7 +1755,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-birthday/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.783272550984442,
                 "ssim": 0.7768670618534088,
@@ -1769,7 +1769,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-birthday/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-birthday/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.903356283611803,
                 "ssim": 0.8576951289176941,
@@ -1783,7 +1783,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-birthday/2views/swift4d.mp4",
+              "video": "./n3d/videos/techni-birthday/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.616897138402464,
                 "ssim": 0.8225052773952484,
@@ -1798,10 +1798,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "poster": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-birthday/3views/ours.mp4",
+            "video": "./n3d/videos/techni-birthday/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 27.640786420469762,
               "ssim": 0.9433697152137757,
@@ -1816,7 +1816,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-birthday/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-birthday/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.641796814429227,
                 "ssim": 0.8836171388626098,
@@ -1830,7 +1830,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-birthday/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.474183756489186,
                 "ssim": 0.8794757235050201,
@@ -1844,7 +1844,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-birthday/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.723729123015097,
                 "ssim": 0.8785562002658844,
@@ -1858,7 +1858,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-birthday/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-birthday/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.24138620705553,
                 "ssim": 0.9131594467163086,
@@ -1872,7 +1872,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-birthday/3views/swift4d.mp4",
+              "video": "./n3d/videos/techni-birthday/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.120372993799887,
                 "ssim": 0.9103920161724091,
@@ -1887,10 +1887,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/techni-birthday.jpg",
+          "poster": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-birthday/4views/ours.mp4",
+            "video": "./n3d/videos/techni-birthday/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 29.01751571683575,
               "ssim": 0.9473947942256927,
@@ -1905,7 +1905,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-birthday/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-birthday/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.248656896552895,
                 "ssim": 0.9146671032905579,
@@ -1919,7 +1919,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-birthday/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.074004427709852,
                 "ssim": 0.9281661748886109,
@@ -1933,7 +1933,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-birthday/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-birthday/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.828395244040266,
                 "ssim": 0.9225128328800202,
@@ -1947,7 +1947,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-birthday/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-birthday/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.779918017987242,
                 "ssim": 0.9440721344947814,
@@ -1961,7 +1961,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-birthday/4views/swift4d.mp4",
+              "video": "./n3d/videos/techni-birthday/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.627361297607422,
                 "ssim": 0.943047046661377,
@@ -1981,15 +1981,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Fabien",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-fabien.jpg",
+      "thumb": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "poster": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-fabien/2views/ours.mp4",
+            "video": "./n3d/videos/techni-fabien/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 28.41689809028678,
               "ssim": 0.8610762655735016,
@@ -2004,7 +2004,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-fabien/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-fabien/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.303386298165993,
                 "ssim": 0.6846286809444427,
@@ -2018,7 +2018,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-fabien/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 17.577615625003478,
                 "ssim": 0.6088351929187774,
@@ -2032,7 +2032,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-fabien/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.064003474707487,
                 "ssim": 0.6112244546413421,
@@ -2046,7 +2046,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-fabien/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-fabien/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.27613072076701,
                 "ssim": 0.7613253927230835,
@@ -2060,7 +2060,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-fabien/2views/swift4d.mp4",
+              "video": "./n3d/videos/techni-fabien/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.60333197801017,
                 "ssim": 0.6863324916362763,
@@ -2075,10 +2075,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "poster": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-fabien/3views/ours.mp4",
+            "video": "./n3d/videos/techni-fabien/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 31.097154780670518,
               "ssim": 0.8868099415302276,
@@ -2093,7 +2093,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-fabien/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-fabien/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.286099445934564,
                 "ssim": 0.7910409927368164,
@@ -2107,7 +2107,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-fabien/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.98916339185061,
                 "ssim": 0.7770421659946442,
@@ -2121,7 +2121,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-fabien/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.76016234003348,
                 "ssim": 0.7670811104774475,
@@ -2135,7 +2135,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-fabien/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-fabien/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.924559018413596,
                 "ssim": 0.8571751189231872,
@@ -2149,7 +2149,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-fabien/3views/swift4d.mp4",
+              "video": "./n3d/videos/techni-fabien/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.337914395468314,
                 "ssim": 0.7954146432876587,
@@ -2164,10 +2164,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/techni-fabien.jpg",
+          "poster": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-fabien/4views/ours.mp4",
+            "video": "./n3d/videos/techni-fabien/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 31.60614013671875,
               "ssim": 0.8945772051811218,
@@ -2182,7 +2182,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-fabien/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-fabien/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.614716025927965,
                 "ssim": 0.8367237281799317,
@@ -2196,7 +2196,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-fabien/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.114255501982424,
                 "ssim": 0.837106556892395,
@@ -2210,7 +2210,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-fabien/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-fabien/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.040909666604403,
                 "ssim": 0.8362097644805908,
@@ -2224,7 +2224,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-fabien/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-fabien/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 31.566073866237492,
                 "ssim": 0.8882730460166931,
@@ -2238,7 +2238,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-fabien/4views/swift4d.mp4",
+              "video": "./n3d/videos/techni-fabien/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 28.665793244617806,
                 "ssim": 0.8472772300243377,
@@ -2258,15 +2258,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Painter",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-painter.jpg",
+      "thumb": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "poster": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-painter/2views/ours.mp4",
+            "video": "./n3d/videos/techni-painter/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 33.458989193410744,
               "ssim": 0.9423161566257476,
@@ -2281,7 +2281,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-painter/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-painter/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 31.4165974228069,
                 "ssim": 0.9042882943153381,
@@ -2295,7 +2295,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-painter/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.594152205524814,
                 "ssim": 0.9080184817314148,
@@ -2309,7 +2309,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-painter/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.295448384549726,
                 "ssim": 0.8982970654964447,
@@ -2323,7 +2323,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-painter/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-painter/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 33.458989193410744,
                 "ssim": 0.9418819272518157,
@@ -2337,7 +2337,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-painter/2views/swift4d.mp4",
+              "video": "./n3d/videos/techni-painter/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 30.28452021361501,
                 "ssim": 0.9155258846282959,
@@ -2352,10 +2352,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "poster": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-painter/3views/ours.mp4",
+            "video": "./n3d/videos/techni-painter/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 34.29908839989225,
               "ssim": 0.9540085506439209,
@@ -2370,7 +2370,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-painter/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-painter/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 33.715218302297785,
                 "ssim": 0.9324285995960235,
@@ -2384,7 +2384,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-painter/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 32.019926707279694,
                 "ssim": 0.9302070999145508,
@@ -2398,7 +2398,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-painter/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 32.48440573182324,
                 "ssim": 0.9279929900169372,
@@ -2412,7 +2412,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-painter/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-painter/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 33.44541962653243,
                 "ssim": 0.9452491116523742,
@@ -2426,7 +2426,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-painter/3views/swift4d.mp4",
+              "video": "./n3d/videos/techni-painter/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 33.109028241471584,
                 "ssim": 0.9441702079772949,
@@ -2441,10 +2441,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/techni-painter.jpg",
+          "poster": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-painter/4views/ours.mp4",
+            "video": "./n3d/videos/techni-painter/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 35.79593408917178,
               "ssim": 0.9601075404882431,
@@ -2459,7 +2459,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-painter/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-painter/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 34.42627464101567,
                 "ssim": 0.940795578956604,
@@ -2473,7 +2473,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-painter/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 34.686866378527625,
                 "ssim": 0.9486569154262543,
@@ -2487,7 +2487,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-painter/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-painter/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 34.07164561154951,
                 "ssim": 0.9434349286556244,
@@ -2501,7 +2501,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-painter/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-painter/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 35.02882701355477,
                 "ssim": 0.9555419027805329,
@@ -2515,7 +2515,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-painter/4views/swift4d.mp4",
+              "video": "./n3d/videos/techni-painter/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 34.718117906140144,
                 "ssim": 0.9536772036552429,
@@ -2535,15 +2535,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Theater",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-theater.jpg",
+      "thumb": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "poster": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-theater/2views/ours.mp4",
+            "video": "./n3d/videos/techni-theater/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 21.37507292939831,
               "ssim": 0.6643947958946228,
@@ -2558,7 +2558,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-theater/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-theater/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 12.601274639152967,
                 "ssim": 0.31119227468967436,
@@ -2572,7 +2572,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-theater/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.45593497857873,
                 "ssim": 0.48643447399139406,
@@ -2586,7 +2586,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-theater/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 17.880055121947176,
                 "ssim": 0.4732666575908661,
@@ -2600,7 +2600,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-theater/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-theater/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.672126618065867,
                 "ssim": 0.5528737962245941,
@@ -2614,7 +2614,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-theater/2views/swift4d.mp4",
+              "video": "./n3d/videos/techni-theater/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 17.530834095022986,
                 "ssim": 0.4565680837631226,
@@ -2629,10 +2629,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "poster": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-theater/3views/ours.mp4",
+            "video": "./n3d/videos/techni-theater/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 22.931204275578015,
               "ssim": 0.7368141567707062,
@@ -2647,7 +2647,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-theater/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-theater/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 15.778413387463544,
                 "ssim": 0.47606427609920504,
@@ -2661,7 +2661,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-theater/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.521237599570487,
                 "ssim": 0.6219333279132843,
@@ -2675,7 +2675,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-theater/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.53338822450836,
                 "ssim": 0.6224338853359223,
@@ -2689,7 +2689,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-theater/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-theater/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 20.958232990224715,
                 "ssim": 0.6610812389850617,
@@ -2703,7 +2703,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-theater/3views/swift4d.mp4",
+              "video": "./n3d/videos/techni-theater/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.96596185464004,
                 "ssim": 0.594620451927185,
@@ -2718,10 +2718,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/techni-theater.jpg",
+          "poster": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-theater/4views/ours.mp4",
+            "video": "./n3d/videos/techni-theater/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 23.198419107622964,
               "ssim": 0.7310315239429473,
@@ -2736,7 +2736,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-theater/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-theater/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.955195301800725,
                 "ssim": 0.6264304780960083,
@@ -2750,7 +2750,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-theater/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.041179978854842,
                 "ssim": 0.7200753104686737,
@@ -2764,7 +2764,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-theater/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-theater/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.109422251431752,
                 "ssim": 0.7231079041957855,
@@ -2778,7 +2778,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-theater/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-theater/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.8985972175807,
                 "ssim": 0.7382278370857239,
@@ -2792,7 +2792,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-theater/4views/swift4d.mp4",
+              "video": "./n3d/videos/techni-theater/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.9360294342041,
                 "ssim": 0.7404177784919739,
@@ -2812,15 +2812,15 @@ window.N3D_SHOWCASE_DATA = {
       "label": "Train",
       "datasetKey": "techni",
       "datasetLabel": "Techni",
-      "thumb": "./n3d/thumbs/techni-train.jpg",
+      "thumb": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
         "2views": {
           "label": "2 Views",
-          "poster": "./n3d/thumbs/techni-train.jpg",
+          "poster": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-train/2views/ours.mp4",
+            "video": "./n3d/videos/techni-train/2views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 25.401505450895776,
               "ssim": 0.9009180033206939,
@@ -2835,7 +2835,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-train/2views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-train/2views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 15.88172670381713,
                 "ssim": 0.5449063098430633,
@@ -2849,7 +2849,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-train/2views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-train/2views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.45051926989431,
                 "ssim": 0.5810554122924805,
@@ -2863,7 +2863,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-train/2views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-train/2views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 18.55626516721778,
                 "ssim": 0.5750989258289337,
@@ -2877,7 +2877,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-train/2views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-train/2views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.428732804860665,
                 "ssim": 0.7958754920959472,
@@ -2891,7 +2891,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-train/2views/swift4d.mp4",
+              "video": "./n3d/videos/techni-train/2views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 16.876450918335845,
                 "ssim": 0.6714223313331604,
@@ -2906,10 +2906,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "3views": {
           "label": "3 Views",
-          "poster": "./n3d/thumbs/techni-train.jpg",
+          "poster": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-train/3views/ours.mp4",
+            "video": "./n3d/videos/techni-train/3views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 27.770025431193467,
               "ssim": 0.9290738308429718,
@@ -2924,7 +2924,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-train/3views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-train/3views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 19.85649859611915,
                 "ssim": 0.6708907437324524,
@@ -2938,7 +2938,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-train/3views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-train/3views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 23.098095495743916,
                 "ssim": 0.771360799074173,
@@ -2952,7 +2952,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-train/3views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-train/3views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.992592436488067,
                 "ssim": 0.758133819103241,
@@ -2966,7 +2966,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-train/3views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-train/3views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 26.074661985444564,
                 "ssim": 0.9009796416759491,
@@ -2980,7 +2980,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-train/3views/swift4d.mp4",
+              "video": "./n3d/videos/techni-train/3views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 22.936917479153113,
                 "ssim": 0.847180745601654,
@@ -2995,10 +2995,10 @@ window.N3D_SHOWCASE_DATA = {
         },
         "4views": {
           "label": "4 Views",
-          "poster": "./n3d/thumbs/techni-train.jpg",
+          "poster": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
           "ours": {
             "label": "Ours",
-            "video": "./n3d/videos/techni-train/4views/ours.mp4",
+            "video": "./n3d/videos/techni-train/4views/ours.mp4?v=20260401-anon-refresh",
             "metrics": {
               "psnr": 27.868963883165257,
               "ssim": 0.9298814308643341,
@@ -3013,7 +3013,7 @@ window.N3D_SHOWCASE_DATA = {
             "4DGaussians": {
               "key": "4DGaussians",
               "label": "4DGaussians",
-              "video": "./n3d/videos/techni-train/4views/4DGaussians.mp4",
+              "video": "./n3d/videos/techni-train/4views/4DGaussians.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 21.29609251325586,
                 "ssim": 0.6796131885051727,
@@ -3027,7 +3027,7 @@ window.N3D_SHOWCASE_DATA = {
             "cem4dgs": {
               "key": "cem4dgs",
               "label": "CEM-4DGS",
-              "video": "./n3d/videos/techni-train/4views/cem4dgs.mp4",
+              "video": "./n3d/videos/techni-train/4views/cem4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.247460669462438,
                 "ssim": 0.8424260008335114,
@@ -3041,7 +3041,7 @@ window.N3D_SHOWCASE_DATA = {
             "ex4dgs": {
               "key": "ex4dgs",
               "label": "Ex4DGS",
-              "video": "./n3d/videos/techni-train/4views/ex4dgs.mp4",
+              "video": "./n3d/videos/techni-train/4views/ex4dgs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 24.793880775143872,
                 "ssim": 0.8284422433376313,
@@ -3055,7 +3055,7 @@ window.N3D_SHOWCASE_DATA = {
             "spacetimegs": {
               "key": "spacetimegs",
               "label": "STGS",
-              "video": "./n3d/videos/techni-train/4views/spacetimegs.mp4",
+              "video": "./n3d/videos/techni-train/4views/spacetimegs.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 27.852930068969727,
                 "ssim": 0.9291129112243652,
@@ -3069,7 +3069,7 @@ window.N3D_SHOWCASE_DATA = {
             "swift4d": {
               "key": "swift4d",
               "label": "Swift4D",
-              "video": "./n3d/videos/techni-train/4views/swift4d.mp4",
+              "video": "./n3d/videos/techni-train/4views/swift4d.mp4?v=20260401-anon-refresh",
               "metrics": {
                 "psnr": 25.824904390770726,
                 "ssim": 0.8777037799358368,
