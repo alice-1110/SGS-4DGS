@@ -38,17 +38,24 @@
   }
 
   function ensureVideoSource(videoElement, sourceElement, nextVideoPath) {
-    if (!videoElement || !sourceElement || !nextVideoPath) {
+    var currentAssignedSrc;
+
+    if (!videoElement || !nextVideoPath) {
       return false;
     }
 
-    if (sourceElement.getAttribute('src') === nextVideoPath) {
+    currentAssignedSrc = videoElement.getAttribute('data-src') || videoElement.currentSrc || videoElement.src || '';
+    if (currentAssignedSrc === nextVideoPath) {
       return false;
     }
 
     videoElement.preload = 'auto';
-    sourceElement.setAttribute('src', nextVideoPath);
-    sourceElement.setAttribute('data-src', nextVideoPath);
+    videoElement.setAttribute('data-src', nextVideoPath);
+    if (sourceElement) {
+      sourceElement.removeAttribute('src');
+      sourceElement.setAttribute('data-src', nextVideoPath);
+    }
+    videoElement.src = nextVideoPath;
     videoElement.load();
     return true;
   }
@@ -59,7 +66,15 @@
     var internalUpdate = false;
     var suppressPauseHandlers = false;
     var suppressPauseTimer = null;
+    var playbackNudgeTimers = [];
     var pendingMedia = null;
+
+    function clearPlaybackNudges() {
+      playbackNudgeTimers.forEach(function(timerId) {
+        window.clearTimeout(timerId);
+      });
+      playbackNudgeTimers = [];
+    }
 
     function suppressPauseDuringSwitch() {
       suppressPauseHandlers = true;
@@ -205,6 +220,30 @@
       internalUpdate = false;
     }
 
+    function schedulePlaybackNudges(forceSync) {
+      [0, 120, 320, 700, 1400, 2400].forEach(function(delay) {
+        playbackNudgeTimers.push(window.setTimeout(function() {
+          if (!active || !desiredPlaying) {
+            return;
+          }
+
+          if (leftVideo.readyState >= 2 && leftVideo.paused) {
+            safePlay(leftVideo);
+          }
+
+          if (rightVideo.readyState >= 2) {
+            if (forceSync && leftVideo.readyState >= 2) {
+              syncTimes(true);
+            }
+            applyPlaybackRate();
+            if (rightVideo.paused) {
+              safePlay(rightVideo);
+            }
+          }
+        }, delay));
+      });
+    }
+
     function commitPendingMedia(forceRestart) {
       var leftChanged;
       var rightChanged;
@@ -214,6 +253,7 @@
       }
 
       desiredPlaying = true;
+      clearPlaybackNudges();
       suppressPauseDuringSwitch();
       setVideoPreload('auto');
       internalUpdate = true;
@@ -232,6 +272,7 @@
       window.requestAnimationFrame(function() {
         startPlayback(true);
       });
+      schedulePlaybackNudges(true);
       window.setTimeout(function() {
         startPlayback(true);
       }, 180);
@@ -240,14 +281,23 @@
     [leftVideo, rightVideo].forEach(function(video) {
       video.muted = true;
       video.defaultMuted = true;
-      video.autoplay = false;
+      video.autoplay = true;
       video.loop = true;
       video.playsInline = true;
       video.preload = 'metadata';
+      video.addEventListener('loadedmetadata', function() {
+        startPlayback(true);
+      });
       video.addEventListener('loadeddata', function() {
         startPlayback(true);
       });
       video.addEventListener('canplay', function() {
+        startPlayback(true);
+      });
+      video.addEventListener('canplaythrough', function() {
+        startPlayback(true);
+      });
+      video.addEventListener('playing', function() {
         startPlayback(true);
       });
       video.addEventListener('timeupdate', function() {
@@ -271,27 +321,27 @@
     });
 
     leftVideo.addEventListener('pause', function() {
-      if (internalUpdate || suppressPauseHandlers) {
+      if (internalUpdate || suppressPauseHandlers || !active || !desiredPlaying) {
         return;
       }
       if (maybeRestartSharedLoop()) {
         return;
       }
-      desiredPlaying = false;
-      pauseVideos();
+      window.setTimeout(function() {
+        startPlayback(true);
+      }, 40);
     });
 
     rightVideo.addEventListener('pause', function() {
-      if (internalUpdate || suppressPauseHandlers || !active || !desiredPlaying || leftVideo.paused) {
+      if (internalUpdate || suppressPauseHandlers || !active || !desiredPlaying) {
         return;
       }
       if (maybeRestartSharedLoop()) {
         return;
       }
-      if (rightVideo.readyState >= 2) {
-        syncTimes(true);
-        safePlay(rightVideo);
-      }
+      window.setTimeout(function() {
+        startPlayback(true);
+      }, 40);
     });
 
     leftVideo.addEventListener('seeking', function() {
@@ -321,6 +371,7 @@
 
         if (!active) {
           desiredPlaying = false;
+          clearPlaybackNudges();
           setVideoPreload('metadata');
           pauseVideos();
           return;
@@ -333,6 +384,7 @@
       pause: function() {
         active = false;
         desiredPlaying = false;
+        clearPlaybackNudges();
         setVideoPreload('metadata');
         pauseVideos();
       }
@@ -811,14 +863,15 @@
       }
 
       clearActivationTimers();
+      if (shouldPlayMedia()) {
+        queueControllerActivation();
+        return;
+      }
+
       controllers.forEach(function(entry) {
         entry.controller.pause();
         entry.controller.setScene(scene, false);
       });
-
-      if (shouldPlayMedia()) {
-        queueControllerActivation();
-      }
     }
 
     function activateScene(sceneKey, shouldScroll) {
