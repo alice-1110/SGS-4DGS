@@ -60,6 +60,14 @@
     return true;
   }
 
+  function hasAssignedVideoSource(videoElement) {
+    if (!videoElement) {
+      return false;
+    }
+
+    return !!(videoElement.getAttribute('data-src') || videoElement.currentSrc || videoElement.src);
+  }
+
   function createSyncController(leftVideo, rightVideo, leftSource, rightSource) {
     var desiredPlaying = false;
     var active = false;
@@ -207,11 +215,11 @@
       }
 
       internalUpdate = true;
-      if (leftVideo.readyState >= 2) {
+      if (hasAssignedVideoSource(leftVideo)) {
         safePlay(leftVideo);
       }
-      if (rightVideo.readyState >= 2) {
-        if (forceSync && leftVideo.readyState >= 2) {
+      if (hasAssignedVideoSource(rightVideo)) {
+        if (forceSync && leftVideo.readyState >= 1 && rightVideo.readyState >= 1) {
           syncTimes(true);
         }
         applyPlaybackRate();
@@ -227,12 +235,12 @@
             return;
           }
 
-          if (leftVideo.readyState >= 2 && leftVideo.paused) {
+          if (hasAssignedVideoSource(leftVideo) && leftVideo.paused) {
             safePlay(leftVideo);
           }
 
-          if (rightVideo.readyState >= 2) {
-            if (forceSync && leftVideo.readyState >= 2) {
+          if (hasAssignedVideoSource(rightVideo)) {
+            if (forceSync && leftVideo.readyState >= 1 && rightVideo.readyState >= 1) {
               syncTimes(true);
             }
             applyPlaybackRate();
@@ -272,6 +280,8 @@
       window.requestAnimationFrame(function() {
         startPlayback(true);
       });
+      safePlay(leftVideo);
+      safePlay(rightVideo);
       schedulePlaybackNudges(true);
       window.setTimeout(function() {
         startPlayback(true);
@@ -547,7 +557,7 @@
 
       nextIndex = (currentIndex + direction + availableMethods.length) % availableMethods.length;
       activeMethodKey = availableMethods[nextIndex].key;
-      renderContent(mediaEnabled);
+      renderContent(true);
     }
 
     function updateSwitcher(baseline) {
