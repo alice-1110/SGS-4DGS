@@ -187,18 +187,21 @@
     }
 
     function startPlayback(forceSync) {
-      if (!active || !desiredPlaying || leftVideo.readyState < 2 || rightVideo.readyState < 2) {
+      if (!active || !desiredPlaying) {
         return;
       }
 
       internalUpdate = true;
-      if (forceSync) {
-        syncTimes(true);
+      if (leftVideo.readyState >= 2) {
+        safePlay(leftVideo);
       }
-      applyPlaybackRate();
-      safePlay(leftVideo);
-      syncTimes(true);
-      safePlay(rightVideo);
+      if (rightVideo.readyState >= 2) {
+        if (forceSync && leftVideo.readyState >= 2) {
+          syncTimes(true);
+        }
+        applyPlaybackRate();
+        safePlay(rightVideo);
+      }
       internalUpdate = false;
     }
 
@@ -285,8 +288,10 @@
       if (maybeRestartSharedLoop()) {
         return;
       }
-      syncTimes(true);
-      safePlay(rightVideo);
+      if (rightVideo.readyState >= 2) {
+        syncTimes(true);
+        safePlay(rightVideo);
+      }
     });
 
     leftVideo.addEventListener('seeking', function() {
@@ -919,7 +924,7 @@
       } else {
         clearActivationTimers();
         controllers.forEach(function(item) {
-          item.controller.setMediaActive(false);
+          item.controller.pause();
         });
       }
     });
