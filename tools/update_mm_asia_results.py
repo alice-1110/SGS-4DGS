@@ -182,14 +182,6 @@ def update_visual_data() -> None:
     write_window_json(VISUAL_DATA, prefix, data)
 
 
-def metric_formatter(metric: str) -> FuncFormatter:
-    if metric == "ssim":
-        return FuncFormatter(lambda value, _: f"{value:.2f}")
-    if metric in {"lpips", "tof"}:
-        return FuncFormatter(lambda value, _: f"{value:.2f}")
-    return FuncFormatter(lambda value, _: f"{value:g}")
-
-
 def value_label(metric: str, value: float) -> str:
     if metric == "psnr":
         return f"{value:.2f}"
@@ -202,107 +194,6 @@ def value_label(metric: str, value: float) -> str:
     if metric == "fps":
         return f"{value:.1f}"
     return f"{value:.1f}"
-
-
-def generate_charts() -> None:
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    plt.rcParams["svg.fonttype"] = "none"
-    method_keys = [key for key, _, _ in METHODS]
-    x_positions = list(range(len(method_keys)))
-
-    for dataset, dataset_label in DATASET_LABELS.items():
-        for view, view_label in VIEW_LABELS.items():
-            fig, axes = plt.subplots(2, 4, figsize=(15.7, 8.2), dpi=160)
-            fig.patch.set_facecolor("#edf3f8")
-            flat_axes = axes.flatten()
-            for axis, (metric, title, higher_better, log_scale) in zip(flat_axes[:7], METRICS):
-                axis.set_facecolor("#fbfdff")
-                axis.patch.set_edgecolor("#dbe5f0")
-                axis.patch.set_linewidth(1.0)
-                axis.grid(True, axis="y", color="#d8e2ee", linewidth=0.85, linestyle=(0, (3, 3)), alpha=0.9)
-                axis.set_axisbelow(True)
-                values = [RESULTS[dataset][view][method][metric] for method in method_keys]
-                best_value = max(values) if higher_better else min(values)
-                bars = axis.bar(
-                    x_positions,
-                    values,
-                    width=0.66,
-                    color=[METHOD_COLORS[method] for method in method_keys],
-                    edgecolor="none",
-                    alpha=0.96,
-                    zorder=3,
-                )
-                if log_scale:
-                    axis.set_yscale("log")
-                    axis.minorticks_off()
-                    axis.set_ylim(min(values) * 0.72, max(values) * 2.25)
-                else:
-                    axis.set_ylim(0, max(values) * 1.22)
-
-                for bar, method, value in zip(bars, method_keys, values):
-                    is_best = abs(value - best_value) <= 1e-9
-                    if is_best:
-                        edge, text_color, face = "#d4a017", "#6a4800", "#fff6d9"
-                        bar.set_edgecolor(edge)
-                        bar.set_linewidth(2.8)
-                    elif method == "ours":
-                        edge, text_color, face = "#0b1e33", "#173c68", "#eff5fb"
-                        bar.set_edgecolor(edge)
-                        bar.set_linewidth(1.6)
-                    else:
-                        continue
-                    y = value * (1.10 if log_scale else 1.035)
-                    axis.text(
-                        bar.get_x() + bar.get_width() / 2,
-                        y,
-                        value_label(metric, value),
-                        ha="center",
-                        va="bottom",
-                        fontsize=7.9,
-                        fontweight="bold",
-                        color=text_color,
-                        bbox={"boxstyle": "round,pad=0.18", "facecolor": face, "edgecolor": edge, "linewidth": 0.8},
-                        clip_on=False,
-                        zorder=6,
-                    )
-
-                axis.set_title(title, loc="left", fontsize=11.8, fontweight="bold", color="#173c68", pad=8)
-                axis.set_xticks(x_positions, [METHOD_LABELS[key] for key in method_keys], rotation=21, ha="right")
-                axis.tick_params(axis="x", labelsize=8.0, colors="#334155")
-                axis.tick_params(axis="y", labelsize=8.6, colors="#475569")
-                axis.yaxis.set_major_formatter(metric_formatter(metric))
-                for spine in ("top", "right"):
-                    axis.spines[spine].set_visible(False)
-                axis.spines["left"].set_color("#c8d4e3")
-                axis.spines["bottom"].set_color("#c8d4e3")
-
-            legend_ax = flat_axes[7]
-            legend_ax.axis("off")
-            legend_ax.set_facecolor("#fbfdff")
-            legend_ax.text(0.0, 0.95, "Reading the figure", fontsize=12.2, fontweight="bold", color="#173c68", va="top")
-            legend_ax.add_patch(Rectangle((0.0, 0.78), 0.07, 0.07, transform=legend_ax.transAxes, facecolor="#fff6d9", edgecolor="#d4a017", linewidth=2.0))
-            legend_ax.text(0.10, 0.815, "Gold: best displayed value", transform=legend_ax.transAxes, fontsize=9.4, color="#334155", va="center")
-            legend_ax.add_patch(Rectangle((0.0, 0.64), 0.07, 0.07, transform=legend_ax.transAxes, facecolor="#eff5fb", edgecolor="#173c68", linewidth=1.4))
-            legend_ax.text(0.10, 0.675, "Blue tag: SGS-4DGS", transform=legend_ax.transAxes, fontsize=9.4, color="#334155", va="center")
-            legend_ax.text(0.0, 0.49, "Quality values are scene averages.", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-            legend_ax.text(0.0, 0.40, "Opt. excludes one-off preprocessing.", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-            legend_ax.text(0.0, 0.31, "FPS is inference-only at the fixed", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-            legend_ax.text(0.0, 0.24, "output resolution stated in the paper.", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-            legend_ax.text(0.0, 0.12, "Sparse4DGS is retrained with sparse", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-            legend_ax.text(0.0, 0.05, "synchronized cameras.", transform=legend_ax.transAxes, fontsize=9.2, color="#5f6f86")
-
-            fig.suptitle(
-                f"{dataset_label} · {view_label} Sparse-View Results",
-                x=0.045,
-                y=0.98,
-                ha="left",
-                fontsize=18.0,
-                fontweight="bold",
-                color="#173c68",
-            )
-            fig.tight_layout(rect=(0.012, 0.01, 0.988, 0.95))
-            fig.savefig(RESULTS_DIR / f"results-{dataset}-{view}-bars.svg", format="svg", bbox_inches="tight")
-            plt.close(fig)
 
 
 def svg_text(x, y, text, size=16, fill="#334155", weight="normal", anchor="start", transform=None):
