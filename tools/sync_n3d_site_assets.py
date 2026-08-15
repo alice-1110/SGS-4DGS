@@ -17,14 +17,16 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
+from update_mm_asia_results import generate_charts_svg, update_showcase_data, update_visual_data
+
 REPO = Path(__file__).resolve().parents[1]
 SOURCE_DATASETS: List[Tuple[str, Path]] = [
     ('n3d', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/n3d')),
     ('techni', Path('/home/xuepengcheng/60127A1/gado-gs.github.io/techni')),
 ]
 DATASET_ORDER: List[Tuple[str, str]] = [
-    ('n3d', 'N3D'),
-    ('techni', 'Techni'),
+    ('n3d', 'N3DV'),
+    ('techni', 'Technicolor'),
 ]
 DATASET_LABELS = dict(DATASET_ORDER)
 DEST_ASSETS = REPO / 'n3d'
@@ -33,7 +35,7 @@ INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
 VISUAL_DATA_JS = REPO / 'static' / 'js' / 'visual-comparisons-data.js'
 RESULTS_DIR = REPO / 'static' / 'images' / 'results'
-ASSET_VERSION = '20260401-anon-refresh'
+ASSET_VERSION = '20260815-mm-asia-sync'
 
 VIEWS: List[Tuple[str, str]] = [
     ('2views', '2 Views'),
@@ -44,7 +46,7 @@ METHODS: List[Tuple[str, str]] = [
     ('ours', 'SGS-4DGS'),
     ('4DGaussians', '4DGaussians'),
     ('cem4dgs', 'CEM-4DGS'),
-    ('ex4dgs', 'Ex4DGS'),
+    ('ex4dgs', 'Sparse4DGS'),
     ('spacetimegs', 'STGS'),
     ('swift4d', 'Swift4D'),
 ]
@@ -52,7 +54,7 @@ METHOD_SHORT = {
     'ours': 'SGS-4DGS',
     '4DGaussians': '4DGauss',
     'cem4dgs': 'CEM-4DGS',
-    'ex4dgs': 'Ex4DGS',
+    'ex4dgs': 'Sparse4DGS',
     'spacetimegs': 'STGS',
     'swift4d': 'Swift4D',
 }
@@ -690,14 +692,14 @@ def render_results_charts(data: Dict[str, object]) -> str:
             scene_count = scene_counts.get(dataset_key, 0)
             figure_name = f'results-{dataset_key}-{view_key}-bars.svg'
             title = f'{dataset_label} · {view_label}'
-            caption = f'{dataset_label}, {view_label} averages across {scene_count} scenes for PSNR, SSIM, LPIPS, train time, and FPS. Gold outlines mark the best method in each metric panel.'
+            caption = f'{dataset_label}, {view_label}: scene-averaged quality and tOF, fixed-budget optimization time, inference-only FPS, and model size.'
             result_specs.append((figure_name, title, caption))
             items.append(
                 f'''
                   <button class="results-selector__item" type="button" data-results-item
-                    data-full-src="./static/images/results/{figure_name}"
+                    data-full-src="./static/images/results/{figure_name}?v={ASSET_VERSION}"
                     data-caption="{html.escape(caption)}">
-                    <img src="./static/images/results/{figure_name}" alt="{html.escape(title)} results chart thumbnail."
+                    <img src="./static/images/results/{figure_name}?v={ASSET_VERSION}" alt="{html.escape(title)} results chart thumbnail."
                       loading="lazy" decoding="async">
                     <span class="is-sr-only">{html.escape(title)} Results</span>
                   </button>
@@ -715,10 +717,10 @@ def render_results_charts(data: Dict[str, object]) -> str:
           <div class="results-divider" aria-hidden="true"></div>
           <div class="content has-text-justified results-summary">
             <p>
-              We report the latest sparse-view metrics separately on N3D and Techni. Use the horizontal selector below to switch across six bar-chart summaries: 2-view, 3-view, and 4-view settings for each dataset.
+              These charts reproduce the confirmed main-paper averages on N3DV and Technicolor. Use the selector to switch across 2-, 3-, and 4-view settings. Each chart reports PSNR, SSIM, LPIPS, tOF, fixed-budget optimization time, inference-only FPS, and serialized model size.
             </p>
             <p class="results-summary-note">
-              Gold outlines mark the best method in each metric panel, and blue value tags call out SGS-4DGS.
+              Gold outlines mark the best displayed value, while blue value tags call out SGS-4DGS when it is not first.
             </p>
           </div>
 
@@ -742,8 +744,8 @@ def render_results_charts(data: Dict[str, object]) -> str:
             <div class="results-display__viewport">
               <div class="results-display__stage is-current" data-results-display-stage>
                 <img class="results-display__image" data-results-display-image
-                  src="./static/images/results/{first_figure_name}"
-                  alt="{html.escape(first_title)} bar charts comparing PSNR, SSIM, LPIPS, train time, and FPS across methods." loading="lazy" decoding="async">
+                  src="./static/images/results/{first_figure_name}?v={ASSET_VERSION}"
+                  alt="{html.escape(first_title)} charts comparing quality, tOF, optimization time, FPS, and model size." loading="lazy" decoding="async">
                 <p class="results-display__caption" data-results-display-caption>
                   {html.escape(first_caption)}
                 </p>
@@ -803,7 +805,9 @@ def update_index_css() -> None:
 def main() -> None:
     data = build_showcase_data()
     build_visual_comparison_data(data)
-    generate_results_charts(data)
+    update_showcase_data()
+    update_visual_data()
+    generate_charts_svg()
     results_section = render_results_charts(data)
     update_index_html(results_section)
     update_index_css()

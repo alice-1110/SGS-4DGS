@@ -4,7 +4,7 @@
       { key: 'psnr', label: 'PSNR', digits: 2 },
       { key: 'ssim', label: 'SSIM', digits: 3 },
       { key: 'lpips', label: 'LPIPS', digits: 3 },
-      { key: 'fps', label: 'FPS', digits: 0 }
+      { key: 'fps_avg', label: 'Avg. FPS', digits: 1 }
     ];
 
     return order.map(function(item) {
@@ -13,8 +13,8 @@
 
       if (value === null) {
         formatted = '--';
-      } else if (item.key === 'fps') {
-        formatted = Math.round(value).toString();
+      } else if (item.key === 'fps_avg') {
+        formatted = value.toFixed(item.digits);
       } else {
         formatted = value.toFixed(item.digits);
       }
