@@ -35,7 +35,7 @@ INDEX_CSS = REPO / 'static' / 'css' / 'index.css'
 DATA_JS = REPO / 'static' / 'js' / 'n3d-showcase-data.js'
 VISUAL_DATA_JS = REPO / 'static' / 'js' / 'visual-comparisons-data.js'
 RESULTS_DIR = REPO / 'static' / 'images' / 'results'
-ASSET_VERSION = '20260815-mm-asia-sync'
+ASSET_VERSION = '20260818-single-scene'
 
 VIEWS: List[Tuple[str, str]] = [
     ('2views', '2 Views'),
@@ -769,7 +769,7 @@ def update_index_html(results_section: str) -> None:
     )
     text = re.sub(
         r'(<p class="n3d-showcase-summary">)(.*?)(</p>)',
-        r'\1\n              Select a scene to update all three sparse-view video comparisons. Each card keeps the SGS-4DGS and baseline videos synchronized, lets you switch the baseline with the arrow controls, and overlays the latest per-scene metrics from the current sparse-view outputs.\n            \3',
+        r'\1\n              Coffee Martini is shown for the 2-, 3-, and 4-view comparisons. Each card keeps the SGS-4DGS and baseline videos synchronized, lets you switch the baseline with the arrow controls, and overlays the latest per-scene metrics from the current sparse-view outputs.\n            \3',
         text,
         count=1,
         flags=re.S,
