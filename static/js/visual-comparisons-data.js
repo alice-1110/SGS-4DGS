@@ -25,7 +25,7 @@ window.VISUAL_COMPARISONS_DATA = {
     },
     {
       "key": "ex4dgs",
-      "label": "Ex4DGS"
+      "label": "Sparse4DGS"
     },
     {
       "key": "spacetimegs",
@@ -41,7 +41,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "coffee_martini",
       "label": "Coffee Martini",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/coffee_martini.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -64,7 +64,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/coffee_martini/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -98,7 +98,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/coffee_martini/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -132,7 +132,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/coffee_martini/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -153,7 +153,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "cook_spinach",
       "label": "Cook Spinach",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/cook_spinach.png?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -176,7 +176,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cook_spinach/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -210,7 +210,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cook_spinach/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -244,7 +244,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cook_spinach/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -265,7 +265,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "cut_roasted_beef",
       "label": "Cut Roasted Beef",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/cut_roasted_beef.png?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -288,7 +288,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cut_roasted_beef/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -322,7 +322,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cut_roasted_beef/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -356,7 +356,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/cut_roasted_beef/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -377,7 +377,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "flame_salmon_1",
       "label": "Flame Salmon 1",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/flame_salmon_1.png?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -400,7 +400,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_salmon_1/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -434,7 +434,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_salmon_1/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -468,7 +468,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_salmon_1/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -489,7 +489,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "flame_steak",
       "label": "Flame Steak",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/flame_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
@@ -512,7 +512,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_steak/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -546,7 +546,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_steak/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -580,7 +580,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/flame_steak/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -601,7 +601,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "sear_steak",
       "label": "Sear Steak",
       "datasetKey": "n3d",
-      "datasetLabel": "N3D",
+      "datasetLabel": "N3DV",
       "thumb": "./n3d/thumbs/sear_steak.png?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -624,7 +624,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/sear_steak/2views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -658,7 +658,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/sear_steak/3views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -692,7 +692,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/sear_steak/4views/ex4dgs.png?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -713,7 +713,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "techni-birthday",
       "label": "Birthday",
       "datasetKey": "techni",
-      "datasetLabel": "Techni",
+      "datasetLabel": "Technicolor",
       "thumb": "./n3d/thumbs/techni-birthday.jpg?v=20260401-anon-refresh",
       "defaultMethod": "4DGaussians",
       "views": {
@@ -736,7 +736,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-birthday/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -770,7 +770,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-birthday/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -804,7 +804,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-birthday/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -825,7 +825,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "techni-fabien",
       "label": "Fabien",
       "datasetKey": "techni",
-      "datasetLabel": "Techni",
+      "datasetLabel": "Technicolor",
       "thumb": "./n3d/thumbs/techni-fabien.jpg?v=20260401-anon-refresh",
       "defaultMethod": "cem4dgs",
       "views": {
@@ -848,7 +848,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-fabien/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -882,7 +882,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-fabien/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -916,7 +916,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-fabien/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -937,7 +937,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "techni-painter",
       "label": "Painter",
       "datasetKey": "techni",
-      "datasetLabel": "Techni",
+      "datasetLabel": "Technicolor",
       "thumb": "./n3d/thumbs/techni-painter.jpg?v=20260401-anon-refresh",
       "defaultMethod": "ex4dgs",
       "views": {
@@ -960,7 +960,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-painter/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -994,7 +994,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-painter/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1028,7 +1028,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-painter/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1049,7 +1049,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "techni-theater",
       "label": "Theater",
       "datasetKey": "techni",
-      "datasetLabel": "Techni",
+      "datasetLabel": "Technicolor",
       "thumb": "./n3d/thumbs/techni-theater.jpg?v=20260401-anon-refresh",
       "defaultMethod": "spacetimegs",
       "views": {
@@ -1072,7 +1072,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-theater/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1106,7 +1106,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-theater/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1140,7 +1140,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-theater/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1161,7 +1161,7 @@ window.VISUAL_COMPARISONS_DATA = {
       "key": "techni-train",
       "label": "Train",
       "datasetKey": "techni",
-      "datasetLabel": "Techni",
+      "datasetLabel": "Technicolor",
       "thumb": "./n3d/thumbs/techni-train.jpg?v=20260401-anon-refresh",
       "defaultMethod": "swift4d",
       "views": {
@@ -1184,7 +1184,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-train/2views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1218,7 +1218,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-train/3views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {
@@ -1252,7 +1252,7 @@ window.VISUAL_COMPARISONS_DATA = {
             },
             "ex4dgs": {
               "key": "ex4dgs",
-              "label": "Ex4DGS",
+              "label": "Sparse4DGS",
               "image": "./n3d/previews/techni-train/4views/ex4dgs.jpg?v=20260401-anon-refresh"
             },
             "spacetimegs": {

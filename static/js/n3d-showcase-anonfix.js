@@ -4,7 +4,7 @@
       { key: 'psnr', label: 'PSNR', digits: 2 },
       { key: 'ssim', label: 'SSIM', digits: 3 },
       { key: 'lpips', label: 'LPIPS', digits: 3 },
-      { key: 'fps', label: 'FPS', digits: 0 }
+      { key: 'fps_avg', label: 'Avg. FPS', digits: 1 }
     ];
 
     return order.map(function(item) {
@@ -13,8 +13,8 @@
 
       if (value === null) {
         formatted = '--';
-      } else if (item.key === 'fps') {
-        formatted = Math.round(value).toString();
+      } else if (item.key === 'fps_avg') {
+        formatted = value.toFixed(item.digits);
       } else {
         formatted = value.toFixed(item.digits);
       }
@@ -741,6 +741,7 @@
   function initN3DShowcase() {
     var root = document.querySelector('[data-n3d-showcase]');
     var data = window.N3D_SHOWCASE_DATA;
+    var showcaseScenes;
     var selector;
     var grid;
     var carouselRoot;
@@ -762,6 +763,16 @@
 
     if (!root || !data || !data.scenes || !data.scenes.length) {
       return;
+    }
+
+    // Single-scene mode keeps the video showcase responsive. The complete scene
+    // catalog remains in n3d-showcase-data.js and can be restored with:
+    // var showcaseScenes = data.scenes;
+    showcaseScenes = data.scenes.filter(function(scene) {
+      return scene.key === data.defaultScene;
+    });
+    if (!showcaseScenes.length) {
+      showcaseScenes = [data.scenes[0]];
     }
 
     function clearActivationTimers() {
@@ -812,7 +823,7 @@
     nextButton = root.querySelector('[data-n3d-selector-next]');
     carousel = createSceneCarousel(selector, prevButton, nextButton);
 
-    data.scenes.forEach(function(scene) {
+    showcaseScenes.forEach(function(scene) {
       sceneLookup[scene.key] = scene;
       if (!selectedSceneByDataset[scene.datasetKey]) {
         selectedSceneByDataset[scene.datasetKey] = scene.key;
@@ -831,8 +842,12 @@
       activeDataset = sceneLookup[data.defaultScene].datasetKey;
       selectedSceneByDataset[activeDataset] = data.defaultScene;
     } else {
-      currentSceneKey = data.scenes[0].key;
+      currentSceneKey = showcaseScenes[0].key;
       activeDataset = sceneLookup[currentSceneKey] ? sceneLookup[currentSceneKey].datasetKey : (datasetOptions[0] ? datasetOptions[0].key : null);
+    }
+
+    if (carouselRoot && showcaseScenes.length === 1) {
+      carouselRoot.hidden = true;
     }
 
     if (carouselRoot && datasetOptions.length > 1) {
@@ -934,7 +949,7 @@
       }
     }
 
-    data.scenes.forEach(function(scene) {
+    showcaseScenes.forEach(function(scene) {
       var isInitiallyVisible = scene.datasetKey === activeDataset;
       var button = document.createElement('button');
       button.type = 'button';

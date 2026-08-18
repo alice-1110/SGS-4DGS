@@ -1,0 +1,1084 @@
+{
+  "n3d": {
+    "coffee_martini": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 19.13,
+          "ssim": 0.7188,
+          "lpips": 0.2165
+        },
+        "cem4dgs": {
+          "psnr": 17.73,
+          "ssim": 0.6508,
+          "lpips": 0.2779
+        },
+        "ex4dgs": {
+          "psnr": 18.83,
+          "ssim": 0.6542,
+          "lpips": 0.2699
+        },
+        "spacetimegs": {
+          "psnr": 18.33,
+          "ssim": 0.7254,
+          "lpips": 0.2597
+        },
+        "swift4d": {
+          "psnr": 19.17,
+          "ssim": 0.7302,
+          "lpips": 0.2049
+        },
+        "ours": {
+          "psnr": 23.08,
+          "ssim": 0.837,
+          "lpips": 0.1066
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 21.58,
+          "ssim": 0.816,
+          "lpips": 0.1323
+        },
+        "cem4dgs": {
+          "psnr": 21.17,
+          "ssim": 0.7966,
+          "lpips": 0.1582
+        },
+        "ex4dgs": {
+          "psnr": 21.45,
+          "ssim": 0.8016,
+          "lpips": 0.162
+        },
+        "spacetimegs": {
+          "psnr": 21.44,
+          "ssim": 0.8066,
+          "lpips": 0.1467
+        },
+        "swift4d": {
+          "psnr": 21.89,
+          "ssim": 0.821,
+          "lpips": 0.1201
+        },
+        "ours": {
+          "psnr": 23.3,
+          "ssim": 0.8488,
+          "lpips": 0.1054
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 24.88,
+          "ssim": 0.8736,
+          "lpips": 0.0888
+        },
+        "cem4dgs": {
+          "psnr": 24.34,
+          "ssim": 0.8624,
+          "lpips": 0.0995
+        },
+        "ex4dgs": {
+          "psnr": 23.87,
+          "ssim": 0.8596,
+          "lpips": 0.1076
+        },
+        "spacetimegs": {
+          "psnr": 24.73,
+          "ssim": 0.8638,
+          "lpips": 0.0948
+        },
+        "swift4d": {
+          "psnr": 25.21,
+          "ssim": 0.8732,
+          "lpips": 0.0818
+        },
+        "ours": {
+          "psnr": 25.39,
+          "ssim": 0.871,
+          "lpips": 0.0863
+        }
+      }
+    },
+    "cook_spinach": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 23.37,
+          "ssim": 0.8248,
+          "lpips": 0.1611
+        },
+        "cem4dgs": {
+          "psnr": 22.9,
+          "ssim": 0.795,
+          "lpips": 0.1918
+        },
+        "ex4dgs": {
+          "psnr": 22.35,
+          "ssim": 0.7838,
+          "lpips": 0.201
+        },
+        "spacetimegs": {
+          "psnr": 21.64,
+          "ssim": 0.8062,
+          "lpips": 0.2127
+        },
+        "swift4d": {
+          "psnr": 23.26,
+          "ssim": 0.8324,
+          "lpips": 0.1401
+        },
+        "ours": {
+          "psnr": 27.83,
+          "ssim": 0.9004,
+          "lpips": 0.0888
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 29.73,
+          "ssim": 0.9236,
+          "lpips": 0.0551
+        },
+        "cem4dgs": {
+          "psnr": 26.59,
+          "ssim": 0.8878,
+          "lpips": 0.0913
+        },
+        "ex4dgs": {
+          "psnr": 26.38,
+          "ssim": 0.8866,
+          "lpips": 0.0916
+        },
+        "spacetimegs": {
+          "psnr": 27.13,
+          "ssim": 0.8948,
+          "lpips": 0.0949
+        },
+        "swift4d": {
+          "psnr": 29.75,
+          "ssim": 0.9216,
+          "lpips": 0.052
+        },
+        "ours": {
+          "psnr": 30.09,
+          "ssim": 0.9274,
+          "lpips": 0.0545
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 29.58,
+          "ssim": 0.9032,
+          "lpips": 0.0739
+        },
+        "cem4dgs": {
+          "psnr": 27.32,
+          "ssim": 0.8794,
+          "lpips": 0.1027
+        },
+        "ex4dgs": {
+          "psnr": 27.38,
+          "ssim": 0.8716,
+          "lpips": 0.1135
+        },
+        "spacetimegs": {
+          "psnr": 27.2,
+          "ssim": 0.8766,
+          "lpips": 0.1115
+        },
+        "swift4d": {
+          "psnr": 30.04,
+          "ssim": 0.9076,
+          "lpips": 0.0706
+        },
+        "ours": {
+          "psnr": 31.33,
+          "ssim": 0.9324,
+          "lpips": 0.0518
+        }
+      }
+    },
+    "cut_roasted_beef": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 24.92,
+          "ssim": 0.8772,
+          "lpips": 0.1072
+        },
+        "cem4dgs": {
+          "psnr": 25.03,
+          "ssim": 0.854,
+          "lpips": 0.1301
+        },
+        "ex4dgs": {
+          "psnr": 24.19,
+          "ssim": 0.8188,
+          "lpips": 0.1558
+        },
+        "spacetimegs": {
+          "psnr": 23.91,
+          "ssim": 0.8366,
+          "lpips": 0.1729
+        },
+        "swift4d": {
+          "psnr": 26.21,
+          "ssim": 0.8782,
+          "lpips": 0.0895
+        },
+        "ours": {
+          "psnr": 26.76,
+          "ssim": 0.88,
+          "lpips": 0.101
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 29.27,
+          "ssim": 0.9158,
+          "lpips": 0.0732
+        },
+        "cem4dgs": {
+          "psnr": 26.77,
+          "ssim": 0.893,
+          "lpips": 0.0949
+        },
+        "ex4dgs": {
+          "psnr": 27.3,
+          "ssim": 0.89,
+          "lpips": 0.1001
+        },
+        "spacetimegs": {
+          "psnr": 27.5,
+          "ssim": 0.8898,
+          "lpips": 0.0996
+        },
+        "swift4d": {
+          "psnr": 28.98,
+          "ssim": 0.9146,
+          "lpips": 0.0675
+        },
+        "ours": {
+          "psnr": 32.4,
+          "ssim": 0.94,
+          "lpips": 0.0509
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 31.21,
+          "ssim": 0.9286,
+          "lpips": 0.0603
+        },
+        "cem4dgs": {
+          "psnr": 29.4,
+          "ssim": 0.9254,
+          "lpips": 0.0678
+        },
+        "ex4dgs": {
+          "psnr": 27.9,
+          "ssim": 0.9102,
+          "lpips": 0.0867
+        },
+        "spacetimegs": {
+          "psnr": 29.41,
+          "ssim": 0.9128,
+          "lpips": 0.0785
+        },
+        "swift4d": {
+          "psnr": 29.87,
+          "ssim": 0.9358,
+          "lpips": 0.0516
+        },
+        "ours": {
+          "psnr": 32.26,
+          "ssim": 0.9406,
+          "lpips": 0.0494
+        }
+      }
+    },
+    "flame_salmon_1": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 13.85,
+          "ssim": 0.7032,
+          "lpips": 0.2267
+        },
+        "cem4dgs": {
+          "psnr": 18.36,
+          "ssim": 0.6866,
+          "lpips": 0.2868
+        },
+        "ex4dgs": {
+          "psnr": 18.76,
+          "ssim": 0.6876,
+          "lpips": 0.2837
+        },
+        "spacetimegs": {
+          "psnr": 17.45,
+          "ssim": 0.6892,
+          "lpips": 0.2721
+        },
+        "swift4d": {
+          "psnr": 19.91,
+          "ssim": 0.7552,
+          "lpips": 0.186
+        },
+        "ours": {
+          "psnr": 22.77,
+          "ssim": 0.8316,
+          "lpips": 0.1228
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 23.66,
+          "ssim": 0.8312,
+          "lpips": 0.1294
+        },
+        "cem4dgs": {
+          "psnr": 22.04,
+          "ssim": 0.8156,
+          "lpips": 0.1362
+        },
+        "ex4dgs": {
+          "psnr": 22.3,
+          "ssim": 0.8142,
+          "lpips": 0.1416
+        },
+        "spacetimegs": {
+          "psnr": 22.37,
+          "ssim": 0.8258,
+          "lpips": 0.1465
+        },
+        "swift4d": {
+          "psnr": 23.36,
+          "ssim": 0.8332,
+          "lpips": 0.117
+        },
+        "ours": {
+          "psnr": 26.0,
+          "ssim": 0.8776,
+          "lpips": 0.0836
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 24.48,
+          "ssim": 0.8758,
+          "lpips": 0.0877
+        },
+        "cem4dgs": {
+          "psnr": 23.62,
+          "ssim": 0.8494,
+          "lpips": 0.1035
+        },
+        "ex4dgs": {
+          "psnr": 21.16,
+          "ssim": 0.846,
+          "lpips": 0.1201
+        },
+        "spacetimegs": {
+          "psnr": 25.19,
+          "ssim": 0.8718,
+          "lpips": 0.0964
+        },
+        "swift4d": {
+          "psnr": 24.68,
+          "ssim": 0.8794,
+          "lpips": 0.081
+        },
+        "ours": {
+          "psnr": 27.44,
+          "ssim": 0.901,
+          "lpips": 0.0728
+        }
+      }
+    },
+    "flame_steak": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 24.84,
+          "ssim": 0.8656,
+          "lpips": 0.1122
+        },
+        "cem4dgs": {
+          "psnr": 22.8,
+          "ssim": 0.8276,
+          "lpips": 0.1523
+        },
+        "ex4dgs": {
+          "psnr": 21.31,
+          "ssim": 0.7968,
+          "lpips": 0.1986
+        },
+        "spacetimegs": {
+          "psnr": 20.59,
+          "ssim": 0.8174,
+          "lpips": 0.1818
+        },
+        "swift4d": {
+          "psnr": 23.77,
+          "ssim": 0.8576,
+          "lpips": 0.1001
+        },
+        "ours": {
+          "psnr": 27.99,
+          "ssim": 0.9124,
+          "lpips": 0.0728
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 30.35,
+          "ssim": 0.9312,
+          "lpips": 0.046
+        },
+        "cem4dgs": {
+          "psnr": 27.84,
+          "ssim": 0.9066,
+          "lpips": 0.0817
+        },
+        "ex4dgs": {
+          "psnr": 27.5,
+          "ssim": 0.8974,
+          "lpips": 0.0858
+        },
+        "spacetimegs": {
+          "psnr": 27.98,
+          "ssim": 0.9106,
+          "lpips": 0.0798
+        },
+        "swift4d": {
+          "psnr": 29.62,
+          "ssim": 0.9326,
+          "lpips": 0.0414
+        },
+        "ours": {
+          "psnr": 30.5,
+          "ssim": 0.9362,
+          "lpips": 0.0434
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 29.9,
+          "ssim": 0.9142,
+          "lpips": 0.0697
+        },
+        "cem4dgs": {
+          "psnr": 27.75,
+          "ssim": 0.878,
+          "lpips": 0.1083
+        },
+        "ex4dgs": {
+          "psnr": 29.28,
+          "ssim": 0.8828,
+          "lpips": 0.0986
+        },
+        "spacetimegs": {
+          "psnr": 28.15,
+          "ssim": 0.8958,
+          "lpips": 0.1027
+        },
+        "swift4d": {
+          "psnr": 30.27,
+          "ssim": 0.9188,
+          "lpips": 0.06
+        },
+        "ours": {
+          "psnr": 30.76,
+          "ssim": 0.9414,
+          "lpips": 0.043
+        }
+      }
+    },
+    "sear_steak": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 23.97,
+          "ssim": 0.8604,
+          "lpips": 0.1125
+        },
+        "cem4dgs": {
+          "psnr": 22.74,
+          "ssim": 0.809,
+          "lpips": 0.1709
+        },
+        "ex4dgs": {
+          "psnr": 22.88,
+          "ssim": 0.8066,
+          "lpips": 0.1916
+        },
+        "spacetimegs": {
+          "psnr": 24.03,
+          "ssim": 0.8388,
+          "lpips": 0.138
+        },
+        "swift4d": {
+          "psnr": 24.27,
+          "ssim": 0.8632,
+          "lpips": 0.0973
+        },
+        "ours": {
+          "psnr": 28.06,
+          "ssim": 0.9136,
+          "lpips": 0.0688
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 30.61,
+          "ssim": 0.9318,
+          "lpips": 0.0469
+        },
+        "cem4dgs": {
+          "psnr": 28.13,
+          "ssim": 0.9152,
+          "lpips": 0.0645
+        },
+        "ex4dgs": {
+          "psnr": 25.99,
+          "ssim": 0.897,
+          "lpips": 0.0916
+        },
+        "spacetimegs": {
+          "psnr": 28.49,
+          "ssim": 0.9144,
+          "lpips": 0.0673
+        },
+        "swift4d": {
+          "psnr": 30.19,
+          "ssim": 0.9326,
+          "lpips": 0.0409
+        },
+        "ours": {
+          "psnr": 30.75,
+          "ssim": 0.935,
+          "lpips": 0.0459
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 30.42,
+          "ssim": 0.9166,
+          "lpips": 0.0636
+        },
+        "cem4dgs": {
+          "psnr": 27.92,
+          "ssim": 0.8914,
+          "lpips": 0.0822
+        },
+        "ex4dgs": {
+          "psnr": 29.51,
+          "ssim": 0.8978,
+          "lpips": 0.0795
+        },
+        "spacetimegs": {
+          "psnr": 27.92,
+          "ssim": 0.8952,
+          "lpips": 0.0921
+        },
+        "swift4d": {
+          "psnr": 29.31,
+          "ssim": 0.9152,
+          "lpips": 0.063
+        },
+        "ours": {
+          "psnr": 30.48,
+          "ssim": 0.9396,
+          "lpips": 0.0447
+        }
+      }
+    }
+  },
+  "techni": {
+    "techni-birthday": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 22.21,
+          "ssim": 0.8162,
+          "lpips": 0.1048
+        },
+        "cem4dgs": {
+          "psnr": 20.55,
+          "ssim": 0.7828,
+          "lpips": 0.1149
+        },
+        "ex4dgs": {
+          "psnr": 20.78,
+          "ssim": 0.7768,
+          "lpips": 0.1224
+        },
+        "spacetimegs": {
+          "psnr": 21.9,
+          "ssim": 0.8576,
+          "lpips": 0.08
+        },
+        "swift4d": {
+          "psnr": 21.62,
+          "ssim": 0.8226,
+          "lpips": 0.0899
+        },
+        "ours": {
+          "psnr": 24.15,
+          "ssim": 0.9122,
+          "lpips": 0.0496
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 24.64,
+          "ssim": 0.8836,
+          "lpips": 0.0752
+        },
+        "cem4dgs": {
+          "psnr": 23.47,
+          "ssim": 0.8794,
+          "lpips": 0.0622
+        },
+        "ex4dgs": {
+          "psnr": 23.72,
+          "ssim": 0.8786,
+          "lpips": 0.0672
+        },
+        "spacetimegs": {
+          "psnr": 24.24,
+          "ssim": 0.9132,
+          "lpips": 0.0498
+        },
+        "swift4d": {
+          "psnr": 25.12,
+          "ssim": 0.9104,
+          "lpips": 0.0411
+        },
+        "ours": {
+          "psnr": 27.64,
+          "ssim": 0.9434,
+          "lpips": 0.0302
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 27.25,
+          "ssim": 0.9146,
+          "lpips": 0.0588
+        },
+        "cem4dgs": {
+          "psnr": 27.07,
+          "ssim": 0.9282,
+          "lpips": 0.0368
+        },
+        "ex4dgs": {
+          "psnr": 26.83,
+          "ssim": 0.9226,
+          "lpips": 0.0398
+        },
+        "spacetimegs": {
+          "psnr": 27.78,
+          "ssim": 0.944,
+          "lpips": 0.0288
+        },
+        "swift4d": {
+          "psnr": 27.63,
+          "ssim": 0.943,
+          "lpips": 0.0313
+        },
+        "ours": {
+          "psnr": 29.53,
+          "ssim": 0.9578,
+          "lpips": 0.0215
+        }
+      }
+    },
+    "techni-fabien": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 20.3,
+          "ssim": 0.6846,
+          "lpips": 0.2654
+        },
+        "cem4dgs": {
+          "psnr": 17.58,
+          "ssim": 0.6088,
+          "lpips": 0.3284
+        },
+        "ex4dgs": {
+          "psnr": 18.06,
+          "ssim": 0.6112,
+          "lpips": 0.33
+        },
+        "spacetimegs": {
+          "psnr": 22.28,
+          "ssim": 0.7614,
+          "lpips": 0.1819
+        },
+        "swift4d": {
+          "psnr": 19.6,
+          "ssim": 0.6864,
+          "lpips": 0.2553
+        },
+        "ours": {
+          "psnr": 28.42,
+          "ssim": 0.861,
+          "lpips": 0.0977
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 25.29,
+          "ssim": 0.791,
+          "lpips": 0.1707
+        },
+        "cem4dgs": {
+          "psnr": 22.99,
+          "ssim": 0.777,
+          "lpips": 0.1702
+        },
+        "ex4dgs": {
+          "psnr": 23.76,
+          "ssim": 0.767,
+          "lpips": 0.179
+        },
+        "spacetimegs": {
+          "psnr": 27.92,
+          "ssim": 0.8572,
+          "lpips": 0.1006
+        },
+        "swift4d": {
+          "psnr": 25.34,
+          "ssim": 0.7954,
+          "lpips": 0.1507
+        },
+        "ours": {
+          "psnr": 31.1,
+          "ssim": 0.8868,
+          "lpips": 0.0737
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 27.61,
+          "ssim": 0.8368,
+          "lpips": 0.1405
+        },
+        "cem4dgs": {
+          "psnr": 26.11,
+          "ssim": 0.8372,
+          "lpips": 0.1188
+        },
+        "ex4dgs": {
+          "psnr": 27.04,
+          "ssim": 0.8362,
+          "lpips": 0.119
+        },
+        "spacetimegs": {
+          "psnr": 31.57,
+          "ssim": 0.8882,
+          "lpips": 0.0729
+        },
+        "swift4d": {
+          "psnr": 28.67,
+          "ssim": 0.8472,
+          "lpips": 0.112
+        },
+        "ours": {
+          "psnr": 32.12,
+          "ssim": 0.905,
+          "lpips": 0.0709
+        }
+      }
+    },
+    "techni-painter": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 31.42,
+          "ssim": 0.9042,
+          "lpips": 0.051
+        },
+        "cem4dgs": {
+          "psnr": 30.59,
+          "ssim": 0.908,
+          "lpips": 0.0401
+        },
+        "ex4dgs": {
+          "psnr": 30.3,
+          "ssim": 0.8982,
+          "lpips": 0.0475
+        },
+        "spacetimegs": {
+          "psnr": 33.46,
+          "ssim": 0.9418,
+          "lpips": 0.0278
+        },
+        "swift4d": {
+          "psnr": 30.28,
+          "ssim": 0.9156,
+          "lpips": 0.0392
+        },
+        "ours": {
+          "psnr": 33.46,
+          "ssim": 0.9424,
+          "lpips": 0.0224
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 33.72,
+          "ssim": 0.9324,
+          "lpips": 0.036
+        },
+        "cem4dgs": {
+          "psnr": 32.02,
+          "ssim": 0.9302,
+          "lpips": 0.0301
+        },
+        "ex4dgs": {
+          "psnr": 32.48,
+          "ssim": 0.928,
+          "lpips": 0.0338
+        },
+        "spacetimegs": {
+          "psnr": 33.45,
+          "ssim": 0.9452,
+          "lpips": 0.0226
+        },
+        "swift4d": {
+          "psnr": 33.11,
+          "ssim": 0.9442,
+          "lpips": 0.0229
+        },
+        "ours": {
+          "psnr": 34.3,
+          "ssim": 0.954,
+          "lpips": 0.0204
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 34.43,
+          "ssim": 0.9408,
+          "lpips": 0.0332
+        },
+        "cem4dgs": {
+          "psnr": 34.69,
+          "ssim": 0.9486,
+          "lpips": 0.0244
+        },
+        "ex4dgs": {
+          "psnr": 34.07,
+          "ssim": 0.9434,
+          "lpips": 0.0298
+        },
+        "spacetimegs": {
+          "psnr": 35.03,
+          "ssim": 0.9556,
+          "lpips": 0.0198
+        },
+        "swift4d": {
+          "psnr": 34.72,
+          "ssim": 0.9536,
+          "lpips": 0.0194
+        },
+        "ours": {
+          "psnr": 36.31,
+          "ssim": 0.9706,
+          "lpips": 0.0145
+        }
+      }
+    },
+    "techni-theater": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 12.6,
+          "ssim": 0.3112,
+          "lpips": 0.418
+        },
+        "cem4dgs": {
+          "psnr": 18.46,
+          "ssim": 0.4864,
+          "lpips": 0.2606
+        },
+        "ex4dgs": {
+          "psnr": 17.88,
+          "ssim": 0.4732,
+          "lpips": 0.2753
+        },
+        "spacetimegs": {
+          "psnr": 18.67,
+          "ssim": 0.5528,
+          "lpips": 0.2239
+        },
+        "swift4d": {
+          "psnr": 17.53,
+          "ssim": 0.4566,
+          "lpips": 0.2788
+        },
+        "ours": {
+          "psnr": 21.38,
+          "ssim": 0.6644,
+          "lpips": 0.157
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 15.78,
+          "ssim": 0.476,
+          "lpips": 0.2517
+        },
+        "cem4dgs": {
+          "psnr": 20.52,
+          "ssim": 0.622,
+          "lpips": 0.1746
+        },
+        "ex4dgs": {
+          "psnr": 20.53,
+          "ssim": 0.6224,
+          "lpips": 0.1715
+        },
+        "spacetimegs": {
+          "psnr": 20.96,
+          "ssim": 0.661,
+          "lpips": 0.1566
+        },
+        "swift4d": {
+          "psnr": 19.97,
+          "ssim": 0.5946,
+          "lpips": 0.1707
+        },
+        "ours": {
+          "psnr": 22.93,
+          "ssim": 0.7368,
+          "lpips": 0.1123
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 18.96,
+          "ssim": 0.6264,
+          "lpips": 0.1798
+        },
+        "cem4dgs": {
+          "psnr": 23.04,
+          "ssim": 0.72,
+          "lpips": 0.1234
+        },
+        "ex4dgs": {
+          "psnr": 23.11,
+          "ssim": 0.7232,
+          "lpips": 0.1161
+        },
+        "spacetimegs": {
+          "psnr": 22.9,
+          "ssim": 0.7382,
+          "lpips": 0.1116
+        },
+        "swift4d": {
+          "psnr": 22.94,
+          "ssim": 0.7404,
+          "lpips": 0.1201
+        },
+        "ours": {
+          "psnr": 23.71,
+          "ssim": 0.7414,
+          "lpips": 0.1005
+        }
+      }
+    },
+    "techni-train": {
+      "2views": {
+        "4DGaussians": {
+          "psnr": 15.88,
+          "ssim": 0.545,
+          "lpips": 0.2607
+        },
+        "cem4dgs": {
+          "psnr": 19.45,
+          "ssim": 0.581,
+          "lpips": 0.2257
+        },
+        "ex4dgs": {
+          "psnr": 18.56,
+          "ssim": 0.575,
+          "lpips": 0.232
+        },
+        "spacetimegs": {
+          "psnr": 21.43,
+          "ssim": 0.7958,
+          "lpips": 0.0927
+        },
+        "swift4d": {
+          "psnr": 16.88,
+          "ssim": 0.6714,
+          "lpips": 0.1476
+        },
+        "ours": {
+          "psnr": 25.4,
+          "ssim": 0.901,
+          "lpips": 0.0371
+        }
+      },
+      "3views": {
+        "4DGaussians": {
+          "psnr": 19.86,
+          "ssim": 0.6708,
+          "lpips": 0.2374
+        },
+        "cem4dgs": {
+          "psnr": 23.1,
+          "ssim": 0.7714,
+          "lpips": 0.1139
+        },
+        "ex4dgs": {
+          "psnr": 22.99,
+          "ssim": 0.7582,
+          "lpips": 0.124
+        },
+        "spacetimegs": {
+          "psnr": 26.07,
+          "ssim": 0.901,
+          "lpips": 0.037
+        },
+        "swift4d": {
+          "psnr": 22.94,
+          "ssim": 0.8472,
+          "lpips": 0.0611
+        },
+        "ours": {
+          "psnr": 27.77,
+          "ssim": 0.929,
+          "lpips": 0.0261
+        }
+      },
+      "4views": {
+        "4DGaussians": {
+          "psnr": 21.3,
+          "ssim": 0.6796,
+          "lpips": 0.2205
+        },
+        "cem4dgs": {
+          "psnr": 25.25,
+          "ssim": 0.8424,
+          "lpips": 0.0728
+        },
+        "ex4dgs": {
+          "psnr": 24.79,
+          "ssim": 0.8284,
+          "lpips": 0.0876
+        },
+        "spacetimegs": {
+          "psnr": 27.85,
+          "ssim": 0.9292,
+          "lpips": 0.0268
+        },
+        "swift4d": {
+          "psnr": 25.82,
+          "ssim": 0.8778,
+          "lpips": 0.0456
+        },
+        "ours": {
+          "psnr": 28.38,
+          "ssim": 0.9402,
+          "lpips": 0.0226
+        }
+      }
+    }
+  }
+}
