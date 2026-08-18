@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anonymous project page for SGS-4DGS under double-blind review.">
+  <title>SGS-4DGS: Sparse-View Stable 4D Gaussian Splatting</title>
+  <link rel="stylesheet" href="./static/css/style.css">
+  <script defer src="./static/js/main.js"></script>
+</head>
+<body>
+  <main>
+    <section class="hero publication-hero">
+      <div class="container is-max-desktop">
+        <div class="publication-header">
+          <h1 class="publication-title">
+            <span>SGS-4DGS: Sparse-View Stable 4D Gaussian Splatting</span>
+            <span>with Structured Motion Grouping</span>
+          </h1>
+          <p class="publication-authors">Anonymous Submission</p>
+          <p class="publication-venue">Project page for double-blind review</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser comparison-section">
+      <div class="container is-max-widescreen">
+        <div class="section-header centered">
+          <h2>Sparse-View Comparisons</h2>
+          <p>Representative comparisons on the Cook Spinach scene using 2, 3, and 4 input views. Use the arrows to switch baselines, then drag the divider to compare methods.</p>
+        </div>
+        <div class="comparison-grid" id="video-comparisons"></div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container is-max-desktop">
+        <div class="content-block abstract-panel">
+          <h2>Abstract</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <div class="abstract-copy">
+            <p>Reconstructing dynamic scenes from sparse multi-view videos remains challenging, as limited viewpoints severely under-constrain 4D geometry and often lead to unstable motion estimation and geometric collapse. We present SGS-4DGS, a sparsity-oriented 4D Gaussian splatting framework that improves spatiotemporal stability by explicitly modeling coherent motion structure and by leveraging reliable auxiliary cues.</p>
+            <p>Our method maintains a canonical Gaussian set and introduces structure-aware grouping to organize primitives into coherent motion units. Conditioned on time and group descriptors, a group-conditioned deformation model generates time-varying Gaussians with reduced deformation ambiguity, while preserving local flexibility via lightweight residual updates. To further stabilize geometry and retain fine structures under sparse supervision, we incorporate reliability-filtered MVS depth and texture-intensity cues into sparsity-aware objectives.</p>
+            <p>Beyond the representation and supervision design, we propose a Fisher-guided view–time scheduler that prioritizes informative observations during training, together with a residual-driven correction strategy that identifies persistent high-error regions and applies targeted updates to recover missing or unstable structures. Experiments on standard sparse-view dynamic benchmarks demonstrate that SGS-4DGS produces more stable 4D geometry and higher-fidelity novel-view synthesis than recent dynamic Gaussian splatting baselines, while retaining the efficiency of differentiable Gaussian rendering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container is-max-desktop">
+        <div class="content-block method-overview-panel">
+          <h2>Method Overview</h2>
+          <figure class="method-figure">
+            <img src="./figures/pipeline.png" alt="Overview of the SGS-4DGS pipeline" loading="lazy" decoding="async">
+            <figcaption>Overview of SGS-4DGS. From sparse synchronized multi-view input frames, we additionally compute MVS depth maps with reliability masks and texture-intensity maps. We initialize canonical structured Gaussians and learn a group-conditioned deformation field to produce time-varying Gaussians for differentiable rendering. Training is guided by photometric, texture-intensity, and depth-structure losses, together with grouping regularization and progressive binarization. Fisher-guided view scheduling and residual-driven correction target persistent failure regions during optimization.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight results-section">
+      <div class="container is-max-desktop">
+        <div class="content-block results-panel">
+          <h2>Results</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <div class="section-copy">
+            <p>We report sparse-view metrics separately on N3D and Techni. Select a summary below to switch across 2-view, 3-view, and 4-view settings for each dataset.</p>
+            <p class="section-note">Gold outlines mark the best method in each metric panel, and blue value tags call out SGS-4DGS.</p>
+          </div>
+          <div class="results-gallery" id="results-gallery"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight visual-section">
+      <div class="container is-max-widescreen">
+        <div class="section-header centered">
+          <h2>Visual Comparisons</h2>
+          <p>Image comparisons on the Cook Spinach scene using 2, 3, and 4 input views. Use the arrows to select a baseline; SGS-4DGS appears on the left of the movable divider and the selected baseline appears on the right.</p>
+        </div>
+        <div class="visual-grid" id="image-comparisons"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container is-max-desktop">
+        <p>Website template adapted from the open-sourced Nerfies project page template.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
